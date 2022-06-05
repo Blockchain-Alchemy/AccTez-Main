@@ -1,0 +1,23 @@
+{
+  "name": "acctez-main",
+  "version": "1.0.0",
+  "description": "open-source framework for issuing tickets on the Tezos blockchain as tokens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockchain-Alchemy/AccTez-Main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blockchain-Alchemy/AccTez-Main/issues"
+  },
+  "homepage": "https://github.com/Blockchain-Alchemy/AccTez-Main#readme",
+  "devDependencies": {
+    "typescript": "^4.7.3"
+  }
+}
