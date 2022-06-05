@@ -51,9 +51,29 @@ const useTezos = () => {
     }
   }, [tezos, walletAddress]);
 
+  const getDayPass = useCallback(() => {
+    return getTokenTime(DayPassToken.DayPass);
+  }, [getTokenTime]);
+
+  const getWeeklyPass = useCallback(() => {
+    return getTokenTime(DayPassToken.WeeklyPass);
+  }, [getTokenTime]);
+
+  const getYearlyPass = useCallback(() => {
+    return getTokenTime(DayPassToken.YearlyPass);
+  }, [getTokenTime]);
+
+  const getSpecialEventPass = useCallback(() => {
+    return getTokenTime(DayPassToken.SpecialEventPass);
+  }, [getTokenTime]);
+
   return {
     mintToken,
     getTokenTime,
+    getDayPass,
+    getWeeklyPass,
+    getYearlyPass,
+    getSpecialEventPass,
   };
 };
 
