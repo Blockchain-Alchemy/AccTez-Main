@@ -2,8 +2,13 @@
   "name": "acctez-main",
   "version": "1.0.0",
   "description": "open-source framework for issuing tickets on the Tezos blockchain as tokens",
-  "main": "index.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

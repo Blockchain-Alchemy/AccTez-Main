@@ -1,6 +1,4 @@
 import { TezosToolkit } from "@taquito/taquito";
-import { BeaconWallet } from "@taquito/beacon-wallet";
-import { NetworkType } from "@airgap/beacon-sdk";
 
 export interface BeaconContextApi {
   tezos: TezosToolkit | undefined
