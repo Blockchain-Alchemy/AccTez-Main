@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 
-export const HelloWorld = ({ name }: { name: string }): JSX.Element => {
+export interface HelloWorldProps {
+  name: string;
+}
+
+export const HelloWorld: React.FC<HelloWorldProps> = ({ name }: HelloWorldProps): JSX.Element => {
   useEffect(() => {
     console.log('hello world');
   }, []) 

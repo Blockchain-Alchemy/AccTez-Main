@@ -3,13 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { NetworkOptions, TezosProvider } from 'acctez-main';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const options = {
+  appName: 'demo',
+  networkType: 'ithacanet',
+  'rpc': 'https://ithacanet.smartpy.io',
+} as NetworkOptions;
+
 root.render(
   <React.StrictMode>
-    <App />
+    <TezosProvider options={options}>
+      <App />
+    </TezosProvider>
   </React.StrictMode>
 );
 
