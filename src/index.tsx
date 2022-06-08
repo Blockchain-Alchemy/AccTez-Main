@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const SayHello = ({ name }: { name: string }): JSX.Element => (
-  <div>Hey {name}, say hello to TypeScript.</div>
-);
+export const HelloWorld = ({ name }: { name: string }): JSX.Element => {
+  useEffect(() => {
+    console.log('hello world');
+  }, []) 
 
-export default SayHello;
+  return (
+    <div>Hey {name}, say hello to TypeScript.</div>
+  );
+}
 
 export * from "./exports";
