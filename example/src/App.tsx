@@ -1,12 +1,13 @@
 import React from 'react';
-import SayHello from 'acctez-main';
-import logo from './logo.svg';
+import { HelloWorld } from 'acctez-main';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <SayHello name="Prateek" />
+      <header className="App-header">
+        <HelloWorld name="Eric" />
+      </header>
     </div>
   );
 }
