@@ -25,8 +25,13 @@ const useWallet = () => {
       });
   }, [tezos, wallet]);
 
+  const disconnectWallet = async (): Promise<void> => {
+    setWalletConnected(false);
+  };
+
   return {
     connectWallet,
+    disconnectWallet,
     walletAddress,
     walletConnected,
   };
