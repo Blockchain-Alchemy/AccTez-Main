@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { TezosContext } from "../components/Context";
-import type { TezosContextValue } from "../components/Context";
+import { TezosContext } from "../components/TezosContext/Context";
+import type { TezosContextValue } from "../components/TezosContext/Context";
 
 /**
  * A hook to access the value of the `TezosContext`. This is a low-level
  * hook that you should usually not need to call directly.
  *
- * @returns {any} the value of the `ReactReduxContext`
+ * @returns {any} the value of the `TezosContext`
  *
  * @example
  *
@@ -23,7 +23,7 @@ export function useTezosContext(): TezosContextValue | null {
 
   if (process.env.NODE_ENV !== "production" && !contextValue) {
     throw new Error(
-      "could not find react-redux context value; please ensure the component is wrapped in a <Provider>"
+      "could not find react-redux context value; please ensure the component is wrapped in a <TezosProvider>"
     );
   }
 

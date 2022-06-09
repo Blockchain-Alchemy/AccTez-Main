@@ -1,12 +1,9 @@
 import React from 'react';
-import { ReactFromModule } from 'acctez-main'
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { NetworkOptions, TezosProvider } from 'acctez-main';
-
-console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", React === ReactFromModule);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

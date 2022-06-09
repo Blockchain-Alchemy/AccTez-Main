@@ -1,7 +1,7 @@
-import TezosProvider from "./components/Provider";
+import TezosProvider from "./components/TezosContext/Provider";
+import type { TezosProviderProps } from "./components/TezosContext/Provider";
+import type { NetworkOptions } from "./components/TezosContext/types";
 import useWallet from "./hooks/useWallet";
-import type { TezosProviderProps } from "./components/Provider";
-import type { NetworkOptions } from "./components/types";
 
 export type {
   TezosProviderProps,
