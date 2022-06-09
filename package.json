@@ -26,12 +26,14 @@
     "url": "https://github.com/Blockchain-Alchemy/AccTez-Main/issues"
   },
   "homepage": "https://github.com/Blockchain-Alchemy/AccTez-Main#readme",
+  "peerDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
   "dependencies": {
     "@taquito/beacon-wallet": "^11.2.0",
     "@taquito/taquito": "^11.2.0",
-    "moment": "^2.29.3",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "moment": "^2.29.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
