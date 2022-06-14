@@ -18,7 +18,7 @@ export default {
         'react-dom': 'ReactDOM',
         '@taquito/taquito': 'taquito',
         '@taquito/beacon-wallet': 'beaconWallet',
-        '@airgap/beacon-sdk': 'beaconSdk'
+        '@airgap/beacon-sdk': 'beacon'
       },
     },
     {

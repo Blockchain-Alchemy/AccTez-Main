@@ -1,1 +1,2 @@
-export * from "./exports";
+require('dotenv').config()
+export * from './exports'
