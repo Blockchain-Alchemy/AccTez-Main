@@ -16,6 +16,9 @@ export default {
         react: 'React',
         redux: 'Redux',
         'react-dom': 'ReactDOM',
+        '@taquito/taquito': 'taquito',
+        '@taquito/beacon-wallet': 'beaconWallet',
+        '@airgap/beacon-sdk': 'beaconSdk'
       },
     },
     {
@@ -24,7 +27,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: Object.keys(pkg.peerDependencies || {}).concat('react-dom'),
+  external: Object.keys(pkg.peerDependencies || {}),
   watch: {
     include: 'src/**',
   },
