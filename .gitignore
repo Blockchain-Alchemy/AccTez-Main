@@ -28,3 +28,9 @@ yarn-error.log*
 /example/node_modules
 /example/build
 /example/dist
+
+# certificates
+/certs
+
+# output folder
+/output
