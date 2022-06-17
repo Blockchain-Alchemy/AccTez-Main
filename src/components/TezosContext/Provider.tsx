@@ -33,13 +33,11 @@ function TezosProvider({ options, children }: TezosProviderProps) {
       tezos,
       wallet,
       options,
-      walletAddress,
-      setWalletAddress,
     };
   }, [options]);
 
   return (
-    <TezosContext.Provider value={contextValue}>
+    <TezosContext.Provider value={{...contextValue, walletAddress, setWalletAddress}}>
       {children}
     </TezosContext.Provider>
   );
