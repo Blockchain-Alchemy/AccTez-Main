@@ -1,6 +1,6 @@
 {
   "name": "acctez-main",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "open-source framework for issuing tickets on the Tezos blockchain as tokens",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
