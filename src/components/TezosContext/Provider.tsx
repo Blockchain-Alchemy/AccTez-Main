@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { TezosToolkit } from "@taquito/taquito";
 import { BeaconWallet } from "@taquito/beacon-wallet";
 import { BeaconEvent, defaultEventCallbacks } from "@airgap/beacon-sdk";
@@ -11,6 +11,8 @@ export interface TezosProviderProps {
 }
 
 function TezosProvider({ options, children }: TezosProviderProps) {
+  const [walletAddress, setWalletAddress] = useState<string | undefined>(undefined);
+  
   const contextValue = useMemo(() => {
     const tezos = new TezosToolkit(options.rpc);
     const wallet = new BeaconWallet({
@@ -31,6 +33,8 @@ function TezosProvider({ options, children }: TezosProviderProps) {
       tezos,
       wallet,
       options,
+      walletAddress,
+      setWalletAddress,
     };
   }, [options]);
 

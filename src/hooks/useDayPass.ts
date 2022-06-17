@@ -2,13 +2,11 @@ import { useCallback } from 'react'
 import moment from 'moment'
 import { Contracts, DayPassToken } from '../config'
 import { useTezosContext } from './useTezosContext'
-import useWallet from './useWallet'
 
 const contractAddress = Contracts.DayPass
 
 const useDayPass = () => {
-  const { tezos } = useTezosContext()!
-  const { walletAddress } = useWallet()
+  const { tezos, walletAddress } = useTezosContext()!
 
   const mintToken = useCallback(
     (tokenId: DayPassToken) => {
@@ -42,7 +40,7 @@ const useDayPass = () => {
 
   const getTokenTime = useCallback(
     (tokenId: DayPassToken) => {
-      console.log('checkTokenTime', tokenId)
+      console.log(`checkTokenTime, tokenId=${tokenId}, wallet=${walletAddress}`)
       if (tezos && walletAddress) {
         return tezos.wallet
           .at(contractAddress)

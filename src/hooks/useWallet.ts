@@ -1,11 +1,9 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { PermissionScope } from "@airgap/beacon-sdk";
 import { useTezosContext } from "./useTezosContext";
 
 const useWallet = () => {
-  const {tezos, wallet, options} = useTezosContext()!;
-  const [walletAddress, setWalletAddress] = useState('');
-  const [walletConnected, setWalletConnected] = useState(false);
+  const {tezos, wallet, options, walletAddress, setWalletAddress} = useTezosContext()!;
 
   const connectWallet = useCallback(() => {
     wallet.client
@@ -21,19 +19,17 @@ const useWallet = () => {
       })
       .then((walletAddress: string) => {
         setWalletAddress(walletAddress);
-        setWalletConnected(true);
       });
   }, [tezos, wallet]);
 
   const disconnectWallet = async (): Promise<void> => {
-    setWalletConnected(false);
+    setWalletAddress(undefined);
   };
 
   return {
     connectWallet,
     disconnectWallet,
     walletAddress,
-    walletConnected,
   };
 };
 

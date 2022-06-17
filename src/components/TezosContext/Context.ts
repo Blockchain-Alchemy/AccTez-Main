@@ -7,6 +7,8 @@ export interface TezosContextValue {
   tezos: TezosToolkit;
   wallet: BeaconWallet;
   options: NetworkOptions;
+  walletAddress: string | undefined;
+  setWalletAddress: (address: string | undefined) => void;
 }
 
 export const TezosContext = React.createContext<TezosContextValue>({} as any);
