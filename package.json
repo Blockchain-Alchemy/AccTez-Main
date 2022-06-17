@@ -26,13 +26,13 @@
   },
   "homepage": "https://github.com/Blockchain-Alchemy/AccTez-Main#readme",
   "peerDependencies": {
-    "@airgap/beacon-sdk": "^2.3.9",
-    "@taquito/beacon-wallet": "^11.2.0",
-    "@taquito/taquito": "^11.2.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
   "dependencies": {
+    "@airgap/beacon-sdk": "^2.3.9",
+    "@taquito/beacon-wallet": "^11.2.0",
+    "@taquito/taquito": "^11.2.0",
     "dotenv": "^16.0.1",
     "moment": "^2.29.3"
   },
