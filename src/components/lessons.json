@@ -1,0 +1,43 @@
+[
+  {
+      "text": "Set up your wallet",
+      "hint": "You've created new branch fix-notifications from master",
+      "event": {
+          "type": "BLOCK_CREATE"
+      },
+      "block": {
+          "type": "contract"
+      } 
+  },
+  {
+      "text": "Set up your Stripe",
+      "hint": "You've pushed 23 commits to fix-notifications branch",
+      "event": {
+          "type": "BLOCK_CHANGE",
+          "name": "NAME"
+      },
+      "block": {
+          "type": "contract"
+      } 
+  },
+  {
+      "text": "Choose Passes",
+      "hint": "You've submitted a pull request in Fix incorrect notification message (#187)",
+      "event": {
+          "type": "BLOCK_CREATE"
+      },
+      "block": {
+          "type": "construct_defnoreturn"
+      } 
+  },
+  {
+      "text": "Code review",
+      "hint": "Robert Gluesticker left a code review on your pull request",
+      "event": {
+          "type": "BLOCK_CREATE"
+      },
+      "block": {
+          "type": "contract_variables_set"
+      } 
+  }
+]
