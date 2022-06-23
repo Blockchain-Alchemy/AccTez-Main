@@ -17,6 +17,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import Checkbox from "../../Checkbox"; // plasmic-import: NK-xeF1iGEb/component
+import InputNumber from "../../InputNumber"; // plasmic-import: VngmHdU9aX0/component
 import TextInput from "../../TextInput"; // plasmic-import: UzcYFC-NJii/component
 import Button from "../../Button"; // plasmic-import: UCG438gq_ly/component
 import Timeline from "../../Timeline"; // plasmic-import: 0RHyvgnmPT/component
@@ -94,11 +95,13 @@ function PlasmicChoosePasses__RenderFunc(props) {
                     className={classNames(projectcss.all, sty.freeBox___14SYr)}
                   >
                     <Checkbox
+                      data-plasmic-name={"dayPassCheckbox"}
+                      data-plasmic-override={overrides.dayPassCheckbox}
                       className={classNames(
                         "__wab_instance",
-                        sty.checkbox___0SfM
+                        sty.dayPassCheckbox
                       )}
-                      name={"Day Pass Token"}
+                      name={""}
                     >
                       <div
                         className={classNames(
@@ -139,13 +142,13 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         {"Price:"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"dayPassTezos"}
+                        data-plasmic-override={overrides.dayPassTezos}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput__fcJse
+                          sty.dayPassTezos
                         )}
-                        defaultValue={""}
-                        name={"Day Pass Tezos"}
                         placeholder={"0"}
                       />
 
@@ -169,12 +172,13 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         {"or"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"dayPassPrice"}
+                        data-plasmic-override={overrides.dayPassPrice}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput___3AFcp
+                          sty.dayPassPrice
                         )}
-                        name={"Day Pass Price"}
                         placeholder={"0"}
                       />
 
@@ -194,11 +198,13 @@ function PlasmicChoosePasses__RenderFunc(props) {
                     className={classNames(projectcss.all, sty.freeBox__irkOz)}
                   >
                     <Checkbox
+                      data-plasmic-name={"weeklyPassCheckbox"}
+                      data-plasmic-override={overrides.weeklyPassCheckbox}
                       className={classNames(
                         "__wab_instance",
-                        sty.checkbox__rVvJw
+                        sty.weeklyPassCheckbox
                       )}
-                      name={"Weekly Pass Token"}
+                      name={""}
                     >
                       <div
                         className={classNames(
@@ -224,24 +230,25 @@ function PlasmicChoosePasses__RenderFunc(props) {
                     </div>
 
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__oj5Ef)}
+                      className={classNames(projectcss.all, sty.freeBox__p4MLy)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__dafzk
+                          sty.text___8Iau
                         )}
                       >
                         {"Price:"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"weeklyPassTezos"}
+                        data-plasmic-override={overrides.weeklyPassTezos}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput__sZzvV
+                          sty.weeklyPassTezos
                         )}
-                        name={"Weekly Pass Tezos"}
                         placeholder={"0"}
                       />
 
@@ -249,7 +256,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__ew9Uq
+                          sty.text__pvf5A
                         )}
                       >
                         {"Tezos"}
@@ -259,18 +266,19 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__sY0Vf
+                          sty.text__rnmlB
                         )}
                       >
                         {"or"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"weeklyPassPrice"}
+                        data-plasmic-override={overrides.weeklyPassPrice}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput__qeml6
+                          sty.weeklyPassPrice
                         )}
-                        name={"Weekly Pass Price"}
                         placeholder={"0"}
                       />
 
@@ -278,7 +286,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__izbzv
+                          sty.text___0ZSnM
                         )}
                       >
                         {"Dollars"}
@@ -290,11 +298,13 @@ function PlasmicChoosePasses__RenderFunc(props) {
                     className={classNames(projectcss.all, sty.freeBox__p26XT)}
                   >
                     <Checkbox
+                      data-plasmic-name={"yearlyPassCheckbox"}
+                      data-plasmic-override={overrides.yearlyPassCheckbox}
                       className={classNames(
                         "__wab_instance",
-                        sty.checkbox__smBtB
+                        sty.yearlyPassCheckbox
                       )}
-                      name={"Yearly Pass Token"}
+                      name={""}
                     >
                       <div
                         className={classNames(
@@ -320,24 +330,28 @@ function PlasmicChoosePasses__RenderFunc(props) {
                     </div>
 
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__gq7H)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___455MR
+                      )}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__fhDpW
+                          sty.text__udDdb
                         )}
                       >
                         {"Price:"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"yearlyPassTezos"}
+                        data-plasmic-override={overrides.yearlyPassTezos}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput__qctSh
+                          sty.yearlyPassTezos
                         )}
-                        name={"Yearly Pass Tezos"}
                         placeholder={"0"}
                       />
 
@@ -345,7 +359,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__pavEh
+                          sty.text__wnhvk
                         )}
                       >
                         {"Tezos"}
@@ -355,18 +369,19 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__n7Pta
+                          sty.text__pit0J
                         )}
                       >
                         {"or"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"yearlyPassPrice"}
+                        data-plasmic-override={overrides.yearlyPassPrice}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput__nqayn
+                          sty.yearlyPassPrice
                         )}
-                        name={"Yearly Pass Price"}
                         placeholder={"0"}
                       />
 
@@ -374,7 +389,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__yD8S
+                          sty.text___7Uzaz
                         )}
                       >
                         {"Dollars"}
@@ -386,11 +401,13 @@ function PlasmicChoosePasses__RenderFunc(props) {
                     className={classNames(projectcss.all, sty.freeBox__rNxAk)}
                   >
                     <Checkbox
+                      data-plasmic-name={"specialPassCheckbox"}
+                      data-plasmic-override={overrides.specialPassCheckbox}
                       className={classNames(
                         "__wab_instance",
-                        sty.checkbox__hfwL5
+                        sty.specialPassCheckbox
                       )}
-                      name={"Special Pass Token"}
+                      name={""}
                     >
                       <div
                         className={classNames(
@@ -416,27 +433,25 @@ function PlasmicChoosePasses__RenderFunc(props) {
                     </div>
 
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2Mywd
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__cR6W)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___6RYW
+                          sty.text__uh3Qf
                         )}
                       >
                         {"Price:"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"specialPassTezos"}
+                        data-plasmic-override={overrides.specialPassTezos}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput___3Kzb9
+                          sty.specialPassTezos
                         )}
-                        name={"Special Pass Tezos"}
                         placeholder={"0"}
                       />
 
@@ -444,7 +459,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__aYjxs
+                          sty.text__s0Kz4
                         )}
                       >
                         {"Tezos"}
@@ -454,18 +469,19 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__dbBa3
+                          sty.text__myyks
                         )}
                       >
                         {"or"}
                       </div>
 
-                      <TextInput
+                      <InputNumber
+                        data-plasmic-name={"specialPassPrice"}
+                        data-plasmic-override={overrides.specialPassPrice}
                         className={classNames(
                           "__wab_instance",
-                          sty.textInput__fMhVz
+                          sty.specialPassPrice
                         )}
-                        name={"Special Pass Price"}
                         placeholder={"0"}
                       />
 
@@ -473,7 +489,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__ze3Ja
+                          sty.text__rJfx0
                         )}
                       >
                         {"Dollars"}
@@ -835,6 +851,18 @@ const PlasmicDescendants = {
     "root",
     "columns",
     "h1",
+    "dayPassCheckbox",
+    "dayPassTezos",
+    "dayPassPrice",
+    "weeklyPassCheckbox",
+    "weeklyPassTezos",
+    "weeklyPassPrice",
+    "yearlyPassCheckbox",
+    "yearlyPassTezos",
+    "yearlyPassPrice",
+    "specialPassCheckbox",
+    "specialPassTezos",
+    "specialPassPrice",
     "backButton",
     "nextButton",
     "svg",
@@ -845,6 +873,18 @@ const PlasmicDescendants = {
   columns: [
     "columns",
     "h1",
+    "dayPassCheckbox",
+    "dayPassTezos",
+    "dayPassPrice",
+    "weeklyPassCheckbox",
+    "weeklyPassTezos",
+    "weeklyPassPrice",
+    "yearlyPassCheckbox",
+    "yearlyPassTezos",
+    "yearlyPassPrice",
+    "specialPassCheckbox",
+    "specialPassTezos",
+    "specialPassPrice",
     "backButton",
     "nextButton",
     "svg",
@@ -853,6 +893,18 @@ const PlasmicDescendants = {
   ],
 
   h1: ["h1"],
+  dayPassCheckbox: ["dayPassCheckbox"],
+  dayPassTezos: ["dayPassTezos"],
+  dayPassPrice: ["dayPassPrice"],
+  weeklyPassCheckbox: ["weeklyPassCheckbox"],
+  weeklyPassTezos: ["weeklyPassTezos"],
+  weeklyPassPrice: ["weeklyPassPrice"],
+  yearlyPassCheckbox: ["yearlyPassCheckbox"],
+  yearlyPassTezos: ["yearlyPassTezos"],
+  yearlyPassPrice: ["yearlyPassPrice"],
+  specialPassCheckbox: ["specialPassCheckbox"],
+  specialPassTezos: ["specialPassTezos"],
+  specialPassPrice: ["specialPassPrice"],
   backButton: ["backButton"],
   nextButton: ["nextButton"],
   svg: ["svg"],
@@ -891,6 +943,18 @@ export const PlasmicChoosePasses = Object.assign(
     // Helper components rendering sub-elements
     columns: makeNodeComponent("columns"),
     h1: makeNodeComponent("h1"),
+    dayPassCheckbox: makeNodeComponent("dayPassCheckbox"),
+    dayPassTezos: makeNodeComponent("dayPassTezos"),
+    dayPassPrice: makeNodeComponent("dayPassPrice"),
+    weeklyPassCheckbox: makeNodeComponent("weeklyPassCheckbox"),
+    weeklyPassTezos: makeNodeComponent("weeklyPassTezos"),
+    weeklyPassPrice: makeNodeComponent("weeklyPassPrice"),
+    yearlyPassCheckbox: makeNodeComponent("yearlyPassCheckbox"),
+    yearlyPassTezos: makeNodeComponent("yearlyPassTezos"),
+    yearlyPassPrice: makeNodeComponent("yearlyPassPrice"),
+    specialPassCheckbox: makeNodeComponent("specialPassCheckbox"),
+    specialPassTezos: makeNodeComponent("specialPassTezos"),
+    specialPassPrice: makeNodeComponent("specialPassPrice"),
     backButton: makeNodeComponent("backButton"),
     nextButton: makeNodeComponent("nextButton"),
     svg: makeNodeComponent("svg"),

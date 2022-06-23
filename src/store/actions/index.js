@@ -7,6 +7,9 @@ const Actions = {
   SET_COMPILED_CONTRACT: 'SET_COMPILED_CONTRACT',
   SET_WALLET_ADDRESS: 'SET_WALLET_ADDRESS',
   SET_STRIPE_KEY: 'SET_STRIPE_KEY',
+  SET_TOKEN_CHECKED_STATE: 'SET_TOKEN_CHECKED_STATE',
+  SET_TOKEN_TEZOS_PRICE: 'SET_TOKEN_TEZOS_PRICE',
+  SET_TOKEN_PRICE: 'SET_TOKEN_PRICE',
 }
 
 function setWalletAddressAction(address) {
@@ -20,6 +23,30 @@ function setStripeKeyAction(stripeKey) {
   return {
     type: Actions.SET_STRIPE_KEY,
     stripeKey,
+  };
+}
+
+function setTokenCheckedStateAction(token, value) {
+  return {
+    type: Actions.SET_TOKEN_CHECKED_STATE,
+    token,
+    value,
+  };
+}
+
+function setTokenTezosPriceAction(token, value) {
+  return {
+    type: Actions.SET_TOKEN_TEZOS_PRICE,
+    token,
+    value,
+  };
+}
+
+function setTokenPriceAction(token, value) {
+  return {
+    type: Actions.SET_TOKEN_PRICE,
+    token,
+    value,
   };
 }
 
@@ -41,6 +68,9 @@ export {
   Actions,
   setWalletAddressAction,
   setStripeKeyAction,
+  setTokenCheckedStateAction,
+  setTokenTezosPriceAction,
+  setTokenPriceAction,
   updateLessonStateAction,
   setSessionIdAction,
 }

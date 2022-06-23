@@ -140,7 +140,7 @@
   min-width: 0;
   padding: 8px;
 }
-.checkbox___0SfM:global(.__wab_instance) {
+.dayPassCheckbox:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   width: 100%;
@@ -183,21 +183,19 @@
   padding-right: 11px;
   padding-left: 20px;
 }
-.textInput__fcJse:global(.__wab_instance) {
+.dayPassTezos:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  height: auto;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg___02MJu {
+.svg__cuEan {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__iEtdd {
+.svg__c50Vy {
   position: relative;
   object-fit: cover;
   width: 1em;
@@ -227,20 +225,19 @@
   padding-right: 11px;
   font-weight: 700;
 }
-.textInput___3AFcp:global(.__wab_instance) {
+.dayPassPrice:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg__o2Szz {
+.svg__ngkfE {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__keTz {
+.svg__vAn1V {
   position: relative;
   object-fit: cover;
   width: 1em;
@@ -270,7 +267,7 @@
   min-width: 0;
   padding: 8px;
 }
-.checkbox__rVvJw:global(.__wab_instance) {
+.weeklyPassCheckbox:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   width: 100%;
@@ -289,7 +286,7 @@
   margin-top: 12px;
   min-width: 0;
 }
-.freeBox__oj5Ef {
+.freeBox__p4MLy {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -301,7 +298,7 @@
   min-width: 0;
   padding: 8px;
 }
-.text__dafzk {
+.text___8Iau {
   position: relative;
   width: auto;
   height: auto;
@@ -313,27 +310,25 @@
   padding-right: 11px;
   padding-left: 20px;
 }
-.textInput__sZzvV:global(.__wab_instance) {
+.weeklyPassTezos:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  height: auto;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg__obImK {
+.svg__aZnS {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg___8XvBc {
+.svg__eTnJo {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.text__ew9Uq {
+.text__pvf5A {
   position: relative;
   width: auto;
   height: auto;
@@ -345,7 +340,7 @@
   padding-right: 9px;
   padding-left: 0px;
 }
-.text__sY0Vf {
+.text__rnmlB {
   position: relative;
   width: auto;
   height: auto;
@@ -357,26 +352,25 @@
   padding-right: 11px;
   font-weight: 700;
 }
-.textInput__qeml6:global(.__wab_instance) {
+.weeklyPassPrice:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg__ojgIa {
+.svg__rrIrv {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__areOb {
+.svg___2Q9 {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.text__izbzv {
+.text___0ZSnM {
   position: relative;
   width: auto;
   height: auto;
@@ -400,7 +394,7 @@
   min-width: 0;
   padding: 8px;
 }
-.checkbox__smBtB:global(.__wab_instance) {
+.yearlyPassCheckbox:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   width: 100%;
@@ -419,7 +413,7 @@
   margin-top: 12px;
   min-width: 0;
 }
-.freeBox__gq7H {
+.freeBox___455MR {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -431,7 +425,7 @@
   min-width: 0;
   padding: 8px;
 }
-.text__fhDpW {
+.text__udDdb {
   position: relative;
   width: auto;
   height: auto;
@@ -443,27 +437,25 @@
   padding-right: 11px;
   padding-left: 20px;
 }
-.textInput__qctSh:global(.__wab_instance) {
+.yearlyPassTezos:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  height: auto;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg__xkJkN {
+.svg__w9E5B {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__vknnn {
+.svg__xpPov {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.text__pavEh {
+.text__wnhvk {
   position: relative;
   width: auto;
   height: auto;
@@ -475,7 +467,7 @@
   padding-right: 9px;
   padding-left: 0px;
 }
-.text__n7Pta {
+.text__pit0J {
   position: relative;
   width: auto;
   height: auto;
@@ -487,26 +479,25 @@
   padding-right: 11px;
   font-weight: 700;
 }
-.textInput__nqayn:global(.__wab_instance) {
+.yearlyPassPrice:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg__sQLr {
+.svg__jh1Ha {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__fWpEs {
+.svg__d8Sw6 {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.text__yD8S {
+.text___7Uzaz {
   position: relative;
   width: auto;
   height: auto;
@@ -530,7 +521,7 @@
   min-width: 0;
   padding: 8px;
 }
-.checkbox__hfwL5:global(.__wab_instance) {
+.specialPassCheckbox:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   width: 100%;
@@ -549,7 +540,7 @@
   margin-top: 12px;
   min-width: 0;
 }
-.freeBox___2Mywd {
+.freeBox__cR6W {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -561,7 +552,7 @@
   min-width: 0;
   padding: 8px;
 }
-.text___6RYW {
+.text__uh3Qf {
   position: relative;
   width: auto;
   height: auto;
@@ -573,27 +564,25 @@
   padding-right: 11px;
   padding-left: 20px;
 }
-.textInput___3Kzb9:global(.__wab_instance) {
+.specialPassTezos:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  height: auto;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg__uGrMg {
+.svg__at0T7 {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__qlB7 {
+.svg__ra7Dn {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.text__aYjxs {
+.text__s0Kz4 {
   position: relative;
   width: auto;
   height: auto;
@@ -605,7 +594,7 @@
   padding-right: 9px;
   padding-left: 0px;
 }
-.text__dbBa3 {
+.text__myyks {
   position: relative;
   width: auto;
   height: auto;
@@ -617,26 +606,25 @@
   padding-right: 11px;
   font-weight: 700;
 }
-.textInput__fMhVz:global(.__wab_instance) {
+.specialPassPrice:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 73px;
-  align-self: center;
+  width: 72px;
   flex-shrink: 0;
 }
-.svg__zyp0G {
+.svg___6S2Iz {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__tw4VZ {
+.svg__uvpBz {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.text__ze3Ja {
+.text__rJfx0 {
   position: relative;
   width: auto;
   height: auto;

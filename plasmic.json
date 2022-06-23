@@ -199,6 +199,20 @@
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicTimeline.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "VngmHdU9aX0",
+          "name": "InputNumber",
+          "type": "managed",
+          "projectId": "68wGqrWvUbUk9uG76N3xHk",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicInputNumber.jsx",
+          "importSpec": {
+            "modulePath": "InputNumber.jsx"
+          },
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicInputNumber.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "text-input"
         }
       ],
       "icons": [

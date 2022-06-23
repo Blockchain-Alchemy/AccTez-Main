@@ -14,7 +14,7 @@ function SetUpStripe_(props, ref) {
     dispatch(setStripeKeyAction(stripeKey));
   };
 
-  const onClickNextButton = () => {
+  const onNextButtonClicked = () => {
     if (wizardState.stripeKey.length <= 0) {
       alertMessage("Please input your wallet address");
       return;
@@ -34,7 +34,7 @@ function SetUpStripe_(props, ref) {
       }}
       skipButton={{ onClick: () => history.push("/choosePasses") }}
       backButton={{ onClick: () => history.push("/wallet") }}
-      nextButton={{ onClick: () => onClickNextButton() }}
+      nextButton={{ onClick: () => onNextButtonClicked() }}
     />
   );
 }

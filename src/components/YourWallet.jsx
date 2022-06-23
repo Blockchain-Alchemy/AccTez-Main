@@ -17,7 +17,7 @@ function YourWallet_(props, ref) {
     dispatch(setWalletAddressAction(address));
   };
 
-  const onClickNextButton = () => {
+  const onNextButtonClicked = () => {
     if (wizardState.walletAddress.length <= 0) {
       alertMessage("Please input your wallet address");
       return;
@@ -36,7 +36,7 @@ function YourWallet_(props, ref) {
         onChange: (e) => setWalletAddress(e.target.value),
       }}
       backButton={{ onClick: () => history.push("/") }}
-      nextButton={{ onClick: () => onClickNextButton() }}
+      nextButton={{ onClick: () => onNextButtonClicked() }}
     />
   );
 }
