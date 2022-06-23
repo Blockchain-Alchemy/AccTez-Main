@@ -16,5 +16,5 @@ export enum PixlTokens {
 export const Contracts = {
   Pixltez: 'KT1MRn2mPk9XLZibGpMdWv5yU7VhLAS58CpJ',
   PixlGame: 'KT1MQTLHYBBR8xNBQUs6wbXSfTfm9YhobWPT',
-  DayPass: 'KT19jQhzpQNpsUrKYaRZQYapku8p8ML1FueD',
+  DayPass: 'KT1TnyP9MXL5oTw2osduZ2wRHKvx1BMqWTj3', //'KT19jQhzpQNpsUrKYaRZQYapku8p8ML1FueD',
 }
