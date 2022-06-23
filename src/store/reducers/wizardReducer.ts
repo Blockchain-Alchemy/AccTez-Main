@@ -7,21 +7,25 @@ const initialState = {
   stripePublicKey: "",
   stripePrivateKey: "",
   dayPass: {
+    name: "dayPass",
     checked: false,
     tezos: 0,
     price: 0,
   },
   weeklyPass: {
+    name: "weeklyPass",
     checked: false,
     tezos: 0,
     price: 0,
   },
   yearlyPass: {
+    name: "yearlyPass",
     checked: false,
     tezos: 0,
     price: 0,
   },
   specialPass: {
+    name: "specialPass",
     checked: false,
     tezos: 0,
     price: 0,

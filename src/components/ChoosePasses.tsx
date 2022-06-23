@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { alertMessage } from "./Notification";
+import { alertMessage, hideNotification, startNotification, updateErrorNotification } from "./Notification";
 import {
   setTokenCheckedStateAction,
   setTokenTezosPriceAction,
@@ -13,6 +13,7 @@ import {
   DefaultChoosePassesProps
 } from "./plasmic/acc_tez_wizard/PlasmicChoosePasses";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
+import { setupWizard } from "../service/http";
 
 export interface ChoosePassesProps extends DefaultChoosePassesProps {}
 
@@ -41,8 +42,35 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
       return;
     }
 
-    dispatch(updateLessonStateAction(1));
-    history.push("/main");
+    const payload = {
+      walletAddress: wizardState.walletAddress,
+      stripe: {
+        publicKey: wizardState.stripePublicKey,
+        privateKey: wizardState.stripePrivateKey,
+      },
+      tokens: [
+        wizardState.dayPass,
+        wizardState.weeklyPass,
+        wizardState.yearlyPass,
+        wizardState.specialPass,
+      ]
+    }
+    console.log('payload', payload);
+
+    startNotification('setup-wizard', 'Setup', 'Setup your settings...');
+    
+    setupWizard(payload)
+      .then(result => {
+        dispatch(updateLessonStateAction(2));
+        history.push("/main");
+      })
+      .catch(e => {
+        console.error(e);
+        updateErrorNotification('setup-wizard', 'Failed to setup wizard!');
+      })
+      .finally(() => {
+        hideNotification('setup-wizard');
+      })
   };
 
   const validate = () => {
