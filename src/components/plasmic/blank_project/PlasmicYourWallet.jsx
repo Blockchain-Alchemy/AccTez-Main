@@ -119,9 +119,9 @@ function PlasmicYourWallet__RenderFunc(props) {
                   </div>
 
                   <TextInput
-                    data-plasmic-name={"textInput"}
-                    data-plasmic-override={overrides.textInput}
-                    className={classNames("__wab_instance", sty.textInput)}
+                    data-plasmic-name={"walletAddress"}
+                    data-plasmic-override={overrides.walletAddress}
+                    className={classNames("__wab_instance", sty.walletAddress)}
                   />
                 </div>
 
@@ -216,8 +216,7 @@ const PlasmicDescendants = {
     "columns",
     "h1",
     "link",
-    "textInput",
-    "textbox",
+    "walletAddress",
     "backButton",
     "nextButton",
     "svg",
@@ -229,8 +228,7 @@ const PlasmicDescendants = {
     "columns",
     "h1",
     "link",
-    "textInput",
-    "textbox",
+    "walletAddress",
     "backButton",
     "nextButton",
     "svg",
@@ -240,7 +238,7 @@ const PlasmicDescendants = {
 
   h1: ["h1"],
   link: ["link"],
-  textInput: ["textInput", "textbox"],
+  walletAddress: ["walletAddress"],
   backButton: ["backButton"],
   nextButton: ["nextButton"],
   svg: ["svg"],
@@ -280,7 +278,7 @@ export const PlasmicYourWallet = Object.assign(
     columns: makeNodeComponent("columns"),
     h1: makeNodeComponent("h1"),
     link: makeNodeComponent("link"),
-    textInput: makeNodeComponent("textInput"),
+    walletAddress: makeNodeComponent("walletAddress"),
     backButton: makeNodeComponent("backButton"),
     nextButton: makeNodeComponent("nextButton"),
     svg: makeNodeComponent("svg"),

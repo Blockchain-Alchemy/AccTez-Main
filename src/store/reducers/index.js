@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import LessonState from "./lessonReducer";
+import WizardState from "./wizardReducer";
 
 const rootReducer = combineReducers({
-  LessonState,
+  WizardState,
 });
 
 export default rootReducer;

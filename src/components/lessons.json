@@ -1,7 +1,7 @@
 [
   {
-      "text": "Welcome to the AccTez Wizard",
-      "hint": "Learn about the step-by-step setup process",
+      "text": "Set up your wallet",
+      "hint": "You've created new branch fix-notifications from master",
       "event": {
           "type": "BLOCK_CREATE"
       },
@@ -10,28 +10,8 @@
       } 
   },
   {
-      "text": "Enter Your Tezos Wallet",
-      "hint": "Sync or enter your Tezos Wallet to get started",
-      "event": {
-          "type": "BLOCK_CREATE"
-      },
-      "block": {
-          "type": "contract"
-      } 
-  },
-  {
-      "text": "Choose Passes",
-      "hint": "Choose the Passes and Prices that we'll use",
-      "event": {
-          "type": "BLOCK_CREATE"
-      },
-      "block": {
-          "type": "construct_defnoreturn"
-      } 
-  },
-  {
-      "text": "Set up Stripe",
-      "hint": "Set Up Stripe API to allows user to pay with credit card",
+      "text": "Set up your Stripe",
+      "hint": "You've pushed 23 commits to fix-notifications branch",
       "event": {
           "type": "BLOCK_CHANGE",
           "name": "NAME"
@@ -41,8 +21,18 @@
       } 
   },
   {
-      "text": "Design Pass",
-      "hint": "Create the Apple Wallet Pass",
+      "text": "Choose Passes",
+      "hint": "You've submitted a pull request in Fix incorrect notification message (#187)",
+      "event": {
+          "type": "BLOCK_CREATE"
+      },
+      "block": {
+          "type": "construct_defnoreturn"
+      } 
+  },
+  {
+      "text": "Originate Contract",
+      "hint": "Originate your own contract",
       "event": {
           "type": "BLOCK_CREATE"
       },

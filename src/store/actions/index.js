@@ -5,6 +5,22 @@ const Actions = {
   SET_SESSION_ID: 'SET_SESSION_ID',
   SET_CONTRACT_NAME: 'SET_CONTRACT_NAME',
   SET_COMPILED_CONTRACT: 'SET_COMPILED_CONTRACT',
+  SET_WALLET_ADDRESS: 'SET_WALLET_ADDRESS',
+  SET_STRIPE_KEY: 'SET_STRIPE_KEY',
+}
+
+function setWalletAddressAction(address) {
+  return {
+    type: Actions.SET_WALLET_ADDRESS,
+    address,
+  };
+}
+
+function setStripeKeyAction(stripeKey) {
+  return {
+    type: Actions.SET_STRIPE_KEY,
+    stripeKey,
+  };
 }
 
 function updateLessonStateAction(timeline) {
@@ -23,6 +39,8 @@ function setSessionIdAction(sessionId) {
 
 export {
   Actions,
+  setWalletAddressAction,
+  setStripeKeyAction,
   updateLessonStateAction,
   setSessionIdAction,
 }

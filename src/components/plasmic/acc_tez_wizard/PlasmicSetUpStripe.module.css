@@ -124,7 +124,7 @@
   padding-top: 0px;
   min-width: 0;
 }
-.textInput:global(.__wab_instance) {
+.stripeKeyText:global(.__wab_instance) {
   max-width: 800px;
   position: relative;
   margin-top: 32px;

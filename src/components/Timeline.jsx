@@ -5,7 +5,7 @@ import { PlasmicTimeline } from "./plasmic/acc_tez_wizard/PlasmicTimeline";
 import Recipes from './lessons.json';
 
 function Timeline_(props, ref) {
-  const lessonState = useSelector((state) => state.LessonState);
+  const lessonState = useSelector((state) => state.WizardState);
   const viewport = useRef();
 
   const scrollTo = (top) => {

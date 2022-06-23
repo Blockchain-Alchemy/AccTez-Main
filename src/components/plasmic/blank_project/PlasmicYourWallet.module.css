@@ -100,6 +100,7 @@
   margin-bottom: 32px;
   user-select: none;
   letter-spacing: 2px;
+  font-size: 66px;
   min-width: 0;
 }
 .text___5T3Ie {
@@ -119,7 +120,7 @@
   max-width: 800px;
   min-width: 0;
 }
-.textInput:global(.__wab_instance) {
+.walletAddress:global(.__wab_instance) {
   max-width: 800px;
   position: relative;
   margin-top: 32px;

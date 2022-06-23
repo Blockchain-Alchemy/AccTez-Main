@@ -123,9 +123,9 @@ function PlasmicSetUpStripe__RenderFunc(props) {
                   </div>
 
                   <TextInput
-                    data-plasmic-name={"textInput"}
-                    data-plasmic-override={overrides.textInput}
-                    className={classNames("__wab_instance", sty.textInput)}
+                    data-plasmic-name={"stripeKeyText"}
+                    data-plasmic-override={overrides.stripeKeyText}
+                    className={classNames("__wab_instance", sty.stripeKeyText)}
                   />
                 </div>
 
@@ -227,8 +227,7 @@ const PlasmicDescendants = {
     "columns",
     "h1",
     "link",
-    "textInput",
-    "textbox",
+    "stripeKeyText",
     "skipButton",
     "backButton",
     "nextButton",
@@ -241,8 +240,7 @@ const PlasmicDescendants = {
     "columns",
     "h1",
     "link",
-    "textInput",
-    "textbox",
+    "stripeKeyText",
     "skipButton",
     "backButton",
     "nextButton",
@@ -253,7 +251,7 @@ const PlasmicDescendants = {
 
   h1: ["h1"],
   link: ["link"],
-  textInput: ["textInput", "textbox"],
+  stripeKeyText: ["stripeKeyText"],
   skipButton: ["skipButton"],
   backButton: ["backButton"],
   nextButton: ["nextButton"],
@@ -294,7 +292,7 @@ export const PlasmicSetUpStripe = Object.assign(
     columns: makeNodeComponent("columns"),
     h1: makeNodeComponent("h1"),
     link: makeNodeComponent("link"),
-    textInput: makeNodeComponent("textInput"),
+    stripeKeyText: makeNodeComponent("stripeKeyText"),
     skipButton: makeNodeComponent("skipButton"),
     backButton: makeNodeComponent("backButton"),
     nextButton: makeNodeComponent("nextButton"),

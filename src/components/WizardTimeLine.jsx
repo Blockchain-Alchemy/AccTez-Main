@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import Recipes from './lessons.json';
 
 const WizardTimeLine = () => {
-  const lessonState = useSelector((state) => state.LessonState);
+  const lessonState = useSelector((state) => state.WizardState);
   const viewport = useRef();
 
   const scrollTo = (top) => {

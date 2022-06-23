@@ -98,6 +98,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         "__wab_instance",
                         sty.checkbox___0SfM
                       )}
+                      name={"Day Pass Token"}
                     >
                       <div
                         className={classNames(
@@ -143,6 +144,9 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput__fcJse
                         )}
+                        defaultValue={""}
+                        name={"Day Pass Tezos"}
+                        placeholder={"0"}
                       />
 
                       <div
@@ -170,6 +174,8 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput___3AFcp
                         )}
+                        name={"Day Pass Price"}
+                        placeholder={"0"}
                       />
 
                       <div
@@ -192,6 +198,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         "__wab_instance",
                         sty.checkbox__rVvJw
                       )}
+                      name={"Weekly Pass Token"}
                     >
                       <div
                         className={classNames(
@@ -234,6 +241,8 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput__sZzvV
                         )}
+                        name={"Weekly Pass Tezos"}
+                        placeholder={"0"}
                       />
 
                       <div
@@ -261,6 +270,8 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput__qeml6
                         )}
+                        name={"Weekly Pass Price"}
+                        placeholder={"0"}
                       />
 
                       <div
@@ -283,6 +294,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         "__wab_instance",
                         sty.checkbox__smBtB
                       )}
+                      name={"Yearly Pass Token"}
                     >
                       <div
                         className={classNames(
@@ -325,6 +337,8 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput__qctSh
                         )}
+                        name={"Yearly Pass Tezos"}
+                        placeholder={"0"}
                       />
 
                       <div
@@ -352,6 +366,8 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput__nqayn
                         )}
+                        name={"Yearly Pass Price"}
+                        placeholder={"0"}
                       />
 
                       <div
@@ -374,6 +390,7 @@ function PlasmicChoosePasses__RenderFunc(props) {
                         "__wab_instance",
                         sty.checkbox__hfwL5
                       )}
+                      name={"Special Pass Token"}
                     >
                       <div
                         className={classNames(
@@ -419,6 +436,8 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput___3Kzb9
                         )}
+                        name={"Special Pass Tezos"}
+                        placeholder={"0"}
                       />
 
                       <div
@@ -446,6 +465,8 @@ function PlasmicChoosePasses__RenderFunc(props) {
                           "__wab_instance",
                           sty.textInput__fMhVz
                         )}
+                        name={"Special Pass Price"}
+                        placeholder={"0"}
                       />
 
                       <div
