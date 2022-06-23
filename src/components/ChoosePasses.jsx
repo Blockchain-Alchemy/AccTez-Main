@@ -40,7 +40,10 @@ function ChoosePasses_(props, ref) {
   };
 
   const validate = () => {
-    const checked = dayPass.checked | weeklyPass.checked | yearlyPass.checked | specialPass.checked;
+    let checked = false;
+    for (let name of tokenNames) {
+      checked |= wizardState[name].checked;
+    }
     if (!checked) {
       alertMessage("Please select pass tokens");
       return false;
@@ -49,8 +52,8 @@ function ChoosePasses_(props, ref) {
     for (let name of tokenNames) {
       const token = wizardState[name];
       if (token.checked) {
-        if (token.tezos <= 0 && token.price <= 0) {
-          alertMessage(`Please input ${name} price`);
+        if (token.tezos <= 0 || token.price <= 0) {
+          alertMessage(`Please input token price, ${name}`);
           return false;
         }
       }
