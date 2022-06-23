@@ -126,6 +126,7 @@ function PlasmicSetUpStripe__RenderFunc(props) {
                     data-plasmic-name={"stripeKeyText"}
                     data-plasmic-override={overrides.stripeKeyText}
                     className={classNames("__wab_instance", sty.stripeKeyText)}
+                    placeholder={"Your Stripe Public Key"}
                   />
                 </div>
 

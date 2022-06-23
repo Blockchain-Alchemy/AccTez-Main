@@ -122,6 +122,7 @@ function PlasmicYourWallet__RenderFunc(props) {
                     data-plasmic-name={"walletAddress"}
                     data-plasmic-override={overrides.walletAddress}
                     className={classNames("__wab_instance", sty.walletAddress)}
+                    placeholder={"Your Wallet Address"}
                   />
                 </div>
 
