@@ -7,7 +7,11 @@ import {
 } from "./plasmic/acc_tez_wizard/PlasmicSetUpStripe";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import { alertMessage } from "./Notification";
-import { setStripeKeyAction, updateLessonStateAction } from "../store/actions";
+import {
+  setStripePublicKeyAction,
+  setStripePrivateKeyAction,
+  updateLessonStateAction,
+} from "../store/actions";
 
 export interface SetUpStripeProps extends DefaultSetUpStripeProps {}
 
@@ -15,10 +19,6 @@ function SetUpStripe_(props: SetUpStripeProps, ref: HTMLElementRefOf<"div">) {
   const dispatch = useDispatch();
   const history = useHistory();
   const wizardState = useSelector((state: any) => state.WizardState);
-
-  const setStripeKey = (stripeKey: string) => {
-    dispatch(setStripeKeyAction(stripeKey));
-  };
 
   const onNextButtonClicked = () => {
     if (wizardState.stripeKey.length <= 0) {
@@ -34,9 +34,13 @@ function SetUpStripe_(props: SetUpStripeProps, ref: HTMLElementRefOf<"div">) {
     <PlasmicSetUpStripe
       root={{ ref }}
       {...props}
-      stripeKeyText={{
-        value: wizardState.stripeKey,
-        onChange: (e) => setStripeKey(e.target.value),
+      stripePublicKey={{
+        value: wizardState.stripePublicKey,
+        onChange: (e) => dispatch(setStripePublicKeyAction(e.target.value)),
+      }}
+      stripePrivateKey={{
+        value: wizardState.stripePrivateKey,
+        onChange: (e) => dispatch(setStripePrivateKeyAction(e.target.value)),
       }}
       skipButton={{ onClick: () => history.push("/choosePasses") }}
       backButton={{ onClick: () => history.push("/wallet") }}

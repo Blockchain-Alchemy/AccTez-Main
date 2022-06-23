@@ -61,7 +61,8 @@ export type PlasmicSetUpStripe__OverridesType = {
   columns?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
   link?: p.Flex<"a">;
-  stripeKeyText?: p.Flex<typeof TextInput>;
+  stripePublicKey?: p.Flex<typeof TextInput>;
+  stripePrivateKey?: p.Flex<typeof TextInput>;
   skipButton?: p.Flex<typeof Button>;
   backButton?: p.Flex<typeof Button>;
   nextButton?: p.Flex<typeof Button>;
@@ -179,10 +180,23 @@ function PlasmicSetUpStripe__RenderFunc(props: {
                   </div>
 
                   <TextInput
-                    data-plasmic-name={"stripeKeyText"}
-                    data-plasmic-override={overrides.stripeKeyText}
-                    className={classNames("__wab_instance", sty.stripeKeyText)}
+                    data-plasmic-name={"stripePublicKey"}
+                    data-plasmic-override={overrides.stripePublicKey}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.stripePublicKey
+                    )}
                     placeholder={"Your Stripe Public Key" as const}
+                  />
+
+                  <TextInput
+                    data-plasmic-name={"stripePrivateKey"}
+                    data-plasmic-override={overrides.stripePrivateKey}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.stripePrivateKey
+                    )}
+                    placeholder={"Your Stripe Private Key" as const}
                   />
                 </div>
 
@@ -284,7 +298,8 @@ const PlasmicDescendants = {
     "columns",
     "h1",
     "link",
-    "stripeKeyText",
+    "stripePublicKey",
+    "stripePrivateKey",
     "skipButton",
     "backButton",
     "nextButton",
@@ -296,7 +311,8 @@ const PlasmicDescendants = {
     "columns",
     "h1",
     "link",
-    "stripeKeyText",
+    "stripePublicKey",
+    "stripePrivateKey",
     "skipButton",
     "backButton",
     "nextButton",
@@ -306,7 +322,8 @@ const PlasmicDescendants = {
   ],
   h1: ["h1"],
   link: ["link"],
-  stripeKeyText: ["stripeKeyText"],
+  stripePublicKey: ["stripePublicKey"],
+  stripePrivateKey: ["stripePrivateKey"],
   skipButton: ["skipButton"],
   backButton: ["backButton"],
   nextButton: ["nextButton"],
@@ -322,7 +339,8 @@ type NodeDefaultElementType = {
   columns: "div";
   h1: "h1";
   link: "a";
-  stripeKeyText: typeof TextInput;
+  stripePublicKey: typeof TextInput;
+  stripePrivateKey: typeof TextInput;
   skipButton: typeof Button;
   backButton: typeof Button;
   nextButton: typeof Button;
@@ -391,7 +409,8 @@ export const PlasmicSetUpStripe = Object.assign(
     columns: makeNodeComponent("columns"),
     h1: makeNodeComponent("h1"),
     link: makeNodeComponent("link"),
-    stripeKeyText: makeNodeComponent("stripeKeyText"),
+    stripePublicKey: makeNodeComponent("stripePublicKey"),
+    stripePrivateKey: makeNodeComponent("stripePrivateKey"),
     skipButton: makeNodeComponent("skipButton"),
     backButton: makeNodeComponent("backButton"),
     nextButton: makeNodeComponent("nextButton"),

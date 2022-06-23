@@ -124,7 +124,7 @@
   padding-top: 0px;
   min-width: 0;
 }
-.stripeKeyText:global(.__wab_instance) {
+.stripePublicKey:global(.__wab_instance) {
   max-width: 800px;
   position: relative;
   margin-top: 32px;
@@ -136,6 +136,23 @@
   height: 1em;
 }
 .svg__axGqH {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.stripePrivateKey:global(.__wab_instance) {
+  max-width: 800px;
+  position: relative;
+  margin-top: 32px;
+}
+.svg___2DBmy {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__mJrp6 {
   position: relative;
   object-fit: cover;
   width: 1em;

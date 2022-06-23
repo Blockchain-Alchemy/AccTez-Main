@@ -6,27 +6,35 @@ const Actions = {
   SET_CONTRACT_NAME: 'SET_CONTRACT_NAME',
   SET_COMPILED_CONTRACT: 'SET_COMPILED_CONTRACT',
   SET_WALLET_ADDRESS: 'SET_WALLET_ADDRESS',
-  SET_STRIPE_KEY: 'SET_STRIPE_KEY',
+  SET_STRIPE_PUBLIC_KEY: 'SET_STRIPE_PUBLIC_KEY',
+  SET_STRIPE_PRIVATE_KEY: 'SET_STRIPE_PRIVATE_KEY',
   SET_TOKEN_CHECKED_STATE: 'SET_TOKEN_CHECKED_STATE',
   SET_TOKEN_TEZOS_PRICE: 'SET_TOKEN_TEZOS_PRICE',
   SET_TOKEN_PRICE: 'SET_TOKEN_PRICE',
 }
 
-function setWalletAddressAction(address) {
+function setWalletAddressAction(value: string) {
   return {
     type: Actions.SET_WALLET_ADDRESS,
-    address,
+    value,
   };
 }
 
-function setStripeKeyAction(stripeKey) {
+function setStripePublicKeyAction(value: string) {
   return {
-    type: Actions.SET_STRIPE_KEY,
-    stripeKey,
+    type: Actions.SET_STRIPE_PUBLIC_KEY,
+    value,
   };
 }
 
-function setTokenCheckedStateAction(token, value) {
+function setStripePrivateKeyAction(value: string) {
+  return {
+    type: Actions.SET_STRIPE_PRIVATE_KEY,
+    value,
+  };
+}
+
+function setTokenCheckedStateAction(token: string, value: boolean) {
   return {
     type: Actions.SET_TOKEN_CHECKED_STATE,
     token,
@@ -34,7 +42,7 @@ function setTokenCheckedStateAction(token, value) {
   };
 }
 
-function setTokenTezosPriceAction(token, value) {
+function setTokenTezosPriceAction(token: string, value: number) {
   return {
     type: Actions.SET_TOKEN_TEZOS_PRICE,
     token,
@@ -42,7 +50,7 @@ function setTokenTezosPriceAction(token, value) {
   };
 }
 
-function setTokenPriceAction(token, value) {
+function setTokenPriceAction(token: string, value: string) {
   return {
     type: Actions.SET_TOKEN_PRICE,
     token,
@@ -50,14 +58,14 @@ function setTokenPriceAction(token, value) {
   };
 }
 
-function updateLessonStateAction(timeline) {
+function updateLessonStateAction(value: number) {
   return {
     type: Actions.UPDATE_LESSON_STATE,
-    timeline,
+    value,
   };
 }
 
-function setSessionIdAction(sessionId) {
+function setSessionIdAction(sessionId: string) {
   return {
     type: Actions.SET_SESSION_ID,
     sessionId,
@@ -67,7 +75,8 @@ function setSessionIdAction(sessionId) {
 export {
   Actions,
   setWalletAddressAction,
-  setStripeKeyAction,
+  setStripePublicKeyAction,
+  setStripePrivateKeyAction,
   setTokenCheckedStateAction,
   setTokenTezosPriceAction,
   setTokenPriceAction,
