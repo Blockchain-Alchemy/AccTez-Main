@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { PlasmicChoosePasses } from "./plasmic/acc_tez_wizard/PlasmicChoosePasses";
@@ -10,12 +10,13 @@ import {
   updateLessonStateAction,
 } from "../store/actions";
 
+const tokenNames = [ 'dayPass', 'weeklyPass', 'yearlyPass', 'specialPass' ];
+
 function ChoosePasses_(props, ref) {
   const dispatch = useDispatch();
   const wizardState = useSelector(state => state.WizardState);
   const history = useHistory();
   const { dayPass, weeklyPass, yearlyPass, specialPass } = wizardState;
-  console.log('wizardState', wizardState)
 
   const onTokenChecked = (token, checked) => {
     dispatch(setTokenCheckedStateAction(token, checked))
@@ -30,14 +31,33 @@ function ChoosePasses_(props, ref) {
   }
 
   const onNextButtonClicked = () => {
-    if (wizardState.stripeKey.length <= 0) {
-      alertMessage("Please input your wallet address");
+    if (!validate()) {
       return;
     }
 
     dispatch(updateLessonStateAction(1));
     history.push("/main");
   };
+
+  const validate = () => {
+    const checked = dayPass.checked | weeklyPass.checked | yearlyPass.checked | specialPass.checked;
+    if (!checked) {
+      alertMessage("Please select pass tokens");
+      return false;
+    }
+
+    for (let name of tokenNames) {
+      const token = wizardState[name];
+      if (token.checked) {
+        if (token.tezos <= 0 && token.price <= 0) {
+          alertMessage(`Please input ${name} price`);
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
 
   return (
     <PlasmicChoosePasses
@@ -46,7 +66,7 @@ function ChoosePasses_(props, ref) {
       dayPassCheckbox={{
         isChecked: dayPass.checked,
         onChange: (e) => onTokenChecked("dayPass", e)
-      }}
+      }}      
       dayPassTezos={{
         defaultValue: dayPass.tezos,
         onChange: (e) => onTezosPriceChange("dayPass", e)
