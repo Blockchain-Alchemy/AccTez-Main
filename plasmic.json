@@ -1,13 +1,13 @@
 {
   "platform": "react",
   "code": {
-    "lang": "js",
+    "lang": "ts",
     "scheme": "blackbox",
     "reactRuntime": "classic"
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
   },
   "images": {
     "scheme": "files",
@@ -26,18 +26,18 @@
       "projectApiToken": "f5LJGlFy47WE9fHXThsihuERF2KkGkNXVcJ4CG3vDtnpaeVYwKYyH98IJf8LFQ6diXDrmmG5Xnym6M50Yw",
       "projectName": "AccTez-Wizard",
       "version": "latest",
-      "cssFilePath": "plasmic/blank_project/plasmic_blank_project.module.css",
+      "cssFilePath": "plasmic/acc_tez_wizard/plasmic_acc_tez_wizard.module.css",
       "components": [
         {
           "id": "mBD5GJn-hYl-",
           "name": "Homepage",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/blank_project/PlasmicHomepage.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "Homepage.jsx"
+            "modulePath": "Homepage.tsx"
           },
-          "cssFilePath": "plasmic/blank_project/PlasmicHomepage.module.css",
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicHomepage.module.css",
           "scheme": "blackbox",
           "componentType": "page"
         },
@@ -46,11 +46,11 @@
           "name": "YourWallet",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/blank_project/PlasmicYourWallet.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicYourWallet.tsx",
           "importSpec": {
-            "modulePath": "YourWallet.jsx"
+            "modulePath": "YourWallet.tsx"
           },
-          "cssFilePath": "plasmic/blank_project/PlasmicYourWallet.module.css",
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicYourWallet.module.css",
           "scheme": "blackbox",
           "componentType": "page"
         },
@@ -59,11 +59,11 @@
           "name": "Button",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/blank_project/PlasmicButton.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicButton.tsx",
           "importSpec": {
-            "modulePath": "Button.jsx"
+            "modulePath": "Button.tsx"
           },
-          "cssFilePath": "plasmic/blank_project/PlasmicButton.module.css",
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicButton.module.css",
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"
@@ -73,11 +73,11 @@
           "name": "TextInput",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/blank_project/PlasmicTextInput.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicTextInput.tsx",
           "importSpec": {
-            "modulePath": "TextInput.jsx"
+            "modulePath": "TextInput.tsx"
           },
-          "cssFilePath": "plasmic/blank_project/PlasmicTextInput.module.css",
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicTextInput.module.css",
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "text-input"
@@ -87,9 +87,9 @@
           "name": "DesignTicket",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicDesignTicket.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicDesignTicket.tsx",
           "importSpec": {
-            "modulePath": "DesignTicket.jsx"
+            "modulePath": "DesignTicket.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicDesignTicket.module.css",
           "scheme": "blackbox",
@@ -100,9 +100,9 @@
           "name": "TitleText",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicTitleText.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicTitleText.tsx",
           "importSpec": {
-            "modulePath": "TitleText.jsx"
+            "modulePath": "TitleText.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicTitleText.module.css",
           "scheme": "blackbox",
@@ -113,9 +113,9 @@
           "name": "DescInput",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicDescInput.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicDescInput.tsx",
           "importSpec": {
-            "modulePath": "DescInput.jsx"
+            "modulePath": "DescInput.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicDescInput.module.css",
           "scheme": "blackbox",
@@ -126,9 +126,9 @@
           "name": "Main",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicMain.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicMain.tsx",
           "importSpec": {
-            "modulePath": "Main.jsx"
+            "modulePath": "Main.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicMain.module.css",
           "scheme": "blackbox",
@@ -139,9 +139,9 @@
           "name": "Checkbox",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicCheckbox.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicCheckbox.tsx",
           "importSpec": {
-            "modulePath": "Checkbox.jsx"
+            "modulePath": "Checkbox.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicCheckbox.module.css",
           "scheme": "blackbox",
@@ -153,9 +153,9 @@
           "name": "BuyAPass",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicBuyAPass.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicBuyAPass.tsx",
           "importSpec": {
-            "modulePath": "BuyAPass.jsx"
+            "modulePath": "BuyAPass.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicBuyAPass.module.css",
           "scheme": "blackbox",
@@ -166,9 +166,9 @@
           "name": "ChoosePasses",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicChoosePasses.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicChoosePasses.tsx",
           "importSpec": {
-            "modulePath": "ChoosePasses.jsx"
+            "modulePath": "ChoosePasses.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicChoosePasses.module.css",
           "scheme": "blackbox",
@@ -179,9 +179,9 @@
           "name": "SetUpStripe",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicSetUpStripe.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicSetUpStripe.tsx",
           "importSpec": {
-            "modulePath": "SetUpStripe.jsx"
+            "modulePath": "SetUpStripe.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicSetUpStripe.module.css",
           "scheme": "blackbox",
@@ -192,9 +192,9 @@
           "name": "Timeline",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicTimeline.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicTimeline.tsx",
           "importSpec": {
-            "modulePath": "Timeline.jsx"
+            "modulePath": "Timeline.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicTimeline.module.css",
           "scheme": "blackbox",
@@ -205,9 +205,9 @@
           "name": "InputNumber",
           "type": "managed",
           "projectId": "68wGqrWvUbUk9uG76N3xHk",
-          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicInputNumber.jsx",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicInputNumber.tsx",
           "importSpec": {
-            "modulePath": "InputNumber.jsx"
+            "modulePath": "InputNumber.tsx"
           },
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicInputNumber.module.css",
           "scheme": "blackbox",
@@ -219,54 +219,54 @@
         {
           "id": "ppcK-LiUA7",
           "name": "WizardSvgrepoComsvg2Icon",
-          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__WizardSvgrepoComsvg2.jsx"
+          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__WizardSvgrepoComsvg2.tsx"
         },
         {
           "id": "gYo0rjvqId9",
           "name": "ChecksvgIcon",
-          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Checksvg.jsx"
+          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__Checksvg.tsx"
         },
         {
           "id": "XoAtNs3eY9L",
           "name": "IconIcon",
-          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon.jsx"
+          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__Icon.tsx"
         },
         {
           "id": "M1v116-IU5V",
           "name": "SearchsvgIcon",
-          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Searchsvg.jsx"
+          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__Searchsvg.tsx"
         },
         {
           "id": "yM2GaSPcV-C",
           "name": "SquaresvgIcon",
-          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__Squaresvg.jsx"
+          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__Squaresvg.tsx"
         },
         {
           "id": "AwB6ajW8Um-",
           "name": "SquareCheckFilledsvgIcon",
-          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__SquareCheckFilledsvg.jsx"
+          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__SquareCheckFilledsvg.tsx"
         },
         {
           "id": "BPmiJDyKosq",
           "name": "SquareMinussvgIcon",
-          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__SquareMinussvg.jsx"
+          "moduleFilePath": "plasmic/acc_tez_wizard/icons/PlasmicIcon__SquareMinussvg.tsx"
         }
       ],
       "images": [
         {
           "id": "hLPlPGDim",
           "name": "wizard-svgrepo-com.svg",
-          "filePath": "plasmic/blank_project/images/wizardSvgrepoComsvg.svg"
+          "filePath": "plasmic/acc_tez_wizard/images/wizardSvgrepoComsvg.svg"
         },
         {
           "id": "ex_skfXvU",
           "name": "Screen Shot 2022-06-19 at 7.01.12 PM.png",
-          "filePath": "plasmic/blank_project/images/screenShot20220619At70112PMpng.png"
+          "filePath": "plasmic/acc_tez_wizard/images/screenShot20220619At70112PMpng.png"
         },
         {
           "id": "cyEWdgYSm",
           "name": "Screen Shot 2022-06-19 at 7.02.50 PM.png",
-          "filePath": "plasmic/blank_project/images/screenShot20220619At70250PMpng.png"
+          "filePath": "plasmic/acc_tez_wizard/images/screenShot20220619At70250PMpng.png"
         },
         {
           "id": "t35-ygcjt",
@@ -290,7 +290,7 @@
         "id": "vuY9frfZKLWci",
         "name": "Screen",
         "projectId": "68wGqrWvUbUk9uG76N3xHk",
-        "contextFilePath": "plasmic/blank_project/PlasmicGlobalVariant__Screen.jsx"
+        "contextFilePath": "plasmic/acc_tez_wizard/PlasmicGlobalVariant__Screen.tsx"
       }
     ]
   },
