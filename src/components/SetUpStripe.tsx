@@ -21,8 +21,12 @@ function SetUpStripe_(props: SetUpStripeProps, ref: HTMLElementRefOf<"div">) {
   const wizardState = useSelector((state: any) => state.WizardState);
 
   const onNextButtonClicked = () => {
-    if (wizardState.stripeKey.length <= 0) {
-      alertMessage("Please input your wallet address");
+    if (wizardState.stripePublicKey.length <= 0) {
+      alertMessage("Please input your stripe public key");
+      return;
+    }
+    if (wizardState.stripePrivateKey.length <= 0) {
+      alertMessage("Please input your stripe private key");
       return;
     }
 
