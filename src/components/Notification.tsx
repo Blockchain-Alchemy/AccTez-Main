@@ -1,13 +1,13 @@
 import * as Notification from '@mantine/notifications';
 
-export const showNotification = (title, message) => {
+export const showNotification = (title: string, message: string) => {
   Notification.showNotification({
     title: title,
     message: message,
   })
 }
 
-export const alertMessage = (message) => {
+export const alertMessage = (message: string) => {
   Notification.showNotification({
     title: 'Error',
     message: message,
@@ -15,7 +15,7 @@ export const alertMessage = (message) => {
   })
 }
 
-export const startNotification = (id, title, message) => {
+export const startNotification = (id: string, title: string, message: string) => {
   Notification.showNotification({
     id: id,
     loading: true,
@@ -26,6 +26,6 @@ export const startNotification = (id, title, message) => {
   })
 }
 
-export const hideNotification = (id) => {
+export const hideNotification = (id: string) => {
   Notification.hideNotification(id);
 }

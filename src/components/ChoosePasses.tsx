@@ -20,7 +20,7 @@ const tokenNames = [ 'dayPass', 'weeklyPass', 'yearlyPass', 'specialPass' ];
 
 function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
   const dispatch = useDispatch();
-  const wizardState = useSelector(state => state.WizardState);
+  const wizardState = useSelector((state: any) => state.WizardState);
   const history = useHistory();
   const { dayPass, weeklyPass, yearlyPass, specialPass } = wizardState;
 
@@ -48,7 +48,7 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
   const validate = () => {
     let checked = false;
     for (let name of tokenNames) {
-      checked |= wizardState[name].checked;
+      checked = checked || wizardState[name].checked as boolean;
     }
     if (!checked) {
       alertMessage("Please select pass tokens");

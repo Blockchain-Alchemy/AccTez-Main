@@ -12,10 +12,12 @@ export interface TimelineProps extends DefaultTimelineProps {}
 
 function Timeline_(props: TimelineProps, ref: HTMLElementRefOf<"div">) {
   const lessonState = useSelector((state: any) => state.WizardState);
-  const viewport = useRef();
+  const viewport = useRef<HTMLDivElement>(null);
 
   const scrollTo = (top: number) => {
-    viewport.current.scrollTo({ top: top, behavior: 'smooth' });
+    if (viewport.current) {
+      viewport.current.scrollTo({ top: top, behavior: 'smooth' });
+    }
   }
 
   useEffect(() => {
