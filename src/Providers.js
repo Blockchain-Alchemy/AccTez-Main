@@ -2,13 +2,13 @@ import React from 'react'
 import { Provider } from "react-redux";
 import { NotificationsProvider } from '@mantine/notifications';
 import store from "./store";
-import { TezosProvider, NetworkOptions } from "./components/TezosContext";
+import { TezosProvider } from "./components/TezosContext";
 
 const options = {
   appName: 'demo',
   networkType: 'ithacanet',
   'rpc': 'https://ithacanet.smartpy.io',
-} as NetworkOptions;
+};
 
 const Providers = ({ children }) => {
   return (
