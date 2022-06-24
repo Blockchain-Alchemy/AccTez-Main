@@ -2,6 +2,7 @@ import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { PlasmicRootProvider, PlasmicCanvasHost } from "@plasmicapp/loader-react";
 import { PLASMIC } from './plasmic-init';
+import WizardLoader from "./components/WizardLoader";
 import Home from "./components/Homepage";
 import YourWallet from "./components/YourWallet";
 import SetUpStripe from "./components/SetUpStripe";
@@ -14,6 +15,9 @@ function App() {
     <PlasmicRootProvider loader={PLASMIC}>
       <BrowserRouter>
         <Switch>
+          <Route path="/wizard" exact>
+            <Home />
+          </Route>
           <Route path="/wallet">
             <YourWallet />
           </Route>
@@ -31,7 +35,7 @@ function App() {
           </Route>
           <Route path="/plasmic-host" render={() => <PlasmicCanvasHost />} />
           <Route path="/" exact>
-            <Home />
+            <WizardLoader />
           </Route>
         </Switch>
       </BrowserRouter>

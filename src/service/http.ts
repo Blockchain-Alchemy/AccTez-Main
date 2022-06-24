@@ -9,6 +9,15 @@ const config = {
   },
 };
 
+export const getWizard = () => {
+  return axios
+    .get(`${BASE_URL}/api/wizard`, config)
+    .then((res) => {
+      console.log("getWizard", res.data);
+      return res.data;
+    });
+}
+
 export const setupWizard = (payload: any) => {
   return axios.post(`${BASE_URL}/api/wizard`, payload, config).then((res) => {
     console.log("setupWizard", res.data);
