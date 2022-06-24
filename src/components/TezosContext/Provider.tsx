@@ -29,6 +29,7 @@ function TezosProvider({ options, children }: TezosProviderProps) {
         },
       },
     });
+    tezos.setWalletProvider(wallet);
     return {
       tezos,
       wallet,

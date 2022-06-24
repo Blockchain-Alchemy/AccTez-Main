@@ -9,22 +9,20 @@ const useDayPass = () => {
   const { tezos, walletAddress } = useTezosContext()!
 
   const mintToken = useCallback(
-    (tokenId: DayPassToken) => {
-      console.log('mintToken', tokenId)
+    (tokenId: DayPassToken, amount: number) => {
+      console.log('mintToken', tokenId, amount)
       if (tezos && walletAddress) {
         const params = [
           {
             amount: 1,
             to_: walletAddress,
-            token: {
-              existing: tokenId,
-            },
+            token: tokenId,
           },
         ]
         return tezos.wallet
           .at(contractAddress)
           .then((contract) => {
-            return contract.methods.mint_token(params).send()
+            return contract.methods.mint_token(params).send({ amount })
           })
           .then((op) => op.confirmation())
           .then((result) => {

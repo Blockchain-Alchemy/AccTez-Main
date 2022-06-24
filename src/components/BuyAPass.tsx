@@ -85,9 +85,16 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
       return;
     }
 
+    const price = getTokenTezos();
+    if (price <= 0) {
+      alertMessage("Wallet", "Invalid Token Price");
+      return;
+    }
+
     startNotification("mintToken", "Purchase", "Purchase token with tezos...");
+
     const tokenId = getTokenId(tokenName);
-    mintToken(tokenId)
+    mintToken(tokenId, price)
       .then(() => {
         updateSuccessNotification("mintToken", "Success to purchase token");
       })

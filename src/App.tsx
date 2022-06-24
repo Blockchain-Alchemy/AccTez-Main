@@ -9,12 +9,16 @@ import SetUpStripe from "./components/SetUpStripe";
 import ChoosePasses from "./components/ChoosePasses";
 import Main from "./components/Main";
 import BuyAPass from "./components/BuyAPass";
+import Login from "./components/Login";
 
 function App() {
   return (
     <PlasmicRootProvider loader={PLASMIC}>
       <BrowserRouter>
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/wizard" exact>
             <Home />
           </Route>

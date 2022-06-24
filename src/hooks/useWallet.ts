@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { PermissionScope } from "@airgap/beacon-sdk";
+import { PermissionScope, RequestSignPayloadInput } from "@airgap/beacon-sdk";
 import { useTezosContext } from "./useTezosContext";
 
 const useWallet = () => {
@@ -27,10 +27,15 @@ const useWallet = () => {
     setWalletAddress(undefined);
   };
 
+  const requestSignPayload = (messagePayload: RequestSignPayloadInput) => {
+    return wallet.client.requestSignPayload(messagePayload);
+  }
+
   return {
     connectWallet,
     disconnectWallet,
     walletAddress,
+    requestSignPayload,
   };
 };
 
