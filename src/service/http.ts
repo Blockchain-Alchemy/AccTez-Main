@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://pixl-server.herokuapp.com";
+  //"http://localhost:5000";
   //"https://pixl-server.herokuapp.com";
 
 const config = {

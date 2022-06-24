@@ -55,7 +55,12 @@ const PassTokenCheck = ({ token }: PassTokenCheckProps) => {
           </Center>
         )}
         {!loading && access && (
-          <div>You have access to this page with {getTokenFullName(token)}</div>
+          <>
+            <div>Congratulation</div>
+            <div>
+              You have access to this page with {getTokenFullName(token)}
+            </div>
+          </>
         )}
         {!loading && !access && <div>You have no access to this page</div>}
       </div>
