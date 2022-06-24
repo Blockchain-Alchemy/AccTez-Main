@@ -7,9 +7,9 @@ export const showNotification = (title: string, message: string) => {
   })
 }
 
-export const alertMessage = (message: string) => {
+export const alertMessage = (title: string, message: string) => {
   Notification.showNotification({
-    title: 'Error',
+    title: title,
     message: message,
     color: 'red'
   })

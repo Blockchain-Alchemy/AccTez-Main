@@ -140,7 +140,7 @@
   margin-left: 0px;
   align-self: center;
 }
-.text__dIgmn {
+.tokenName {
   font-size: 23px;
   font-weight: 700;
 }
@@ -167,7 +167,7 @@
   text-decoration-line: underline;
   min-width: 0;
 }
-.text__eJpWq {
+.priceTezosText {
   position: relative;
   width: 100%;
   height: auto;
@@ -188,7 +188,7 @@
   padding-top: 0px;
   min-width: 0;
 }
-.text__jR0Fp {
+.priceDollarText {
   position: relative;
   width: 100%;
   height: auto;
@@ -226,7 +226,7 @@
   > img {
   margin-top: 23px;
 }
-.button__xfpKh:global(.__wab_instance) {
+.purchaseWithTezosButton:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -252,7 +252,7 @@
   text-align: center;
   min-width: 0;
 }
-.button___43NbU:global(.__wab_instance) {
+.purchaseWithStripeButton:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }

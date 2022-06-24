@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://pixl-server.herokuapp.com";
+const BASE_URL = "http://localhost:5000";
+  //"https://pixl-server.herokuapp.com";
 
 const config = {
   headers: {
@@ -13,6 +14,15 @@ export const setupWizard = (payload: any) => {
     console.log("setupWizard", res.data);
     return res.data;
   });
+};
+
+export const getTokenPrices = () => {
+  return axios
+    .get(`${BASE_URL}/api/wizard/prices`, config)
+    .then((res) => {
+      console.log("getTokenPrices", res.data);
+      return res.data;
+    });
 };
 
 export const getWalletTokens = (walletAddress: string) => {

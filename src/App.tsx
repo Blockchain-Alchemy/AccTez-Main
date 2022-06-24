@@ -7,6 +7,7 @@ import YourWallet from "./components/YourWallet";
 import SetUpStripe from "./components/SetUpStripe";
 import ChoosePasses from "./components/ChoosePasses";
 import Main from "./components/Main";
+import BuyAPass from "./components/BuyAPass";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/main">
             <Main />
+          </Route>
+          <Route path="/checkout">
+            <BuyAPass />
           </Route>
           <Route path="/plasmic-host" render={() => <PlasmicCanvasHost />} />
           <Route path="/" exact>

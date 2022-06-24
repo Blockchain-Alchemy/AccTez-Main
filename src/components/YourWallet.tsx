@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
   PlasmicYourWallet,
-  DefaultYourWalletProps
+  DefaultYourWalletProps,
 } from "./plasmic/acc_tez_wizard/PlasmicYourWallet";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import { alertMessage } from "./Notification";
@@ -25,7 +25,7 @@ function YourWallet_(props: YourWalletProps, ref: HTMLElementRefOf<"div">) {
 
   const onNextButtonClicked = () => {
     if (wizardState.walletAddress.length <= 0) {
-      alertMessage("Please input your wallet address");
+      alertMessage("Wallet", "Please input your wallet address");
       return;
     }
 

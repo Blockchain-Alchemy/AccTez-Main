@@ -22,11 +22,11 @@ function SetUpStripe_(props: SetUpStripeProps, ref: HTMLElementRefOf<"div">) {
 
   const onNextButtonClicked = () => {
     if (wizardState.stripePublicKey.length <= 0) {
-      alertMessage("Please input your stripe public key");
+      alertMessage("Stripe", "Please input your stripe public key");
       return;
     }
     if (wizardState.stripePrivateKey.length <= 0) {
-      alertMessage("Please input your stripe private key");
+      alertMessage("Stripe", "Please input your stripe private key");
       return;
     }
 

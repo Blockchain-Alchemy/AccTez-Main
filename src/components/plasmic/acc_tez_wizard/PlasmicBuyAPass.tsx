@@ -58,6 +58,11 @@ export type PlasmicBuyAPass__OverridesType = {
   menu?: p.Flex<typeof Menu>;
   columns?: p.Flex<"div">;
   checkbox?: p.Flex<typeof Checkbox>;
+  tokenName?: p.Flex<"div">;
+  priceTezosText?: p.Flex<"div">;
+  priceDollarText?: p.Flex<"div">;
+  purchaseWithTezosButton?: p.Flex<typeof Button>;
+  purchaseWithStripeButton?: p.Flex<typeof Button>;
 };
 
 export interface DefaultBuyAPassProps {
@@ -197,13 +202,15 @@ function PlasmicBuyAPass__RenderFunc(props: {
                 isDisabled={true}
               >
                 <div
+                  data-plasmic-name={"tokenName"}
+                  data-plasmic-override={overrides.tokenName}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__dIgmn
+                    sty.tokenName
                   )}
                 >
-                  {"Special Event Pass"}
+                  {"Pass Token Name"}
                 </div>
               </Checkbox>
 
@@ -219,13 +226,15 @@ function PlasmicBuyAPass__RenderFunc(props: {
                 </div>
 
                 <div
+                  data-plasmic-name={"priceTezosText"}
+                  data-plasmic-override={overrides.priceTezosText}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__eJpWq
+                    sty.priceTezosText
                   )}
                 >
-                  {"\n20tez\n"}
+                  {"\n0 tez\n"}
                 </div>
 
                 <div
@@ -239,13 +248,15 @@ function PlasmicBuyAPass__RenderFunc(props: {
                 </div>
 
                 <div
+                  data-plasmic-name={"priceDollarText"}
+                  data-plasmic-override={overrides.priceDollarText}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__jR0Fp
+                    sty.priceDollarText
                   )}
                 >
-                  {"\n$30\n"}
+                  {"\n$0\n"}
                 </div>
               </div>
 
@@ -255,7 +266,12 @@ function PlasmicBuyAPass__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox__sl1Dz)}
               >
                 <Button
-                  className={classNames("__wab_instance", sty.button__xfpKh)}
+                  data-plasmic-name={"purchaseWithTezosButton"}
+                  data-plasmic-override={overrides.purchaseWithTezosButton}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.purchaseWithTezosButton
+                  )}
                   color={"blue" as const}
                   shape={"rounded" as const}
                 >
@@ -273,7 +289,12 @@ function PlasmicBuyAPass__RenderFunc(props: {
                 </div>
 
                 <Button
-                  className={classNames("__wab_instance", sty.button___43NbU)}
+                  data-plasmic-name={"purchaseWithStripeButton"}
+                  data-plasmic-override={overrides.purchaseWithStripeButton}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.purchaseWithStripeButton
+                  )}
                   color={"blue" as const}
                   shape={"rounded" as const}
                 >
@@ -289,10 +310,33 @@ function PlasmicBuyAPass__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menu", "columns", "checkbox"],
+  root: [
+    "root",
+    "menu",
+    "columns",
+    "checkbox",
+    "tokenName",
+    "priceTezosText",
+    "priceDollarText",
+    "purchaseWithTezosButton",
+    "purchaseWithStripeButton"
+  ],
   menu: ["menu"],
-  columns: ["columns", "checkbox"],
-  checkbox: ["checkbox"]
+  columns: [
+    "columns",
+    "checkbox",
+    "tokenName",
+    "priceTezosText",
+    "priceDollarText",
+    "purchaseWithTezosButton",
+    "purchaseWithStripeButton"
+  ],
+  checkbox: ["checkbox", "tokenName"],
+  tokenName: ["tokenName"],
+  priceTezosText: ["priceTezosText"],
+  priceDollarText: ["priceDollarText"],
+  purchaseWithTezosButton: ["purchaseWithTezosButton"],
+  purchaseWithStripeButton: ["purchaseWithStripeButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -302,6 +346,11 @@ type NodeDefaultElementType = {
   menu: typeof Menu;
   columns: "div";
   checkbox: typeof Checkbox;
+  tokenName: "div";
+  priceTezosText: "div";
+  priceDollarText: "div";
+  purchaseWithTezosButton: typeof Button;
+  purchaseWithStripeButton: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -364,6 +413,11 @@ export const PlasmicBuyAPass = Object.assign(
     menu: makeNodeComponent("menu"),
     columns: makeNodeComponent("columns"),
     checkbox: makeNodeComponent("checkbox"),
+    tokenName: makeNodeComponent("tokenName"),
+    priceTezosText: makeNodeComponent("priceTezosText"),
+    priceDollarText: makeNodeComponent("priceDollarText"),
+    purchaseWithTezosButton: makeNodeComponent("purchaseWithTezosButton"),
+    purchaseWithStripeButton: makeNodeComponent("purchaseWithStripeButton"),
 
     // Metadata about props expected for PlasmicBuyAPass
     internalVariantProps: PlasmicBuyAPass__VariantProps,

@@ -58,7 +58,17 @@ export const PlasmicMain__ArgProps = new Array<ArgPropType>();
 export type PlasmicMain__OverridesType = {
   root?: p.Flex<"div">;
   acctez?: p.Flex<"h1">;
+  button?: p.Flex<typeof Button>;
   columns?: p.Flex<"div">;
+  buySpecialPassButton?: p.Flex<typeof Button>;
+  buyDayPassButton?: p.Flex<typeof Button>;
+  buyWeeklyPassButton?: p.Flex<typeof Button>;
+  buyYearlyPassButton?: p.Flex<typeof Button>;
+  ownedSpecialPass?: p.Flex<typeof Checkbox>;
+  ownedDayPass?: p.Flex<typeof Checkbox>;
+  ownedWeeklyPass?: p.Flex<typeof Checkbox>;
+  ownedYearlyPass?: p.Flex<typeof Checkbox>;
+  addTicketToAppleWallet?: p.Flex<typeof Button>;
 };
 
 export interface DefaultMainProps {
@@ -132,7 +142,9 @@ function PlasmicMain__RenderFunc(props: {
               ) : null}
 
               <Button
-                className={classNames("__wab_instance", sty.button__rCsHq)}
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
                 color={"blue" as const}
                 shape={"rounded" as const}
               >
@@ -164,7 +176,12 @@ function PlasmicMain__RenderFunc(props: {
               </div>
 
               <Button
-                className={classNames("__wab_instance", sty.button__i0ACe)}
+                data-plasmic-name={"buySpecialPassButton"}
+                data-plasmic-override={overrides.buySpecialPassButton}
+                className={classNames(
+                  "__wab_instance",
+                  sty.buySpecialPassButton
+                )}
                 color={"blue" as const}
                 shape={"rounded" as const}
               >
@@ -172,7 +189,9 @@ function PlasmicMain__RenderFunc(props: {
               </Button>
 
               <Button
-                className={classNames("__wab_instance", sty.button__nzDri)}
+                data-plasmic-name={"buyDayPassButton"}
+                data-plasmic-override={overrides.buyDayPassButton}
+                className={classNames("__wab_instance", sty.buyDayPassButton)}
                 color={"blue" as const}
                 shape={"rounded" as const}
               >
@@ -180,7 +199,12 @@ function PlasmicMain__RenderFunc(props: {
               </Button>
 
               <Button
-                className={classNames("__wab_instance", sty.button__h3WxU)}
+                data-plasmic-name={"buyWeeklyPassButton"}
+                data-plasmic-override={overrides.buyWeeklyPassButton}
+                className={classNames(
+                  "__wab_instance",
+                  sty.buyWeeklyPassButton
+                )}
                 color={"blue" as const}
                 shape={"rounded" as const}
               >
@@ -188,7 +212,12 @@ function PlasmicMain__RenderFunc(props: {
               </Button>
 
               <Button
-                className={classNames("__wab_instance", sty.button__tFbFt)}
+                data-plasmic-name={"buyYearlyPassButton"}
+                data-plasmic-override={overrides.buyYearlyPassButton}
+                className={classNames(
+                  "__wab_instance",
+                  sty.buyYearlyPassButton
+                )}
                 color={"blue" as const}
                 shape={"rounded" as const}
               >
@@ -212,35 +241,48 @@ function PlasmicMain__RenderFunc(props: {
               </div>
 
               <Checkbox
-                className={classNames("__wab_instance", sty.checkbox__q0KSf)}
+                data-plasmic-name={"ownedSpecialPass"}
+                data-plasmic-override={overrides.ownedSpecialPass}
+                className={classNames("__wab_instance", sty.ownedSpecialPass)}
                 isDisabled={true}
               >
                 {"You Own Special Event Pass"}
               </Checkbox>
 
               <Checkbox
-                className={classNames("__wab_instance", sty.checkbox__v7Bru)}
+                data-plasmic-name={"ownedDayPass"}
+                data-plasmic-override={overrides.ownedDayPass}
+                className={classNames("__wab_instance", sty.ownedDayPass)}
                 isDisabled={true}
               >
                 {"You Own Day Pass"}
               </Checkbox>
 
               <Checkbox
-                className={classNames("__wab_instance", sty.checkbox__cjaZ)}
+                data-plasmic-name={"ownedWeeklyPass"}
+                data-plasmic-override={overrides.ownedWeeklyPass}
+                className={classNames("__wab_instance", sty.ownedWeeklyPass)}
                 isDisabled={true}
               >
                 {"You Own Weekly Pass"}
               </Checkbox>
 
               <Checkbox
-                className={classNames("__wab_instance", sty.checkbox__pgZh5)}
+                data-plasmic-name={"ownedYearlyPass"}
+                data-plasmic-override={overrides.ownedYearlyPass}
+                className={classNames("__wab_instance", sty.ownedYearlyPass)}
                 isDisabled={true}
               >
                 {"You Own Yearly Pass"}
               </Checkbox>
 
               <Button
-                className={classNames("__wab_instance", sty.button___2PGe4)}
+                data-plasmic-name={"addTicketToAppleWallet"}
+                data-plasmic-override={overrides.addTicketToAppleWallet}
+                className={classNames(
+                  "__wab_instance",
+                  sty.addTicketToAppleWallet
+                )}
                 color={"blue" as const}
                 shape={"rounded" as const}
               >
@@ -255,9 +297,44 @@ function PlasmicMain__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "acctez", "columns"],
+  root: [
+    "root",
+    "acctez",
+    "button",
+    "columns",
+    "buySpecialPassButton",
+    "buyDayPassButton",
+    "buyWeeklyPassButton",
+    "buyYearlyPassButton",
+    "ownedSpecialPass",
+    "ownedDayPass",
+    "ownedWeeklyPass",
+    "ownedYearlyPass",
+    "addTicketToAppleWallet"
+  ],
   acctez: ["acctez"],
-  columns: ["columns"]
+  button: ["button"],
+  columns: [
+    "columns",
+    "buySpecialPassButton",
+    "buyDayPassButton",
+    "buyWeeklyPassButton",
+    "buyYearlyPassButton",
+    "ownedSpecialPass",
+    "ownedDayPass",
+    "ownedWeeklyPass",
+    "ownedYearlyPass",
+    "addTicketToAppleWallet"
+  ],
+  buySpecialPassButton: ["buySpecialPassButton"],
+  buyDayPassButton: ["buyDayPassButton"],
+  buyWeeklyPassButton: ["buyWeeklyPassButton"],
+  buyYearlyPassButton: ["buyYearlyPassButton"],
+  ownedSpecialPass: ["ownedSpecialPass"],
+  ownedDayPass: ["ownedDayPass"],
+  ownedWeeklyPass: ["ownedWeeklyPass"],
+  ownedYearlyPass: ["ownedYearlyPass"],
+  addTicketToAppleWallet: ["addTicketToAppleWallet"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -265,7 +342,17 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   acctez: "h1";
+  button: typeof Button;
   columns: "div";
+  buySpecialPassButton: typeof Button;
+  buyDayPassButton: typeof Button;
+  buyWeeklyPassButton: typeof Button;
+  buyYearlyPassButton: typeof Button;
+  ownedSpecialPass: typeof Checkbox;
+  ownedDayPass: typeof Checkbox;
+  ownedWeeklyPass: typeof Checkbox;
+  ownedYearlyPass: typeof Checkbox;
+  addTicketToAppleWallet: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -326,7 +413,17 @@ export const PlasmicMain = Object.assign(
   {
     // Helper components rendering sub-elements
     acctez: makeNodeComponent("acctez"),
+    button: makeNodeComponent("button"),
     columns: makeNodeComponent("columns"),
+    buySpecialPassButton: makeNodeComponent("buySpecialPassButton"),
+    buyDayPassButton: makeNodeComponent("buyDayPassButton"),
+    buyWeeklyPassButton: makeNodeComponent("buyWeeklyPassButton"),
+    buyYearlyPassButton: makeNodeComponent("buyYearlyPassButton"),
+    ownedSpecialPass: makeNodeComponent("ownedSpecialPass"),
+    ownedDayPass: makeNodeComponent("ownedDayPass"),
+    ownedWeeklyPass: makeNodeComponent("ownedWeeklyPass"),
+    ownedYearlyPass: makeNodeComponent("ownedYearlyPass"),
+    addTicketToAppleWallet: makeNodeComponent("addTicketToAppleWallet"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,

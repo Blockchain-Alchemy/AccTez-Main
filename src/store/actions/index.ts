@@ -11,6 +11,7 @@ const Actions = {
   SET_TOKEN_CHECKED_STATE: 'SET_TOKEN_CHECKED_STATE',
   SET_TOKEN_TEZOS_PRICE: 'SET_TOKEN_TEZOS_PRICE',
   SET_TOKEN_PRICE: 'SET_TOKEN_PRICE',
+  ADD_TOKEN_TO_CHECKOUT: 'ADD_TOKEN_TO_CHECKOUT',
 }
 
 function setWalletAddressAction(value: string) {
@@ -58,6 +59,13 @@ function setTokenPriceAction(token: string, value: string) {
   };
 }
 
+function addTokenToCheckoutAction(tokenName: string) {
+  return {
+    type: Actions.ADD_TOKEN_TO_CHECKOUT,
+    value: tokenName,
+  };
+}
+
 function updateLessonStateAction(value: number) {
   return {
     type: Actions.UPDATE_LESSON_STATE,
@@ -80,6 +88,7 @@ export {
   setTokenCheckedStateAction,
   setTokenTezosPriceAction,
   setTokenPriceAction,
+  addTokenToCheckoutAction,
   updateLessonStateAction,
   setSessionIdAction,
 }

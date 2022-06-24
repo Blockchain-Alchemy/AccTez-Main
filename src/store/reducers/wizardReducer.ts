@@ -30,6 +30,7 @@ const initialState = {
     tezos: 0,
     price: 0,
   },
+  checkout: "",
 };
 
 function WizardState(state = initialState, action: any) {
@@ -87,6 +88,12 @@ function WizardState(state = initialState, action: any) {
       }
       return state;
     }
+
+    case Actions.ADD_TOKEN_TO_CHECKOUT:
+      return {
+        ...state,
+        checkout: action.value,
+      }
 
     default:
       return state;

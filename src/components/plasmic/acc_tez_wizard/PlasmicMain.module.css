@@ -46,12 +46,12 @@
     display: none;
   }
 }
-.button__rCsHq:global(.__wab_instance) {
+.button:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .button__rCsHq:global(.__wab_instance) {
+  .button:global(.__wab_instance) {
     height: 40px;
   }
 }
@@ -141,7 +141,7 @@
   font-weight: 700;
   min-width: 0;
 }
-.button__i0ACe:global(.__wab_instance) {
+.buySpecialPassButton:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -157,7 +157,7 @@
   width: 1em;
   height: 1em;
 }
-.button__nzDri:global(.__wab_instance) {
+.buyDayPassButton:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -173,7 +173,7 @@
   width: 1em;
   height: 1em;
 }
-.button__h3WxU:global(.__wab_instance) {
+.buyWeeklyPassButton:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -189,7 +189,7 @@
   width: 1em;
   height: 1em;
 }
-.button__tFbFt:global(.__wab_instance) {
+.buyYearlyPassButton:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -245,23 +245,23 @@
   font-weight: 700;
   min-width: 0;
 }
-.checkbox__q0KSf:global(.__wab_instance) {
+.ownedSpecialPass:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
-.checkbox__v7Bru:global(.__wab_instance) {
+.ownedDayPass:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
-.checkbox__cjaZ:global(.__wab_instance) {
+.ownedWeeklyPass:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
-.checkbox__pgZh5:global(.__wab_instance) {
+.ownedYearlyPass:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
-.button___2PGe4:global(.__wab_instance) {
+.addTicketToAppleWallet:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   align-self: center;
