@@ -24,7 +24,7 @@ const useDayPass = () => {
         return tezos.wallet
           .at(contractAddress)
           .then((contract) => {
-            return contract.methods.mint(params).send()
+            return contract.methods.mint_token(params).send()
           })
           .then((op) => op.confirmation())
           .then((result) => {

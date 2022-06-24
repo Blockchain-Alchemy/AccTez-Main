@@ -10,10 +10,12 @@ import { getTokenPrices } from "../service/http";
 import useWallet from "../hooks/useWallet";
 import {
   alertMessage,
-  hideNotification,
   startNotification,
+  updateSuccessNotification,
   updateErrorNotification,
 } from "./Notification";
+import useDayPass from "../hooks/useDayPass";
+import { DayPassToken } from "../config";
 
 export interface BuyAPassProps extends DefaultBuyAPassProps {}
 
@@ -30,11 +32,25 @@ const getTokenFullName = (name: string) => {
   return "";
 };
 
+const getTokenId = (name: string) => {
+  if (name === "dayPass") {
+    return DayPassToken.DayPass;
+  } else if (name === "weeklyPass") {
+    return DayPassToken.WeeklyPass;
+  } else if (name === "yearlyPass") {
+    return DayPassToken.YearlyPass;
+  } else if (name === "specialPass") {
+    return DayPassToken.SpecialEventPass;
+  }
+  return DayPassToken.DayPass;
+};
+
 function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
   const wizardState = useSelector((state: any) => state.WizardState);
   const tokenName = wizardState.checkout;
   const [tokenPrices, setTokenPrices] = useState<any[]>([]);
   const { walletAddress } = useWallet();
+  const { mintToken } = useDayPass();
 
   useEffect(() => {
     getTokenPrices().then((res: any) => {
@@ -68,6 +84,17 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
       alertMessage("Wallet", "Please connect your wallet");
       return;
     }
+
+    startNotification("mintToken", "Purchase", "Purchase token with tezos...");
+    const tokenId = getTokenId(tokenName);
+    mintToken(tokenId)
+      .then(() => {
+        updateSuccessNotification("mintToken", "Success to purchase token");
+      })
+      .catch((e) => {
+        console.error(e);
+        updateErrorNotification("mintToken", "Failed to purchase token!");
+      })
   };
 
   return (

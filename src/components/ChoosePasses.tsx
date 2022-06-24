@@ -73,9 +73,6 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
         console.error(e);
         updateErrorNotification("setup-wizard", "Failed to setup wizard!");
       })
-      .finally(() => {
-        hideNotification("setup-wizard");
-      });
   };
 
   const validate = () => {
