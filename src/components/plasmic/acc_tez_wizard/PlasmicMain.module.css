@@ -71,7 +71,7 @@
   max-width: 100%;
   position: relative;
 }
-.columns {
+.columns__voDoz {
   display: flex;
   position: relative;
   width: 100%;
@@ -83,14 +83,14 @@
   min-width: 0;
   padding: 8px;
 }
-.columns > :nth-child(2n + 1) {
+.columns__voDoz > :nth-child(2n + 1) {
   width: calc((100% - 2 * 0px) * 6 / 12);
 }
-.columns > :nth-child(2n + 2) {
+.columns__voDoz > :nth-child(2n + 2) {
   width: calc((100% - 2 * 0px) * 6 / 12);
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .columns {
+  .columns__voDoz {
     width: 100%;
     height: auto;
     flex-direction: row;
@@ -99,7 +99,7 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .columns > :nth-child(1n + 1) {
+  .columns__voDoz > :nth-child(1n + 1) {
     width: calc((100% - 1 * 0px) * 12 / 12);
   }
 }
@@ -245,6 +245,63 @@
   font-weight: 700;
   min-width: 0;
 }
+.columns__f4YnG {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  align-items: stretch;
+  flex-shrink: 1;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-width: 0;
+  padding: 8px;
+}
+.columns__f4YnG > :nth-child(2n + 1) {
+  width: calc((100% - 2 * 0px) * 4 / 12);
+}
+.columns__f4YnG > :nth-child(2n + 2) {
+  width: calc((100% - 2 * 0px) * 8 / 12);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .columns__f4YnG {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .columns__f4YnG > :nth-child(1n + 1) {
+    width: calc((100% - 1 * 0px) * 12 / 12);
+  }
+}
+.column__xEU {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__iu21K {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: flex-start;
+  min-width: 0;
+  padding: 8px;
+}
 .ownedSpecialPass:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
@@ -260,6 +317,43 @@
 .ownedYearlyPass:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+}
+.column__ovby {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__ho7P9 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.specialEventLink {
+  position: relative;
+}
+.dayPassLink {
+  position: relative;
+}
+.weeklyPassLink {
+  position: relative;
+}
+.yearlyPassLink {
+  position: relative;
+  padding-bottom: 0px;
 }
 .addTicketToAppleWallet:global(.__wab_instance) {
   max-width: 100%;

@@ -38,14 +38,17 @@ const useDayPass = () => {
 
   const getTokenTime = useCallback(
     (tokenId: DayPassToken) => {
+      console.log('tezos', tezos)
       console.log(`checkTokenTime, tokenId=${tokenId}, wallet=${walletAddress}`)
       if (tezos && walletAddress) {
         return tezos.wallet
           .at(contractAddress)
           .then((contract) => {
+            console.log('contract', contract)
             return contract.storage()
           })
           .then((storage: any) => {
+            console.log('storage', storage)
             return storage.token_times.get({ 0: walletAddress, 1: tokenId })
           })
           .then((token) => {

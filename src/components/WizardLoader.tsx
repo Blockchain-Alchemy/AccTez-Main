@@ -21,6 +21,10 @@ const WizardLoader = () => {
       const wizard = res.data;
       setWizard(wizard);
       setLoading(false);
+    })
+    .catch(error => {
+      setWizard(null);
+      setLoading(false);
     });
   }, []);
 

@@ -9,6 +9,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import useWallet from "../hooks/useWallet";
 import { getWalletTokens } from "../service/http";
 import { addTokenToCheckoutAction } from "../store/actions";
+import { alertMessage } from "./Notification";
 
 export interface MainProps extends DefaultMainProps {}
 
@@ -30,8 +31,17 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
 
   const buyToken = (tokenName: string) => {
     dispatch(addTokenToCheckoutAction(tokenName));
-    history.push("/checkout")
-  }
+    history.push("/checkout");
+  };
+
+  const navigateTokenCheckPage = (e: any, token: string) => {
+    e.preventDefault();
+    if (!walletAddress) {
+      alertMessage("Wallet", "Please connect your wallet");
+      return;
+    }
+    history.push(token);
+  };
 
   return (
     <PlasmicMain
@@ -50,16 +60,25 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
         isChecked: !!walletTokens.find((i) => i.name === "yearlyPass"),
       }}
       buySpecialPassButton={{
-        onClick: () => buyToken('specialPass')
+        onClick: () => buyToken("specialPass"),
       }}
       buyDayPassButton={{
-        onClick: () => buyToken('dayPass')
+        onClick: () => buyToken("dayPass"),
       }}
       buyWeeklyPassButton={{
-        onClick: () => buyToken('weeklyPass')
+        onClick: () => buyToken("weeklyPass"),
       }}
       buyYearlyPassButton={{
-        onClick: () => buyToken('yearlyPass')
+        onClick: () => buyToken("yearlyPass"),
+      }}
+      dayPassLink={{
+        onClick: (e) => navigateTokenCheckPage(e, "/dayPass"),
+      }}
+      weeklyPassLink={{
+        onClick: (e) => navigateTokenCheckPage(e, "/weeklyPass"),
+      }}
+      yearlyPassLink={{
+        onClick: (e) => navigateTokenCheckPage(e, "/yearlyPass"),
       }}
     />
   );

@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   PlasmicBuyAPass,
   DefaultBuyAPassProps,
@@ -15,35 +14,9 @@ import {
   updateErrorNotification,
 } from "./Notification";
 import useDayPass from "../hooks/useDayPass";
-import { DayPassToken } from "../config";
+import { getTokenFullName, getTokenId } from "../utils";
 
 export interface BuyAPassProps extends DefaultBuyAPassProps {}
-
-const getTokenFullName = (name: string) => {
-  if (name === "dayPass") {
-    return "Day Pass Token";
-  } else if (name === "weeklyPass") {
-    return "Weekly Pass Token";
-  } else if (name === "yearlyPass") {
-    return "Yearly Pass Token";
-  } else if (name === "specialPass") {
-    return "Special Pass Token";
-  }
-  return "";
-};
-
-const getTokenId = (name: string) => {
-  if (name === "dayPass") {
-    return DayPassToken.DayPass;
-  } else if (name === "weeklyPass") {
-    return DayPassToken.WeeklyPass;
-  } else if (name === "yearlyPass") {
-    return DayPassToken.YearlyPass;
-  } else if (name === "specialPass") {
-    return DayPassToken.SpecialEventPass;
-  }
-  return DayPassToken.DayPass;
-};
 
 function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
   const wizardState = useSelector((state: any) => state.WizardState);

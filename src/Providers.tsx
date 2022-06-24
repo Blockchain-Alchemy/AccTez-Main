@@ -7,7 +7,7 @@ import { NetworkOptions, TezosProvider } from "./components/TezosContext";
 const options = {
   appName: 'demo',
   networkType: 'ithacanet',
-  'rpc': 'https://ithacanet.smartpy.io',
+  rpc: 'https://rpc.tzkt.io/ithacanet', //'https://ithacanet.smartpy.io',
 } as NetworkOptions;
 
 const Providers = ({ children }: { children: any }) => {

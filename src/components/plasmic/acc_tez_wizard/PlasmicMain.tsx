@@ -59,7 +59,6 @@ export type PlasmicMain__OverridesType = {
   root?: p.Flex<"div">;
   acctez?: p.Flex<"h1">;
   button?: p.Flex<typeof Button>;
-  columns?: p.Flex<"div">;
   buySpecialPassButton?: p.Flex<typeof Button>;
   buyDayPassButton?: p.Flex<typeof Button>;
   buyWeeklyPassButton?: p.Flex<typeof Button>;
@@ -68,6 +67,10 @@ export type PlasmicMain__OverridesType = {
   ownedDayPass?: p.Flex<typeof Checkbox>;
   ownedWeeklyPass?: p.Flex<typeof Checkbox>;
   ownedYearlyPass?: p.Flex<typeof Checkbox>;
+  specialEventLink?: p.Flex<"a">;
+  dayPassLink?: p.Flex<"a">;
+  weeklyPassLink?: p.Flex<"a">;
+  yearlyPassLink?: p.Flex<"a">;
   addTicketToAppleWallet?: p.Flex<typeof Button>;
 };
 
@@ -155,11 +158,7 @@ function PlasmicMain__RenderFunc(props: {
 
           <Menu className={classNames("__wab_instance", sty.menu__g0Qdg)} />
 
-          <div
-            data-plasmic-name={"columns"}
-            data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
-          >
+          <div className={classNames(projectcss.all, sty.columns__voDoz)}>
             <p.Stack
               as={"div"}
               hasGap={true}
@@ -240,41 +239,120 @@ function PlasmicMain__RenderFunc(props: {
                 {"Your Status"}
               </div>
 
-              <Checkbox
-                data-plasmic-name={"ownedSpecialPass"}
-                data-plasmic-override={overrides.ownedSpecialPass}
-                className={classNames("__wab_instance", sty.ownedSpecialPass)}
-                isDisabled={true}
-              >
-                {"You Own Special Event Pass"}
-              </Checkbox>
+              <div className={classNames(projectcss.all, sty.columns__f4YnG)}>
+                <div className={classNames(projectcss.all, sty.column__xEU)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__iu21K)}
+                  >
+                    <Checkbox
+                      data-plasmic-name={"ownedSpecialPass"}
+                      data-plasmic-override={overrides.ownedSpecialPass}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.ownedSpecialPass
+                      )}
+                      isDisabled={true}
+                    >
+                      {"You Own Special Event Pass"}
+                    </Checkbox>
 
-              <Checkbox
-                data-plasmic-name={"ownedDayPass"}
-                data-plasmic-override={overrides.ownedDayPass}
-                className={classNames("__wab_instance", sty.ownedDayPass)}
-                isDisabled={true}
-              >
-                {"You Own Day Pass"}
-              </Checkbox>
+                    <Checkbox
+                      data-plasmic-name={"ownedDayPass"}
+                      data-plasmic-override={overrides.ownedDayPass}
+                      className={classNames("__wab_instance", sty.ownedDayPass)}
+                      isDisabled={true}
+                    >
+                      {"You Own Day Pass"}
+                    </Checkbox>
 
-              <Checkbox
-                data-plasmic-name={"ownedWeeklyPass"}
-                data-plasmic-override={overrides.ownedWeeklyPass}
-                className={classNames("__wab_instance", sty.ownedWeeklyPass)}
-                isDisabled={true}
-              >
-                {"You Own Weekly Pass"}
-              </Checkbox>
+                    <Checkbox
+                      data-plasmic-name={"ownedWeeklyPass"}
+                      data-plasmic-override={overrides.ownedWeeklyPass}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.ownedWeeklyPass
+                      )}
+                      isDisabled={true}
+                    >
+                      {"You Own Weekly Pass"}
+                    </Checkbox>
 
-              <Checkbox
-                data-plasmic-name={"ownedYearlyPass"}
-                data-plasmic-override={overrides.ownedYearlyPass}
-                className={classNames("__wab_instance", sty.ownedYearlyPass)}
-                isDisabled={true}
-              >
-                {"You Own Yearly Pass"}
-              </Checkbox>
+                    <Checkbox
+                      data-plasmic-name={"ownedYearlyPass"}
+                      data-plasmic-override={overrides.ownedYearlyPass}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.ownedYearlyPass
+                      )}
+                      isDisabled={true}
+                    >
+                      {"You Own Yearly Pass"}
+                    </Checkbox>
+                  </div>
+                </div>
+
+                <div className={classNames(projectcss.all, sty.column__ovby)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ho7P9)}
+                  >
+                    <a
+                      data-plasmic-name={"specialEventLink"}
+                      data-plasmic-override={overrides.specialEventLink}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        projectcss.__wab_text,
+                        sty.specialEventLink
+                      )}
+                      href={"https://www.plasmic.app/" as const}
+                    >
+                      {"Go to the Page"}
+                    </a>
+
+                    <a
+                      data-plasmic-name={"dayPassLink"}
+                      data-plasmic-override={overrides.dayPassLink}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        projectcss.__wab_text,
+                        sty.dayPassLink
+                      )}
+                      href={"https://www.plasmic.app/" as const}
+                    >
+                      {"Go to the Page"}
+                    </a>
+
+                    <a
+                      data-plasmic-name={"weeklyPassLink"}
+                      data-plasmic-override={overrides.weeklyPassLink}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        projectcss.__wab_text,
+                        sty.weeklyPassLink
+                      )}
+                      href={"https://www.plasmic.app/" as const}
+                    >
+                      {"Go to the Page"}
+                    </a>
+
+                    <a
+                      data-plasmic-name={"yearlyPassLink"}
+                      data-plasmic-override={overrides.yearlyPassLink}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        projectcss.__wab_text,
+                        sty.yearlyPassLink
+                      )}
+                      href={"https://www.plasmic.app/" as const}
+                    >
+                      {"Go to the Page"}
+                    </a>
+                  </div>
+                </div>
+              </div>
 
               <Button
                 data-plasmic-name={"addTicketToAppleWallet"}
@@ -301,7 +379,6 @@ const PlasmicDescendants = {
     "root",
     "acctez",
     "button",
-    "columns",
     "buySpecialPassButton",
     "buyDayPassButton",
     "buyWeeklyPassButton",
@@ -310,22 +387,14 @@ const PlasmicDescendants = {
     "ownedDayPass",
     "ownedWeeklyPass",
     "ownedYearlyPass",
+    "specialEventLink",
+    "dayPassLink",
+    "weeklyPassLink",
+    "yearlyPassLink",
     "addTicketToAppleWallet"
   ],
   acctez: ["acctez"],
   button: ["button"],
-  columns: [
-    "columns",
-    "buySpecialPassButton",
-    "buyDayPassButton",
-    "buyWeeklyPassButton",
-    "buyYearlyPassButton",
-    "ownedSpecialPass",
-    "ownedDayPass",
-    "ownedWeeklyPass",
-    "ownedYearlyPass",
-    "addTicketToAppleWallet"
-  ],
   buySpecialPassButton: ["buySpecialPassButton"],
   buyDayPassButton: ["buyDayPassButton"],
   buyWeeklyPassButton: ["buyWeeklyPassButton"],
@@ -334,6 +403,10 @@ const PlasmicDescendants = {
   ownedDayPass: ["ownedDayPass"],
   ownedWeeklyPass: ["ownedWeeklyPass"],
   ownedYearlyPass: ["ownedYearlyPass"],
+  specialEventLink: ["specialEventLink"],
+  dayPassLink: ["dayPassLink"],
+  weeklyPassLink: ["weeklyPassLink"],
+  yearlyPassLink: ["yearlyPassLink"],
   addTicketToAppleWallet: ["addTicketToAppleWallet"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -343,7 +416,6 @@ type NodeDefaultElementType = {
   root: "div";
   acctez: "h1";
   button: typeof Button;
-  columns: "div";
   buySpecialPassButton: typeof Button;
   buyDayPassButton: typeof Button;
   buyWeeklyPassButton: typeof Button;
@@ -352,6 +424,10 @@ type NodeDefaultElementType = {
   ownedDayPass: typeof Checkbox;
   ownedWeeklyPass: typeof Checkbox;
   ownedYearlyPass: typeof Checkbox;
+  specialEventLink: "a";
+  dayPassLink: "a";
+  weeklyPassLink: "a";
+  yearlyPassLink: "a";
   addTicketToAppleWallet: typeof Button;
 };
 
@@ -414,7 +490,6 @@ export const PlasmicMain = Object.assign(
     // Helper components rendering sub-elements
     acctez: makeNodeComponent("acctez"),
     button: makeNodeComponent("button"),
-    columns: makeNodeComponent("columns"),
     buySpecialPassButton: makeNodeComponent("buySpecialPassButton"),
     buyDayPassButton: makeNodeComponent("buyDayPassButton"),
     buyWeeklyPassButton: makeNodeComponent("buyWeeklyPassButton"),
@@ -423,6 +498,10 @@ export const PlasmicMain = Object.assign(
     ownedDayPass: makeNodeComponent("ownedDayPass"),
     ownedWeeklyPass: makeNodeComponent("ownedWeeklyPass"),
     ownedYearlyPass: makeNodeComponent("ownedYearlyPass"),
+    specialEventLink: makeNodeComponent("specialEventLink"),
+    dayPassLink: makeNodeComponent("dayPassLink"),
+    weeklyPassLink: makeNodeComponent("weeklyPassLink"),
+    yearlyPassLink: makeNodeComponent("yearlyPassLink"),
     addTicketToAppleWallet: makeNodeComponent("addTicketToAppleWallet"),
 
     // Metadata about props expected for PlasmicMain
