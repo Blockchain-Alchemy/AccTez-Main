@@ -32,6 +32,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import Button from "../../Button"; // plasmic-import: UCG438gq_ly/component
+import Menu from "../../Menu"; // plasmic-import: Mbanvkt3Am/component
 import Checkbox from "../../Checkbox"; // plasmic-import: NK-xeF1iGEb/component
 
 import { useScreenVariants as useScreenVariantsvuY9FrfZklWci } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: vuY9frfZKLWci/globalVariant
@@ -56,7 +57,6 @@ export const PlasmicMain__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicMain__OverridesType = {
   root?: p.Flex<"div">;
-  menu?: p.Flex<"div">;
   acctez?: p.Flex<"h1">;
   columns?: p.Flex<"div">;
 };
@@ -102,46 +102,46 @@ function PlasmicMain__RenderFunc(props: {
             sty.root
           )}
         >
-          <div
-            data-plasmic-name={"menu"}
-            data-plasmic-override={overrides.menu}
-            className={classNames(projectcss.all, sty.menu)}
-          >
-            <h1
-              data-plasmic-name={"acctez"}
-              data-plasmic-override={overrides.acctez}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.acctez
-              )}
-            >
-              {"AccTez "}
-            </h1>
-
-            {(
-              hasVariant(globalVariants, "screen", "mobileOnly") ? true : true
-            ) ? (
-              <div
+          {true ? (
+            <div className={classNames(projectcss.all, sty.freeBox__qWjZ1)}>
+              <h1
+                data-plasmic-name={"acctez"}
+                data-plasmic-override={overrides.acctez}
                 className={classNames(
                   projectcss.all,
+                  projectcss.h1,
                   projectcss.__wab_text,
-                  sty.text__gvr97
+                  sty.acctez
                 )}
               >
-                {"Access Control with Tezos"}
-              </div>
-            ) : null}
+                {"AccTez "}
+              </h1>
 
-            <Button
-              className={classNames("__wab_instance", sty.button__rCsHq)}
-              color={"blue" as const}
-              shape={"rounded" as const}
-            >
-              {"Sync"}
-            </Button>
-          </div>
+              {(
+                hasVariant(globalVariants, "screen", "mobileOnly") ? true : true
+              ) ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__gvr97
+                  )}
+                >
+                  {"Access Control with Tezos"}
+                </div>
+              ) : null}
+
+              <Button
+                className={classNames("__wab_instance", sty.button__rCsHq)}
+                color={"blue" as const}
+                shape={"rounded" as const}
+              >
+                {"Sync"}
+              </Button>
+            </div>
+          ) : null}
+
+          <Menu className={classNames("__wab_instance", sty.menu__g0Qdg)} />
 
           <div
             data-plasmic-name={"columns"}
@@ -255,8 +255,7 @@ function PlasmicMain__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menu", "acctez", "columns"],
-  menu: ["menu", "acctez"],
+  root: ["root", "acctez", "columns"],
   acctez: ["acctez"],
   columns: ["columns"]
 } as const;
@@ -265,7 +264,6 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  menu: "div";
   acctez: "h1";
   columns: "div";
 };
@@ -327,7 +325,6 @@ export const PlasmicMain = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    menu: makeNodeComponent("menu"),
     acctez: makeNodeComponent("acctez"),
     columns: makeNodeComponent("columns"),
 

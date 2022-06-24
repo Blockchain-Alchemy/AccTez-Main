@@ -34,6 +34,7 @@ import {
 import TitleText from "../../TitleText"; // plasmic-import: JUWhA5Wcld/component
 import TextInput from "../../TextInput"; // plasmic-import: UzcYFC-NJii/component
 import Button from "../../Button"; // plasmic-import: UCG438gq_ly/component
+import Timeline from "../../Timeline"; // plasmic-import: 0RHyvgnmPT/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -43,10 +44,8 @@ import sty from "./PlasmicDesignTicket.module.css"; // plasmic-import: RhhJfeaiI
 import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: M1v116-IU5V/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: gYo0rjvqId9/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: XoAtNs3eY9L/icon
-import WizardSvgrepoComsvg2Icon from "./icons/PlasmicIcon__WizardSvgrepoComsvg2"; // plasmic-import: ppcK-LiUA7/icon
 import image29Wv2XxCk from "./images/image2.png"; // plasmic-import: 9WV2_XXCk/picture
 import imageT35Ygcjt from "./images/image.png"; // plasmic-import: t35-ygcjt/picture
-import screenShot20220619At70250PMpngCyEWdgYSm from "./images/screenShot20220619At70250PMpng.png"; // plasmic-import: cyEWdgYSm/picture
 
 export type PlasmicDesignTicket__VariantMembers = {};
 
@@ -54,22 +53,27 @@ export type PlasmicDesignTicket__VariantsArgs = {};
 type VariantPropType = keyof PlasmicDesignTicket__VariantsArgs;
 export const PlasmicDesignTicket__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicDesignTicket__ArgsType = {};
+export type PlasmicDesignTicket__ArgsType = {
+  timeline?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicDesignTicket__ArgsType;
-export const PlasmicDesignTicket__ArgProps = new Array<ArgPropType>();
+export const PlasmicDesignTicket__ArgProps = new Array<ArgPropType>("timeline");
 
 export type PlasmicDesignTicket__OverridesType = {
   root?: p.Flex<"div">;
   columns?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
+  text?: p.Flex<"div">;
   titleInput?: p.Flex<typeof TitleText>;
   textInput?: p.Flex<typeof TextInput>;
   ticketBg?: p.Flex<"div">;
-  svg?: p.Flex<"svg">;
+  timeline?: p.Flex<typeof Timeline>;
   textbox?: p.Flex<typeof TextInput>;
 };
 
 export interface DefaultDesignTicketProps {
+  timeline?: React.ReactNode;
   className?: string;
 }
 
@@ -133,10 +137,12 @@ function PlasmicDesignTicket__RenderFunc(props: {
                   </h1>
 
                   <div
+                    data-plasmic-name={"text"}
+                    data-plasmic-override={overrides.text}
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__fklMo
+                      sty.text
                     )}
                   >
                     {
@@ -235,42 +241,15 @@ function PlasmicDesignTicket__RenderFunc(props: {
             </div>
 
             <div className={classNames(projectcss.all, sty.column__l6OTo)}>
-              <div className={classNames(projectcss.all, sty.freeBox__g3Vl7)}>
-                <WizardSvgrepoComsvg2Icon
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mmygt
-                  )}
-                >
-                  {"AccTez Wizard"}
-                </div>
-
-                <p.PlasmicImg
-                  alt={""}
-                  className={classNames(sty.img___65ZKa)}
-                  displayHeight={"auto" as const}
-                  displayMaxHeight={"none" as const}
-                  displayMaxWidth={"100%" as const}
-                  displayMinHeight={"0" as const}
-                  displayMinWidth={"0" as const}
-                  displayWidth={"auto" as const}
-                  loading={"lazy" as const}
-                  src={{
-                    src: screenShot20220619At70250PMpngCyEWdgYSm,
-                    fullWidth: 627,
-                    fullHeight: 419,
-                    aspectRatio: undefined
-                  }}
-                />
-              </div>
+              <Timeline
+                data-plasmic-name={"timeline"}
+                data-plasmic-override={overrides.timeline}
+                className={classNames("__wab_instance", sty.timeline)}
+                timeline={p.renderPlasmicSlot({
+                  defaultContents: null,
+                  value: args.timeline
+                })}
+              />
             </div>
           </div>
         </p.Stack>
@@ -284,26 +263,29 @@ const PlasmicDescendants = {
     "root",
     "columns",
     "h1",
+    "text",
     "titleInput",
     "textInput",
     "textbox",
     "ticketBg",
-    "svg"
+    "timeline"
   ],
   columns: [
     "columns",
     "h1",
+    "text",
     "titleInput",
     "textInput",
     "textbox",
     "ticketBg",
-    "svg"
+    "timeline"
   ],
   h1: ["h1"],
+  text: ["text"],
   titleInput: ["titleInput"],
   textInput: ["textInput", "textbox"],
   ticketBg: ["ticketBg"],
-  svg: ["svg"]
+  timeline: ["timeline"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -312,10 +294,11 @@ type NodeDefaultElementType = {
   root: "div";
   columns: "div";
   h1: "h1";
+  text: "div";
   titleInput: typeof TitleText;
   textInput: typeof TextInput;
   ticketBg: "div";
-  svg: "svg";
+  timeline: typeof Timeline;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -377,10 +360,11 @@ export const PlasmicDesignTicket = Object.assign(
     // Helper components rendering sub-elements
     columns: makeNodeComponent("columns"),
     h1: makeNodeComponent("h1"),
+    text: makeNodeComponent("text"),
     titleInput: makeNodeComponent("titleInput"),
     textInput: makeNodeComponent("textInput"),
     ticketBg: makeNodeComponent("ticketBg"),
-    svg: makeNodeComponent("svg"),
+    timeline: makeNodeComponent("timeline"),
 
     // Metadata about props expected for PlasmicDesignTicket
     internalVariantProps: PlasmicDesignTicket__VariantProps,

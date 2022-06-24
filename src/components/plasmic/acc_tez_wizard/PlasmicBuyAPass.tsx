@@ -31,10 +31,9 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Button from "../../Button"; // plasmic-import: UCG438gq_ly/component
+import Menu from "../../Menu"; // plasmic-import: Mbanvkt3Am/component
 import Checkbox from "../../Checkbox"; // plasmic-import: NK-xeF1iGEb/component
-
-import { useScreenVariants as useScreenVariantsvuY9FrfZklWci } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: vuY9frfZKLWci/globalVariant
+import Button from "../../Button"; // plasmic-import: UCG438gq_ly/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -56,11 +55,9 @@ export const PlasmicBuyAPass__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBuyAPass__OverridesType = {
   root?: p.Flex<"div">;
-  menu?: p.Flex<"div">;
-  acctez?: p.Flex<"h1">;
+  menu?: p.Flex<typeof Menu>;
   columns?: p.Flex<"div">;
   checkbox?: p.Flex<typeof Checkbox>;
-  freeBox?: p.Flex<"div">;
 };
 
 export interface DefaultBuyAPassProps {
@@ -81,10 +78,6 @@ function PlasmicBuyAPass__RenderFunc(props: {
   const $props = args;
   const $ctx = ph.useDataEnv?.() || {};
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsvuY9FrfZklWci()
-  });
-
   return (
     <React.Fragment>
       {}
@@ -104,46 +97,11 @@ function PlasmicBuyAPass__RenderFunc(props: {
             sty.root
           )}
         >
-          <div
+          <Menu
             data-plasmic-name={"menu"}
             data-plasmic-override={overrides.menu}
-            className={classNames(projectcss.all, sty.menu)}
-          >
-            <h1
-              data-plasmic-name={"acctez"}
-              data-plasmic-override={overrides.acctez}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.acctez
-              )}
-            >
-              {"AccTez "}
-            </h1>
-
-            {(
-              hasVariant(globalVariants, "screen", "mobileOnly") ? true : true
-            ) ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bDycv
-                )}
-              >
-                {"Access Control with Tezos"}
-              </div>
-            ) : null}
-
-            <Button
-              className={classNames("__wab_instance", sty.button__agwY1)}
-              color={"blue" as const}
-              shape={"rounded" as const}
-            >
-              {"Sync"}
-            </Button>
-          </div>
+            className={classNames("__wab_instance", sty.menu)}
+          />
 
           <div
             data-plasmic-name={"columns"}
@@ -249,12 +207,52 @@ function PlasmicBuyAPass__RenderFunc(props: {
                 </div>
               </Checkbox>
 
+              <div className={classNames(projectcss.all, sty.freeBox__a9Io2)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__aqhxG
+                  )}
+                >
+                  {"Price"}
+                </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__eJpWq
+                  )}
+                >
+                  {"\n20tez\n"}
+                </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kpz2
+                  )}
+                >
+                  {"or"}
+                </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jR0Fp
+                  )}
+                >
+                  {"\n$30\n"}
+                </div>
+              </div>
+
               <p.Stack
                 as={"div"}
-                data-plasmic-name={"freeBox"}
-                data-plasmic-override={overrides.freeBox}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox)}
+                className={classNames(projectcss.all, sty.freeBox__sl1Dz)}
               >
                 <Button
                   className={classNames("__wab_instance", sty.button__xfpKh)}
@@ -291,23 +289,19 @@ function PlasmicBuyAPass__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "menu", "acctez", "columns", "checkbox", "freeBox"],
-  menu: ["menu", "acctez"],
-  acctez: ["acctez"],
-  columns: ["columns", "checkbox", "freeBox"],
-  checkbox: ["checkbox"],
-  freeBox: ["freeBox"]
+  root: ["root", "menu", "columns", "checkbox"],
+  menu: ["menu"],
+  columns: ["columns", "checkbox"],
+  checkbox: ["checkbox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  menu: "div";
-  acctez: "h1";
+  menu: typeof Menu;
   columns: "div";
   checkbox: typeof Checkbox;
-  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -368,10 +362,8 @@ export const PlasmicBuyAPass = Object.assign(
   {
     // Helper components rendering sub-elements
     menu: makeNodeComponent("menu"),
-    acctez: makeNodeComponent("acctez"),
     columns: makeNodeComponent("columns"),
     checkbox: makeNodeComponent("checkbox"),
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicBuyAPass
     internalVariantProps: PlasmicBuyAPass__VariantProps,

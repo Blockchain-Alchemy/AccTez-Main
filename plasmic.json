@@ -213,6 +213,19 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "text-input"
+        },
+        {
+          "id": "Mbanvkt3Am",
+          "name": "Menu",
+          "type": "managed",
+          "projectId": "68wGqrWvUbUk9uG76N3xHk",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicMenu.tsx",
+          "importSpec": {
+            "modulePath": "Menu.tsx"
+          },
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicMenu.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
