@@ -3,10 +3,10 @@ import { PermissionScope } from "@airgap/beacon-sdk";
 import { useTezosContext } from "./useTezosContext";
 
 const useWallet = () => {
-  const {tezos, wallet, options, walletAddress, setWalletAddress} = useTezosContext()!;
+  const {wallet, options, walletAddress, setWalletAddress} = useTezosContext()!;
 
   const connectWallet = useCallback(() => {
-    wallet.client
+    return wallet.client
       .requestPermissions({
         network: {
           type: options.networkType,
@@ -19,8 +19,9 @@ const useWallet = () => {
       })
       .then((walletAddress: string) => {
         setWalletAddress(walletAddress);
+        return walletAddress;
       });
-  }, [tezos, wallet]);
+  }, [wallet, options, setWalletAddress]);
 
   const disconnectWallet = async (): Promise<void> => {
     setWalletAddress(undefined);
