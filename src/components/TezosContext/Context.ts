@@ -9,6 +9,8 @@ export interface TezosContextValue {
   options: NetworkOptions;
   walletAddress: string | undefined;
   setWalletAddress: (address: string | undefined) => void;
+  publicKey: string | undefined;
+  setPublicKey: (publicKey: string | undefined) => void;
 }
 
 export const TezosContext = React.createContext<TezosContextValue>({} as any);

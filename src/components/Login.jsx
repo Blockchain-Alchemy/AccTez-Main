@@ -2,9 +2,10 @@ import React from 'react';
 import { Button } from '@mantine/core';
 import useWallet from '../hooks/useWallet';
 import { createMessagePayload } from '../service/siwt';
+import { login } from '../service/http';
 
 const Login = () => {
-  const { requestSignPayload, connectWallet, walletAddress } = useWallet();
+  const { requestSignPayload, connectWallet, walletAddress, publicKey } = useWallet();
   const handleLogin = async () => {
     console.log('handleLogin', walletAddress)
 
@@ -13,6 +14,14 @@ const Login = () => {
 
     const signedPayload = await requestSignPayload(messagePayload)
     console.log('signedPayload', signedPayload)
+
+    const payload = {
+      pk: publicKey,
+      pkh: walletAddress,
+      message: messagePayload.payload,
+      signature: signedPayload.signature,
+    }
+    login(payload)
   }
 
   return (

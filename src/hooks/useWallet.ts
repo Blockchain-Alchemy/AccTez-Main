@@ -3,7 +3,14 @@ import { PermissionScope, RequestSignPayloadInput } from "@airgap/beacon-sdk";
 import { useTezosContext } from "./useTezosContext";
 
 const useWallet = () => {
-  const {wallet, options, walletAddress, setWalletAddress} = useTezosContext()!;
+  const {
+    wallet,
+    options,
+    walletAddress,
+    setWalletAddress,
+    publicKey,
+    setPublicKey,
+  } = useTezosContext()!;
 
   const connectWallet = useCallback(() => {
     return wallet.client
@@ -14,14 +21,13 @@ const useWallet = () => {
         },
         scopes: [PermissionScope.OPERATION_REQUEST, PermissionScope.SIGN],
       })
-      .then(() => {
-        return wallet.getPKH();
+      .then((permission: any) => {
+        console.log("permission", permission);
+        setPublicKey(permission.accountInfo.publicKey);
+        setWalletAddress(permission.address);
+        return permission.address;
       })
-      .then((walletAddress: string) => {
-        setWalletAddress(walletAddress);
-        return walletAddress;
-      });
-  }, [wallet, options, setWalletAddress]);
+  }, [wallet, options, setWalletAddress, setPublicKey]);
 
   const disconnectWallet = async (): Promise<void> => {
     setWalletAddress(undefined);
@@ -29,12 +35,13 @@ const useWallet = () => {
 
   const requestSignPayload = (messagePayload: RequestSignPayloadInput) => {
     return wallet.client.requestSignPayload(messagePayload);
-  }
+  };
 
   return {
     connectWallet,
     disconnectWallet,
     walletAddress,
+    publicKey,
     requestSignPayload,
   };
 };

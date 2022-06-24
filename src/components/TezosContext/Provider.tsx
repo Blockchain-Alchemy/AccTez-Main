@@ -11,8 +11,11 @@ export interface TezosProviderProps {
 }
 
 function TezosProvider({ options, children }: TezosProviderProps) {
-  const [walletAddress, setWalletAddress] = useState<string | undefined>(undefined);
-  
+  const [walletAddress, setWalletAddress] = useState<string | undefined>(
+    undefined
+  );
+  const [publicKey, setPublicKey] = useState<string | undefined>(undefined);
+
   const contextValue = useMemo(() => {
     const tezos = new TezosToolkit(options.rpc);
     const wallet = new BeaconWallet({
@@ -38,7 +41,15 @@ function TezosProvider({ options, children }: TezosProviderProps) {
   }, [options]);
 
   return (
-    <TezosContext.Provider value={{...contextValue, walletAddress, setWalletAddress}}>
+    <TezosContext.Provider
+      value={{
+        ...contextValue,
+        walletAddress,
+        setWalletAddress,
+        publicKey,
+        setPublicKey,
+      }}
+    >
       {children}
     </TezosContext.Provider>
   );

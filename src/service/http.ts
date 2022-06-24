@@ -56,3 +56,12 @@ export const createWalletToken = (walletAddress: string, tokenName: string, crea
       return res.data;
     });
 };
+
+export const login = (payload: any) => {
+  return axios
+    .post(`${BASE_URL}/api/wizard/login`, payload, config)
+    .then((res) => {
+      console.log("login", res.data);
+      return res.data;
+    });
+}
