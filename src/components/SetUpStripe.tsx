@@ -30,7 +30,7 @@ function SetUpStripe_(props: SetUpStripeProps, ref: HTMLElementRefOf<'div'>) {
       return;
     }
 
-    dispatch(updateLessonStateAction(1));
+    dispatch(updateLessonStateAction(2));
     history.push('/choosePasses');
   };
 

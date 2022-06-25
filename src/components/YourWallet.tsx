@@ -37,7 +37,7 @@ function YourWallet_(props: YourWalletProps, ref: HTMLElementRefOf<'div'>) {
       return;
     }
 
-    dispatch(updateLessonStateAction(0));
+    dispatch(updateLessonStateAction(1));
     history.push('/setupStripe');
   };
 

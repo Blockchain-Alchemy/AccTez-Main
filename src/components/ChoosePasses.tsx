@@ -62,7 +62,7 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<'div'>) {
     setupWizard(payload)
       .then((result) => {
         notification.success('setup', 'Congratelation');
-        dispatch(updateLessonStateAction(2));
+        dispatch(updateLessonStateAction(3));
         history.push('/main');
       })
       .catch((e) => {
