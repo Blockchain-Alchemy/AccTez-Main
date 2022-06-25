@@ -63,7 +63,7 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<'div'>) {
       .then((result) => {
         notification.success('setup', 'Congratelation');
         dispatch(updateLessonStateAction(3));
-        history.push('/main');
+        history.push('/');
       })
       .catch((e) => {
         console.error(e);
