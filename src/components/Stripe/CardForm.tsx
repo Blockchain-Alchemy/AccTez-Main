@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StripeCardElement } from '@stripe/stripe-js';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
@@ -34,6 +35,7 @@ const useOptions = () => {
 };
 
 const CardForm = () => {
+  const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
@@ -98,7 +100,7 @@ const CardForm = () => {
       const payload = {
         paymentIntent: paymentIntent.id,
         walletAddress,
-        tokenId: getTokenId(tokenName)
+        tokenName
       };
       http
         .createToken(payload)
@@ -107,6 +109,7 @@ const CardForm = () => {
             'stripe',
             `The ${tokenFullName} has been minted successfully`
           );
+          history.push('/');
         })
         .catch(() => {
           notification.fail('stripe', `Failed to mint token`);
