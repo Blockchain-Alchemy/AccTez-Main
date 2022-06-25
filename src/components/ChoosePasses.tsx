@@ -5,6 +5,7 @@ import {
   alertMessage,
   startNotification,
   updateErrorNotification,
+  hideNotification,
 } from "./Notification";
 import {
   setTokenCheckedStateAction,
@@ -65,6 +66,7 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
 
     setupWizard(payload)
       .then((result) => {
+        hideNotification("setup-wizard");
         dispatch(updateLessonStateAction(2));
         history.push("/main");
       })
