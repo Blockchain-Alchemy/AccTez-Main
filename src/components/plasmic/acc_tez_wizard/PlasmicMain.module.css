@@ -258,10 +258,10 @@
   padding: 8px;
 }
 .columns__f4YnG > :nth-child(2n + 1) {
-  width: calc((100% - 2 * 0px) * 4 / 12);
+  width: calc((100% - 2 * 0px) * 5 / 12);
 }
 .columns__f4YnG > :nth-child(2n + 2) {
-  width: calc((100% - 2 * 0px) * 8 / 12);
+  width: calc((100% - 2 * 0px) * 7 / 12);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .columns__f4YnG {

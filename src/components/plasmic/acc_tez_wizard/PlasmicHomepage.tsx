@@ -31,6 +31,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import Menu from "../../Menu"; // plasmic-import: Mbanvkt3Am/component
 import Button from "../../Button"; // plasmic-import: UCG438gq_ly/component
 import Timeline from "../../Timeline"; // plasmic-import: 0RHyvgnmPT/component
 
@@ -57,6 +58,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>("timeline");
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
+  menu?: p.Flex<typeof Menu>;
   columns?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
   text?: p.Flex<"div">;
@@ -104,6 +106,12 @@ function PlasmicHomepage__RenderFunc(props: {
             sty.root
           )}
         >
+          <Menu
+            data-plasmic-name={"menu"}
+            data-plasmic-override={overrides.menu}
+            className={classNames("__wab_instance", sty.menu)}
+          />
+
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
@@ -169,7 +177,8 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "columns", "h1", "text", "nextButton", "timeline"],
+  root: ["root", "menu", "columns", "h1", "text", "nextButton", "timeline"],
+  menu: ["menu"],
   columns: ["columns", "h1", "text", "nextButton", "timeline"],
   h1: ["h1"],
   text: ["text"],
@@ -181,6 +190,7 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  menu: typeof Menu;
   columns: "div";
   h1: "h1";
   text: "div";
@@ -245,6 +255,7 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    menu: makeNodeComponent("menu"),
     columns: makeNodeComponent("columns"),
     h1: makeNodeComponent("h1"),
     text: makeNodeComponent("text"),

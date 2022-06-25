@@ -19,25 +19,30 @@
   --mixin-u3dyNGuq2xxC_font-size: 72px;
   --mixin-u3dyNGuq2xxC_line-height: 1;
   --mixin-u3dyNGuq2xxC_letter-spacing: -4px;
+  --mixin-u3dyNGuq2xxC_white-space: pre-wrap;
   --mixin-XVnJ23IhnlV8_font-family: "Inter";
   --mixin-XVnJ23IhnlV8_color: #000000;
   --mixin-XVnJ23IhnlV8_font-size: 48px;
   --mixin-XVnJ23IhnlV8_font-weight: 700;
   --mixin-XVnJ23IhnlV8_letter-spacing: -1px;
   --mixin-XVnJ23IhnlV8_line-height: 1.1;
+  --mixin-XVnJ23IhnlV8_white-space: pre-wrap;
   --mixin-7Lj6fMAgTlKi_color: #0070f3;
+  --mixin-7Lj6fMAgTlKi_white-space: pre-wrap;
   --mixin-WpzSl_24lugy_font-family: "Inter";
   --mixin-WpzSl_24lugy_color: #000000;
   --mixin-WpzSl_24lugy_font-size: 32px;
   --mixin-WpzSl_24lugy_font-weight: 600;
   --mixin-WpzSl_24lugy_letter-spacing: -0.8px;
   --mixin-WpzSl_24lugy_line-height: 1.2;
+  --mixin-WpzSl_24lugy_white-space: pre-wrap;
   --mixin-wVkSoEey4xS-_font-family: "Inter";
   --mixin-wVkSoEey4xS-_color: #000000;
   --mixin-wVkSoEey4xS-_font-size: 24px;
   --mixin-wVkSoEey4xS-_font-weight: 600;
   --mixin-wVkSoEey4xS-_letter-spacing: -0.5px;
   --mixin-wVkSoEey4xS-_line-height: 1.3;
+  --mixin-wVkSoEey4xS-_white-space: pre-wrap;
   --mixin-oWry-I2A2H_o_background: linear-gradient(#f8f8f8, #f8f8f8);
   --mixin-oWry-I2A2H_o_border-bottom-color: #dddddd;
   --mixin-oWry-I2A2H_o_border-bottom-style: solid;
@@ -60,11 +65,13 @@
   --mixin-oWry-I2A2H_o_padding-left: 4px;
   --mixin-oWry-I2A2H_o_padding-right: 4px;
   --mixin-oWry-I2A2H_o_padding-top: 1px;
+  --mixin-oWry-I2A2H_o_white-space: pre-wrap;
   --mixin-iFbdNnF05sgL_border-left-color: #dddddd;
   --mixin-iFbdNnF05sgL_border-left-style: solid;
   --mixin-iFbdNnF05sgL_border-left-width: 3px;
   --mixin-iFbdNnF05sgL_color: #888888;
   --mixin-iFbdNnF05sgL_padding-left: 10px;
+  --mixin-iFbdNnF05sgL_white-space: pre-wrap;
   --mixin-XSFyHWNUgw9E_background: linear-gradient(#f8f8f8, #f8f8f8);
   --mixin-XSFyHWNUgw9E_border-bottom-color: #dddddd;
   --mixin-XSFyHWNUgw9E_border-bottom-style: solid;
@@ -87,6 +94,7 @@
   --mixin-XSFyHWNUgw9E_padding-left: 6px;
   --mixin-XSFyHWNUgw9E_padding-right: 6px;
   --mixin-XSFyHWNUgw9E_padding-top: 3px;
+  --mixin-XSFyHWNUgw9E_white-space: pre-wrap;
   --mixin-hcCQnedYLZC4_display: flex;
   --mixin-hcCQnedYLZC4_flex-direction: column;
   --mixin-hcCQnedYLZC4_align-items: stretch;
@@ -95,6 +103,7 @@
   --mixin-hcCQnedYLZC4_padding-left: 40px;
   --mixin-hcCQnedYLZC4_position: relative;
   --mixin-hcCQnedYLZC4_list-style-type: disc;
+  --mixin-hcCQnedYLZC4_white-space: pre-wrap;
   --mixin-raXHbApz9ss_p_display: flex;
   --mixin-raXHbApz9ss_p_flex-direction: column;
   --mixin-raXHbApz9ss_p_align-items: stretch;
@@ -103,18 +112,22 @@
   --mixin-raXHbApz9ss_p_padding-left: 40px;
   --mixin-raXHbApz9ss_p_position: relative;
   --mixin-raXHbApz9ss_p_list-style-type: decimal;
+  --mixin-raXHbApz9ss_p_white-space: pre-wrap;
   --mixin-fMRuLhC-dJDFe_font-family: "Inter";
   --mixin-fMRuLhC-dJDFe_color: #000000;
   --mixin-fMRuLhC-dJDFe_font-size: 20px;
   --mixin-fMRuLhC-dJDFe_font-weight: 600;
   --mixin-fMRuLhC-dJDFe_letter-spacing: -0.3px;
   --mixin-fMRuLhC-dJDFe_line-height: 1.5;
+  --mixin-fMRuLhC-dJDFe_white-space: pre-wrap;
   --mixin-cunnrFlAAyeHT_font-family: "Inter";
   --mixin-cunnrFlAAyeHT_color: #000000;
   --mixin-cunnrFlAAyeHT_font-size: 16px;
   --mixin-cunnrFlAAyeHT_font-weight: 600;
   --mixin-cunnrFlAAyeHT_line-height: 1.5;
+  --mixin-cunnrFlAAyeHT_white-space: pre-wrap;
   --mixin-6Sl0pUEUy9DAw_color: #3291ff;
+  --mixin-6Sl0pUEUy9DAw_white-space: pre-wrap;
 }
 
 :where(.all) {

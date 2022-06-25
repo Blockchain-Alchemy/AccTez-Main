@@ -37,8 +37,8 @@ function WizardState(state = initialState, action: any) {
   switch (action.type) {
     case Actions.UPDATE_LESSON_STATE:
       if (
-        action.timeline > state.timeline &&
-        action.timeline - state.timeline === 1
+        action.value > state.timeline &&
+        action.value - state.timeline === 1
       ) {
         return { ...state, timeline: action.value };
       }
