@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
@@ -13,7 +13,7 @@ import {
   addTokenToCheckoutAction,
   setTokenPriceListAction
 } from '../store/actions';
-import * as notification from './Notification';
+//import * as notification from './Notification';
 
 export interface MainProps extends DefaultMainProps {}
 
@@ -43,18 +43,27 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
     }
   }, [walletAddress, connectWallet]);
 
-  const buyToken = (tokenName: string) => {
-    dispatch(addTokenToCheckoutAction(tokenName));
-    history.push('/checkout');
-  };
-
-  const isOwnToken = (tokenName: string) => {
+  const isOwnToken = useCallback((tokenName: string) => {
     const token = walletTokens.find((i) => i.name === tokenName);
     if (token) {
       const expired = moment(token.expired);
       return moment().diff(expired) <= 0;
     }
     return false;
+  }, [walletTokens]);
+
+  const hasToken = useMemo(() => {
+    return (
+      isOwnToken('dayPass') ||
+      isOwnToken('weeklyPass') ||
+      isOwnToken('yearlyPass') ||
+      isOwnToken('specialPass')
+    );
+  }, [isOwnToken]);
+
+  const buyToken = (tokenName: string) => {
+    dispatch(addTokenToCheckoutAction(tokenName));
+    history.push('/checkout');
   };
 
   return (
@@ -84,6 +93,9 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
       }}
       buyYearlyPassButton={{
         onClick: () => buyToken('yearlyPass')
+      }}
+      addTicketToAppleWallet={{
+        isDisabled: !hasToken
       }}
       accessContentButton={{
         onClick: () => history.push('/access')
