@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const BASE_URL = "http://localhost:5000";
-  //"https://pixl-server.herokuapp.com";
-  //"http://localhost:5000";
-  //"https://pixl-server.herokuapp.com";
+//"https://pixl-server.herokuapp.com";
+//"http://localhost:5000";
+//"https://pixl-server.herokuapp.com";
 
 const config = {
   headers: {
@@ -12,13 +12,11 @@ const config = {
 };
 
 export const getWizard = () => {
-  return axios
-    .get(`${BASE_URL}/api/wizard`, config)
-    .then((res) => {
-      console.log("getWizard", res.data);
-      return res.data;
-    });
-}
+  return axios.get(`${BASE_URL}/api/wizard`, config).then((res) => {
+    console.log("getWizard", res.data);
+    return res.data;
+  });
+};
 
 export const setupWizard = (payload: any) => {
   return axios.post(`${BASE_URL}/api/wizard`, payload, config).then((res) => {
@@ -28,12 +26,10 @@ export const setupWizard = (payload: any) => {
 };
 
 export const getTokenPrices = () => {
-  return axios
-    .get(`${BASE_URL}/api/wizard/prices`, config)
-    .then((res) => {
-      console.log("getTokenPrices", res.data);
-      return res.data;
-    });
+  return axios.get(`${BASE_URL}/api/wizard/prices`, config).then((res) => {
+    console.log("getTokenPrices", res.data);
+    return res.data;
+  });
 };
 
 export const getWalletTokens = (walletAddress: string) => {
@@ -45,12 +41,16 @@ export const getWalletTokens = (walletAddress: string) => {
     });
 };
 
-export const createWalletToken = (walletAddress: string, tokenName: string, createdAt: Date) => {
+export const createWalletToken = (
+  walletAddress: string,
+  tokenName: string,
+  createdAt: Date
+) => {
   const payload = {
     walletAddress,
     tokenName,
     createdAt,
-  }
+  };
   return axios
     .post(`${BASE_URL}/api/wizard/wallet/tokens`, payload, config)
     .then((res) => {
@@ -66,17 +66,27 @@ export const login = (payload: any) => {
       console.log("login", res.data);
       return res.data;
     });
-}
+};
 
-export const createPaymentIntent = () => {
+export const createPaymentIntent = (tokenName: string) => {
   const payload = {
     paymentMethodType: "card",
     currency: "usd",
-  }
+    tokenName,
+  };
   return axios
     .post(`${BASE_URL}/api/wizard/create-payment-intent`, payload, config)
     .then((res) => {
-      console.log("createPaymentIntent", res.data);
-      return res.data;
+      console.log("createPaymentIntent", res.data.data);
+      return res.data.data;
     });
-}
+};
+
+export const createToken = (payload: any) => {
+  return axios
+    .post(`${BASE_URL}/api/wizard/mint`, payload, config)
+    .then((res) => {
+      console.log("createToken", res.data.data);
+      return res.data.data;
+    });
+};
