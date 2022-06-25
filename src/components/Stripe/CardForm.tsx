@@ -5,7 +5,7 @@ import { StripeCardElement } from '@stripe/stripe-js';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import useResponsiveFontSize from '../../hooks/useResponsiveFontSize';
 import * as http from '../../service/http';
-import { getTokenFullName, getTokenId } from '../../utils';
+import { getTokenFullName } from '../../utils';
 import * as notification from '../Notification';
 import useWallet from '../../hooks/useWallet';
 
@@ -54,68 +54,66 @@ const CardForm = () => {
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
-      //addMessage("Stripe.js has not yet loaded.");
       notification.error('Stripe', 'Stripe.js has not yet loaded.');
       return;
     }
 
     notification.start('stripe', 'Purchase', 'Purchase token ...');
 
-    const { error: backendError, clientSecret } =
-      await http.createPaymentIntent(tokenName);
-    if (backendError) {
-      console.log(backendError?.message);
-      notification.close('stripe');
-      return;
-    }
-    console.log('Client secret returned');
+    try {
+      const { error: backendError, clientSecret } =
+        await http.createPaymentIntent(tokenName);
+      if (backendError) {
+        console.log(backendError?.message);
+        notification.close('stripe');
+        return;
+      }
+      console.log('Client secret returned');
 
-    const { error: stripeError, paymentIntent } =
-      await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: elements.getElement(CardElement) as StripeCardElement,
-          billing_details: {
-            name: event.target.name.value
-          },
-          metadata: {
-            address: event.target.address.value
+      const { error: stripeError, paymentIntent } =
+        await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: elements.getElement(CardElement) as StripeCardElement,
+            billing_details: {
+              name: event.target.name.value
+            },
+            metadata: {
+              address: event.target.address.value
+            }
           }
-        }
-      });
+        });
 
-    if (stripeError) {
-      // Show error to your customer (e.g., insufficient funds)
-      console.log(stripeError.message);
-      notification.close('stripe');
-      return;
-    }
+      if (stripeError) {
+        console.log(stripeError.message);
+        notification.close('stripe');
+        return;
+      }
 
-    console.log('paymentIntent', paymentIntent);
-    console.log(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
+      console.log('paymentIntent', paymentIntent);
+      console.log(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
 
-    if (paymentIntent.status === 'succeeded') {
+      if (paymentIntent.status !== 'succeeded') {
+        notification.fail('stripe', 'Failed to Payment');
+        return;
+      }
+
       notification.update('stripe', 'Mint token ...');
-      const payload = {
+
+      await http.createToken({
         paymentIntent: paymentIntent.id,
         walletAddress,
         tokenName
-      };
-      http
-        .createToken(payload)
-        .then(() => {
-          notification.success(
-            'stripe',
-            `The ${tokenFullName} has been minted successfully`
-          );
-          history.push('/');
-        })
-        .catch(() => {
-          notification.fail('stripe', `Failed to mint token`);
-        });
-    } else {
-      notification.fail('stripe', 'Failed to Payment');
+      });
+
+      notification.success(
+        'stripe',
+        `The ${tokenFullName} has been minted successfully`
+      );
+
+      history.push('/');
+    } catch (e) {
+      console.error(e);
+      notification.fail('stripe', 'Failed to purchase token');
     }
   };
 

@@ -48,13 +48,12 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
     history.push('/checkout');
   };
 
-  const navigateTokenCheckPage = (e: any, token: string) => {
-    e.preventDefault();
-    if (!walletAddress) {
+  const accessContent = () => {
+    /*if (!walletAddress) {
       notification.error('Wallet', 'Please connect your wallet');
       return;
     }
-    history.push(token);
+    history.push(token);*/
   };
 
   const isOwnToken = (tokenName: string) => {
@@ -94,14 +93,8 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
       buyYearlyPassButton={{
         onClick: () => buyToken('yearlyPass')
       }}
-      dayPassLink={{
-        onClick: (e) => navigateTokenCheckPage(e, '/dayPass')
-      }}
-      weeklyPassLink={{
-        onClick: (e) => navigateTokenCheckPage(e, '/weeklyPass')
-      }}
-      yearlyPassLink={{
-        onClick: (e) => navigateTokenCheckPage(e, '/yearlyPass')
+      accessContentButton={{
+        onClick: () => accessContent()
       }}
     />
   );
