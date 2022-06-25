@@ -171,15 +171,17 @@ function PlasmicAccess__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.column___9SOat)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wMxe1
-                )}
-              >
-                {'Buy a Pass'}
-              </div>
+              {true ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__wMxe1
+                  )}
+                >
+                  {'Buy a Pass'}
+                </div>
+              ) : null}
             </p.Stack>
 
             {true ? (

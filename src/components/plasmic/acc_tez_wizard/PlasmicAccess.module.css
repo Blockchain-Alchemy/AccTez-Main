@@ -140,6 +140,7 @@
   font-size: 26px;
   font-weight: 700;
   min-width: 0;
+  display: none;
 }
 .column__yeUjN {
   flex-direction: column;
