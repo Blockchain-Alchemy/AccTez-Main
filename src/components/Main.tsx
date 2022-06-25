@@ -7,8 +7,8 @@ import {
 } from "./plasmic/acc_tez_wizard/PlasmicMain";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import useWallet from "../hooks/useWallet";
-import { getWalletTokens } from "../service/http";
-import { addTokenToCheckoutAction } from "../store/actions";
+import * as http from "../service/http";
+import { addTokenToCheckoutAction, setTokenPriceListAction } from "../store/actions";
 import { alertMessage } from "./Notification";
 
 export interface MainProps extends DefaultMainProps {}
@@ -20,10 +20,18 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
   const [walletTokens, setWalletTokens] = useState<any[]>([]);
 
   useEffect(() => {
+    http.getTokenPrices().then((res: any) => {
+      const prices = res.data;
+      console.log("Token Prices", prices);
+      dispatch(setTokenPriceListAction(prices));
+    });
+  }, [dispatch, walletAddress]);
+
+  useEffect(() => {
     if (walletAddress) {
-      getWalletTokens(walletAddress).then((res: any) => {
+      http.getWalletTokens(walletAddress).then((res: any) => {
         const tokens = res.data;
-        console.log("tokens", tokens);
+        console.log("My Tokens", tokens);
         tokens && setWalletTokens(tokens);
       });
     } else {

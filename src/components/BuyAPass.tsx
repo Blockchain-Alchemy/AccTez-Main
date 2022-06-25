@@ -22,10 +22,9 @@ export interface BuyAPassProps extends DefaultBuyAPassProps {}
 function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
   const history = useHistory();
   const wizardState = useSelector((state: any) => state.WizardState);
-  const tokenName = wizardState.checkout;
+  const { checkout: tokenName, tokenPrices } = wizardState;
   const { walletAddress } = useWallet();
   const { mintToken } = useDayPass();
-  const [tokenPrices, setTokenPrices] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -35,16 +34,8 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
     }
   }, [history, tokenName])
 
-  useEffect(() => {
-    http.getTokenPrices().then((res: any) => {
-      const prices = res.data;
-      console.log("prices", prices);
-      prices && setTokenPrices(prices);
-    });
-  }, [walletAddress]);
-
   const findToken = (tokenName: string) => {
-    return tokenPrices?.find((token) => token.name === tokenName);
+    return tokenPrices?.find((token: any) => token.name === tokenName);
   };
 
   const getTokenPrice = () => {

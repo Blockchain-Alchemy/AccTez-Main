@@ -31,6 +31,7 @@ const initialState = {
     price: 0,
   },
   checkout: "",
+  tokenPrices: [],
 };
 
 function WizardState(state = initialState, action: any) {
@@ -87,6 +88,12 @@ function WizardState(state = initialState, action: any) {
         };
       }
       return state;
+    }
+
+    case Actions.SET_TOKEN_PRICE_LIST: {
+      return {
+        ...state, tokenPrices: action.value
+      }
     }
 
     case Actions.ADD_TOKEN_TO_CHECKOUT:
