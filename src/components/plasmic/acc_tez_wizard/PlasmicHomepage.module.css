@@ -26,6 +26,7 @@
 .menu:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+  display: none;
 }
 .columns {
   display: flex;

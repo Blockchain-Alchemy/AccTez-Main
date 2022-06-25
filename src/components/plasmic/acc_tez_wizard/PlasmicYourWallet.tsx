@@ -31,6 +31,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import Menu from "../../Menu"; // plasmic-import: Mbanvkt3Am/component
 import TextInput from "../../TextInput"; // plasmic-import: UzcYFC-NJii/component
 import Button from "../../Button"; // plasmic-import: UCG438gq_ly/component
 import Timeline from "../../Timeline"; // plasmic-import: 0RHyvgnmPT/component
@@ -58,6 +59,7 @@ export const PlasmicYourWallet__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicYourWallet__OverridesType = {
   root?: p.Flex<"div">;
+  menu?: p.Flex<typeof Menu>;
   columns?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
   link?: p.Flex<"a">;
@@ -108,6 +110,12 @@ function PlasmicYourWallet__RenderFunc(props: {
             sty.root
           )}
         >
+          <Menu
+            data-plasmic-name={"menu"}
+            data-plasmic-override={overrides.menu}
+            className={classNames("__wab_instance", sty.menu)}
+          />
+
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
@@ -268,6 +276,7 @@ function PlasmicYourWallet__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "menu",
     "columns",
     "h1",
     "link",
@@ -278,6 +287,7 @@ const PlasmicDescendants = {
     "img",
     "timeline"
   ],
+  menu: ["menu"],
   columns: [
     "columns",
     "h1",
@@ -303,6 +313,7 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  menu: typeof Menu;
   columns: "div";
   h1: "h1";
   link: "a";
@@ -371,6 +382,7 @@ export const PlasmicYourWallet = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    menu: makeNodeComponent("menu"),
     columns: makeNodeComponent("columns"),
     h1: makeNodeComponent("h1"),
     link: makeNodeComponent("link"),

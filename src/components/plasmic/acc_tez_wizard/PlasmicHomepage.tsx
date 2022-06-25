@@ -106,11 +106,13 @@ function PlasmicHomepage__RenderFunc(props: {
             sty.root
           )}
         >
-          <Menu
-            data-plasmic-name={"menu"}
-            data-plasmic-override={overrides.menu}
-            className={classNames("__wab_instance", sty.menu)}
-          />
+          {true ? (
+            <Menu
+              data-plasmic-name={"menu"}
+              data-plasmic-override={overrides.menu}
+              className={classNames("__wab_instance", sty.menu)}
+            />
+          ) : null}
 
           <div
             data-plasmic-name={"columns"}
