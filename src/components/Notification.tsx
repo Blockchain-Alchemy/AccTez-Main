@@ -30,6 +30,7 @@ export const update = (id: string, message: string) => {
   Notification.updateNotification({
     id: id,
     message: message,
+    loading: true,
     autoClose: false
   });
 };
