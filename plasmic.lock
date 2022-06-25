@@ -222,6 +222,16 @@
           "checksum": "a0de1c8e363cd85680364d6d20020282"
         },
         {
+          "type": "renderModule",
+          "assetId": "buB64hVhqri",
+          "checksum": "292b102f9a8d55bed5bdf3899961f07c"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "buB64hVhqri",
+          "checksum": "292b102f9a8d55bed5bdf3899961f07c"
+        },
+        {
           "assetId": "68wGqrWvUbUk9uG76N3xHk",
           "type": "projectCss",
           "checksum": "74ef1783135203aeb47a12c9fd683f88"

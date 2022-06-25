@@ -10,8 +10,8 @@ import ChoosePasses from "./components/ChoosePasses";
 import Main from "./components/Main";
 import BuyAPass from "./components/BuyAPass";
 import Login from "./components/Login";
-import PassTokenCheck from "./components/PassTokenCheck";
 import StripePayment from "./components/Stripe";
+import Access from "./components/Access";
 
 function App() {
   return (
@@ -24,17 +24,8 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/dayPass">
-            <PassTokenCheck token="dayPass" />
-          </Route>
-          <Route path="/weeklyPass">
-            <PassTokenCheck token="weeklyPass" />
-          </Route>
-          <Route path="/yearlyPass">
-            <PassTokenCheck token="yearlyPass" />
-          </Route>
-          <Route path="/specialPass">
-            <PassTokenCheck token="specialPass" />
+          <Route path="/access">
+            <Access />
           </Route>
           <Route path="/wizard" exact>
             <Home />

@@ -226,6 +226,19 @@
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicMenu.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "buB64hVhqri",
+          "name": "Access",
+          "type": "managed",
+          "projectId": "68wGqrWvUbUk9uG76N3xHk",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicAccess.tsx",
+          "importSpec": {
+            "modulePath": "Access.tsx"
+          },
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicAccess.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
         }
       ],
       "icons": [

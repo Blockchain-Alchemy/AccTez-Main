@@ -48,14 +48,6 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
     history.push('/checkout');
   };
 
-  const accessContent = () => {
-    /*if (!walletAddress) {
-      notification.error('Wallet', 'Please connect your wallet');
-      return;
-    }
-    history.push(token);*/
-  };
-
   const isOwnToken = (tokenName: string) => {
     const token = walletTokens.find((i) => i.name === tokenName);
     if (token) {
@@ -94,7 +86,7 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
         onClick: () => buyToken('yearlyPass')
       }}
       accessContentButton={{
-        onClick: () => accessContent()
+        onClick: () => history.push('/access')
       }}
     />
   );
