@@ -49,12 +49,11 @@ const CardForm = () => {
 
     const { error: backendError, clientSecret } = await http.createPaymentIntent();
     if (backendError) {
-      console.log(backendError.message);
+      console.log(backendError?.message);
       //addMessage(backendError.message);
       return;
     }
-
-    // addMessage('Client secret returned');
+    console.log('Client secret returned');
 
     const { error: stripeError, paymentIntent } =
       await stripe.confirmCardPayment(clientSecret, {

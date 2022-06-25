@@ -86,6 +86,11 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
     }
   };
 
+  const purchaseWithStripe = () => {
+    console.log("purchaseWithStripe");
+    history.push('/stripe');
+  }
+
   return (
     <PlasmicBuyAPass
       root={{ ref }}
@@ -99,6 +104,7 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
       }}
       purchaseWithStripeButton={{
         isDisabled: loading,
+        onClick: () => purchaseWithStripe(),
       }}
     />
   );
