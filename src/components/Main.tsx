@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import moment from "moment";
 import {
   PlasmicMain,
   DefaultMainProps,
@@ -53,21 +54,30 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
     history.push(token);
   };
 
+  const isOwnToken = (tokenName: string) => {
+    const token = walletTokens.find((i) => i.name === tokenName);
+    if (token) {
+      const expired = moment(token.expired);
+      return (moment().diff(expired) <= 0)
+    }
+    return false;
+  }
+
   return (
     <PlasmicMain
       root={{ ref }}
       {...props}
       ownedSpecialPass={{
-        isChecked: !!walletTokens.find((i) => i.name === "specialPass"),
+        isChecked: !!isOwnToken("specialPass"),
       }}
       ownedDayPass={{
-        isChecked: !!walletTokens.find((i) => i.name === "dayPass"),
+        isChecked: !!isOwnToken("dayPass"),
       }}
       ownedWeeklyPass={{
-        isChecked: !!walletTokens.find((i) => i.name === "weeklyPass"),
+        isChecked: !!isOwnToken("weeklyPass"),
       }}
       ownedYearlyPass={{
-        isChecked: !!walletTokens.find((i) => i.name === "yearlyPass"),
+        isChecked: !!isOwnToken("yearlyPass"),
       }}
       buySpecialPassButton={{
         onClick: () => buyToken("specialPass"),
