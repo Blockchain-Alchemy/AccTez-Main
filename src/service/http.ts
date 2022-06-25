@@ -67,3 +67,16 @@ export const login = (payload: any) => {
       return res.data;
     });
 }
+
+export const createPaymentIntent = () => {
+  const payload = {
+    paymentMethodType: "card",
+    currency: "usd",
+  }
+  return axios
+    .post(`${BASE_URL}/api/wizard/create-payment-intent`, payload, config)
+    .then((res) => {
+      console.log("createPaymentIntent", res.data);
+      return res.data;
+    });
+}

@@ -11,12 +11,16 @@ import Main from "./components/Main";
 import BuyAPass from "./components/BuyAPass";
 import Login from "./components/Login";
 import PassTokenCheck from "./components/PassTokenCheck";
+import StripePayment from "./components/Stripe";
 
 function App() {
   return (
     <PlasmicRootProvider loader={PLASMIC}>
       <BrowserRouter>
         <Switch>
+          <Route path="/stripe">
+            <StripePayment />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>

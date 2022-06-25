@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-import { Center, Loader } from "@mantine/core";
+import { Loader } from "@mantine/core";
 import { getTokenFullName, getTokenId } from "../utils";
 import useDayPass from "../hooks/useDayPass";
 import { DayPassToken } from "../config";
@@ -8,14 +8,6 @@ import { DayPassToken } from "../config";
 interface PassTokenCheckProps {
   token: string;
 }
-
-const center = {
-  position: "absolute",
-  left: "50%",
-  top: "50%",
-  transform: "translate(-50%, -50%)",
-  padding: "10px",
-} as any;
 
 const PassTokenCheck = ({ token }: PassTokenCheckProps) => {
   const { getTokenTime } = useDayPass();
@@ -48,12 +40,8 @@ const PassTokenCheck = ({ token }: PassTokenCheckProps) => {
 
   return (
     <>
-      <div style={center}>
-        {loading && (
-          <Center>
-            <Loader variant="bars" />
-          </Center>
-        )}
+      <div className="center">
+        {loading && <Loader variant="bars" />}
         {!loading && access && (
           <>
             <div>Congratulation</div>
