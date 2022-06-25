@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://pixl-server.herokuapp.com";
-  //"http://localhost:5000";
+const BASE_URL = "http://localhost:5000";
   //"https://pixl-server.herokuapp.com";
 
 const config = {
@@ -53,7 +52,7 @@ export const createWalletToken = (walletAddress: string, tokenName: string, crea
   return axios
     .post(`${BASE_URL}/api/wizard/wallet/tokens`, payload, config)
     .then((res) => {
-      console.log("getWalletTokens", res.data);
+      console.log("createWalletToken", res.data);
       return res.data;
     });
 };

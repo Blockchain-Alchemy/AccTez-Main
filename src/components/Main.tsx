@@ -16,7 +16,7 @@ export interface MainProps extends DefaultMainProps {}
 function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { walletAddress } = useWallet();
+  const { walletAddress, connectWallet } = useWallet();
   const [walletTokens, setWalletTokens] = useState<any[]>([]);
 
   useEffect(() => {
@@ -26,8 +26,10 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
         console.log("tokens", tokens);
         tokens && setWalletTokens(tokens);
       });
+    } else {
+      connectWallet()
     }
-  }, [walletAddress]);
+  }, [walletAddress, connectWallet]);
 
   const buyToken = (tokenName: string) => {
     dispatch(addTokenToCheckoutAction(tokenName));
