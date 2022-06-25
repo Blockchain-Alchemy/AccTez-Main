@@ -21,8 +21,8 @@ export interface BuyAPassProps extends DefaultBuyAPassProps {}
 
 function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
   const history = useHistory();
-  const wizardState = useSelector((state: any) => state.WizardState);
-  const { checkout: tokenName, tokenPrices } = wizardState;
+  const mainState = useSelector((state: any) => state.MainState);
+  const { checkout: tokenName, tokenPrices } = mainState;
   const { walletAddress } = useWallet();
   const { mintToken } = useDayPass();
   const [loading, setLoading] = useState(false);

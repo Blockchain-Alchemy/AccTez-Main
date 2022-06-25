@@ -3,6 +3,8 @@ import { Center, Loader } from "@mantine/core";
 import { getWizard } from "../service/http";
 import Main from "./Main";
 import Homepage from "./Homepage";
+import { useDispatch } from "react-redux";
+import { setWizardSettingAction } from "../store/actions";
 
 const center = {
   position: "absolute",
@@ -13,12 +15,14 @@ const center = {
 } as any;
 
 const WizardLoader = () => {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [wizard, setWizard] = useState(null);
 
   useEffect(() => {
     getWizard().then((res: any) => {
       const wizard = res.data;
+      dispatch(setWizardSettingAction(wizard));
       setWizard(wizard);
       setLoading(false);
     })
@@ -26,7 +30,7 @@ const WizardLoader = () => {
       setWizard(null);
       setLoading(false);
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
