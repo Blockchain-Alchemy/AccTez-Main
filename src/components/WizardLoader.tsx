@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Loader } from "@mantine/core";
-import { getWizard } from "../service/http";
-import Main from "./Main";
-import Homepage from "./Homepage";
-import { useDispatch } from "react-redux";
-import { setWizardSettingAction } from "../store/actions";
+import React, { useEffect, useState } from 'react';
+import { Loader } from '@mantine/core';
+import { getWizard } from '../service/http';
+import Main from './Main';
+import Homepage from './Homepage';
+import { useDispatch } from 'react-redux';
+import { setWizardSettingAction } from '../store/actions';
 
 const WizardLoader = () => {
   const dispatch = useDispatch();

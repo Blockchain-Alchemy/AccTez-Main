@@ -1,25 +1,20 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import {
   PlasmicBuyAPass,
-  DefaultBuyAPassProps,
-} from "./plasmic/acc_tez_wizard/PlasmicBuyAPass";
-import { HTMLElementRefOf } from "@plasmicapp/react-web";
-import * as http from "../service/http";
-import useWallet from "../hooks/useWallet";
-import {
-  alertMessage,
-  startNotification,
-  updateSuccessNotification,
-  updateErrorNotification,
-} from "./Notification";
-import useDayPass from "../hooks/useDayPass";
-import { getTokenFullName, getTokenId } from "../utils";
+  DefaultBuyAPassProps
+} from './plasmic/acc_tez_wizard/PlasmicBuyAPass';
+import { HTMLElementRefOf } from '@plasmicapp/react-web';
+import * as http from '../service/http';
+import useWallet from '../hooks/useWallet';
+import * as notification from './Notification';
+import useDayPass from '../hooks/useDayPass';
+import { getTokenFullName, getTokenId } from '../utils';
 
 export interface BuyAPassProps extends DefaultBuyAPassProps {}
 
-function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
+function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<'div'>) {
   const history = useHistory();
   const mainState = useSelector((state: any) => state.MainState);
   const { checkout: tokenName, tokenPrices } = mainState;
@@ -28,11 +23,11 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log('tokenName', tokenName)
+    console.log('tokenName', tokenName);
     if (!tokenName) {
-      history.push("/");
+      history.push('/');
     }
-  }, [history, tokenName])
+  }, [history, tokenName]);
 
   const findToken = (tokenName: string) => {
     return tokenPrices?.find((token: any) => token.name === tokenName);
@@ -53,21 +48,21 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
   }, [walletAddress]);
 
   const purchaseWithTezos = () => {
-    console.log("purchaseWithTezos");
+    console.log('purchaseWithTezos');
     if (!isConnected) {
-      alertMessage("Wallet", "Please connect your wallet");
+      notification.error('Wallet', 'Please connect your wallet');
       return;
     }
 
     const price = getTokenTezos();
     if (price <= 0) {
-      alertMessage("Wallet", "Invalid Token Price");
+      notification.error('Wallet', 'Invalid Token Price');
       return;
     }
 
     if (walletAddress) {
       setLoading(true);
-      startNotification("mintToken", "Purchase", "Purchase token with tezos...");
+      notification.start('mint', 'Purchase', 'Purchase token with tezos...');
 
       const tokenId = getTokenId(tokenName);
       mintToken(tokenId, price)
@@ -75,21 +70,21 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
           return http.createWalletToken(walletAddress, tokenName, new Date());
         })
         .then(() => {
-          updateSuccessNotification("mintToken", "Success to purchase token");
+          notification.success('mint', 'Success to purchase token');
           history.push('/');
         })
         .catch((e) => {
           console.error(e);
-          updateErrorNotification("mintToken", "Failed to purchase token!");
+          notification.fail('mint', 'Failed to purchase token!');
         })
-        .finally(() => setLoading(false))
+        .finally(() => setLoading(false));
     }
   };
 
   const purchaseWithStripe = () => {
-    console.log("purchaseWithStripe");
+    console.log('purchaseWithStripe');
     history.push('/stripe');
-  }
+  };
 
   return (
     <PlasmicBuyAPass
@@ -100,11 +95,11 @@ function BuyAPass_(props: BuyAPassProps, ref: HTMLElementRefOf<"div">) {
       priceTezosText={<>{getTokenTezos()} tez</>}
       purchaseWithTezosButton={{
         isDisabled: !isConnected || loading,
-        onClick: () => purchaseWithTezos(),
+        onClick: () => purchaseWithTezos()
       }}
       purchaseWithStripeButton={{
         isDisabled: loading,
-        onClick: () => purchaseWithStripe(),
+        onClick: () => purchaseWithStripe()
       }}
     />
   );

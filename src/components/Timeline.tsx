@@ -1,16 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Timeline as ManTimeline, Text, Title, /*Group,*/ ScrollArea } from '@mantine/core';
+import {
+  Timeline as ManTimeline,
+  Text,
+  Title,
+  ScrollArea
+} from '@mantine/core';
 import {
   PlasmicTimeline,
   DefaultTimelineProps
-} from "./plasmic/acc_tez_wizard/PlasmicTimeline";
-import { HTMLElementRefOf } from "@plasmicapp/react-web";
+} from './plasmic/acc_tez_wizard/PlasmicTimeline';
+import { HTMLElementRefOf } from '@plasmicapp/react-web';
 import Recipes from './lessons.json';
 
 export interface TimelineProps extends DefaultTimelineProps {}
 
-function Timeline_(props: TimelineProps, ref: HTMLElementRefOf<"div">) {
+function Timeline_(props: TimelineProps, ref: HTMLElementRefOf<'div'>) {
   const lessonState = useSelector((state: any) => state.WizardState);
   const viewport = useRef<HTMLDivElement>(null);
 
@@ -18,14 +23,18 @@ function Timeline_(props: TimelineProps, ref: HTMLElementRefOf<"div">) {
     if (viewport.current) {
       viewport.current.scrollTo({ top: top, behavior: 'smooth' });
     }
-  }
+  };
 
   useEffect(() => {
     lessonState.timeline >= 4 && scrollTo(lessonState.timeline * 70);
-  }, [lessonState.timeline])
+  }, [lessonState.timeline]);
 
   const timelineView = () => (
-    <ScrollArea className="project-view" scrollbarSize={0} viewportRef={viewport}>
+    <ScrollArea
+      className="project-view"
+      scrollbarSize={0}
+      viewportRef={viewport}
+    >
       {/* <Title align="center" order={3}>
         Recipes
       </Title>
@@ -41,7 +50,9 @@ function Timeline_(props: TimelineProps, ref: HTMLElementRefOf<"div">) {
       <ManTimeline active={lessonState.timeline}>
         {Recipes.map((item, index) => (
           <ManTimeline.Item key={index} title={item.text}>
-            <Text color="dimmed" size="sm">{item.hint}</Text>
+            <Text color="dimmed" size="sm">
+              {item.hint}
+            </Text>
           </ManTimeline.Item>
         ))}
       </ManTimeline>

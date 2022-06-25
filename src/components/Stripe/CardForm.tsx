@@ -1,18 +1,12 @@
-import React, { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { StripeCardElement } from "@stripe/stripe-js";
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import useResponsiveFontSize from "../../hooks/useResponsiveFontSize";
-import * as http from "../../service/http";
-import { getTokenFullName, getTokenId } from "../../utils";
-import {
-  alertMessage,
-  hideNotification,
-  startNotification,
-  updateErrorNotification,
-  updateSuccessNotification,
-} from "../Notification";
-import useWallet from "../../hooks/useWallet";
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { StripeCardElement } from '@stripe/stripe-js';
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import useResponsiveFontSize from '../../hooks/useResponsiveFontSize';
+import * as http from '../../service/http';
+import { getTokenFullName, getTokenId } from '../../utils';
+import * as notification from '../Notification';
+import useWallet from '../../hooks/useWallet';
 
 const useOptions = () => {
   const fontSize = useResponsiveFontSize();
@@ -21,17 +15,17 @@ const useOptions = () => {
       style: {
         base: {
           fontSize,
-          color: "#424770",
-          letterSpacing: "0.025em",
-          fontFamily: "Source Code Pro, monospace",
-          "::placeholder": {
-            color: "#aab7c4",
-          },
+          color: '#424770',
+          letterSpacing: '0.025em',
+          fontFamily: 'Source Code Pro, monospace',
+          '::placeholder': {
+            color: '#aab7c4'
+          }
         },
         invalid: {
-          color: "#9e2146",
-        },
-      },
+          color: '#9e2146'
+        }
+      }
     }),
     [fontSize]
   );
@@ -51,7 +45,7 @@ const CardForm = () => {
     if (tokenName) {
       return getTokenFullName(tokenName);
     }
-    return "Token";
+    return 'Token';
   }, [tokenName]);
 
   const handleSubmit = async (event: any) => {
@@ -61,64 +55,64 @@ const CardForm = () => {
       // Stripe.js has not loaded yet. Make sure to disable
       // form submission until Stripe.js has loaded.
       //addMessage("Stripe.js has not yet loaded.");
-      alertMessage("Stripe", "Stripe.js has not yet loaded.");
+      notification.error('Stripe', 'Stripe.js has not yet loaded.');
       return;
     }
 
-    startNotification("stripe", "Purchase", "Purchase token ...");
+    notification.start('stripe', 'Purchase', 'Purchase token ...');
 
     const { error: backendError, clientSecret } =
       await http.createPaymentIntent(tokenName);
     if (backendError) {
       console.log(backendError?.message);
-      hideNotification("stripe");
+      notification.close('stripe');
       return;
     }
-    console.log("Client secret returned");
+    console.log('Client secret returned');
 
     const { error: stripeError, paymentIntent } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement) as StripeCardElement,
           billing_details: {
-            name: event.target.name.value,
+            name: event.target.name.value
           },
           metadata: {
-            address: event.target.address.value,
-          },
-        },
+            address: event.target.address.value
+          }
+        }
       });
 
     if (stripeError) {
       // Show error to your customer (e.g., insufficient funds)
       console.log(stripeError.message);
-      hideNotification("stripe");
+      notification.close('stripe');
       return;
     }
 
-    console.log("paymentIntent", paymentIntent);
+    console.log('paymentIntent', paymentIntent);
     console.log(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
 
-    if (paymentIntent.status === "succeeded") {
-      updateSuccessNotification("stripe", "Mint token ...");
+    if (paymentIntent.status === 'succeeded') {
+      notification.update('stripe', 'Mint token ...');
       const payload = {
         paymentIntent: paymentIntent.id,
         walletAddress,
-        tokenId: getTokenId(tokenName),
+        tokenId: getTokenId(tokenName)
       };
       http
         .createToken(payload)
         .then(() => {
-          updateSuccessNotification(
-            "stripe",
+          notification.success(
+            'stripe',
             `The ${tokenFullName} has been minted successfully`
           );
         })
         .catch(() => {
-          updateErrorNotification("stripe", `Failed to mint token`);
+          notification.fail('stripe', `Failed to mint token`);
         });
     } else {
-      updateErrorNotification("stripe", "Failed to Payment");
+      notification.fail('stripe', 'Failed to Payment');
     }
   };
 
@@ -149,16 +143,16 @@ const CardForm = () => {
           <CardElement
             options={options}
             onReady={() => {
-              console.log("CardElement [ready]");
+              console.log('CardElement [ready]');
             }}
             onChange={(event) => {
-              console.log("CardElement [change]", event);
+              console.log('CardElement [change]', event);
             }}
             onBlur={() => {
-              console.log("CardElement [blur]");
+              console.log('CardElement [blur]');
             }}
             onFocus={() => {
-              console.log("CardElement [focus]");
+              console.log('CardElement [focus]');
             }}
           />
         </label>

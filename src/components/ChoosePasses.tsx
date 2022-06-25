@@ -1,30 +1,25 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import {
-  alertMessage,
-  startNotification,
-  updateErrorNotification,
-  hideNotification,
-} from "./Notification";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import * as notification from './Notification';
 import {
   setTokenCheckedStateAction,
   setTokenTezosPriceAction,
   setTokenPriceAction,
-  updateLessonStateAction,
-} from "../store/actions";
+  updateLessonStateAction
+} from '../store/actions';
 import {
   PlasmicChoosePasses,
-  DefaultChoosePassesProps,
-} from "./plasmic/acc_tez_wizard/PlasmicChoosePasses";
-import { HTMLElementRefOf } from "@plasmicapp/react-web";
-import { setupWizard } from "../service/http";
+  DefaultChoosePassesProps
+} from './plasmic/acc_tez_wizard/PlasmicChoosePasses';
+import { HTMLElementRefOf } from '@plasmicapp/react-web';
+import { setupWizard } from '../service/http';
 
 export interface ChoosePassesProps extends DefaultChoosePassesProps {}
 
-const tokenNames = ["dayPass", "weeklyPass", "yearlyPass", "specialPass"];
+const tokenNames = ['dayPass', 'weeklyPass', 'yearlyPass', 'specialPass'];
 
-function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
+function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<'div'>) {
   const history = useHistory();
   const dispatch = useDispatch();
   const wizardState = useSelector((state: any) => state.WizardState);
@@ -51,29 +46,29 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
       walletAddress: wizardState.walletAddress,
       stripe: {
         publicKey: wizardState.stripePublicKey,
-        privateKey: wizardState.stripePrivateKey,
+        privateKey: wizardState.stripePrivateKey
       },
       tokens: [
         wizardState.dayPass,
         wizardState.weeklyPass,
         wizardState.yearlyPass,
-        wizardState.specialPass,
-      ],
+        wizardState.specialPass
+      ]
     };
-    console.log("payload", payload);
+    console.log('payload', payload);
 
-    startNotification("setup-wizard", "Setup", "Setup your settings...");
+    notification.start('setup', 'Setup', 'Setup your settings...');
 
     setupWizard(payload)
       .then((result) => {
-        hideNotification("setup-wizard");
+        notification.success('setup', 'Congratelation');
         dispatch(updateLessonStateAction(2));
-        history.push("/main");
+        history.push('/main');
       })
       .catch((e) => {
         console.error(e);
-        updateErrorNotification("setup-wizard", "Failed to setup wizard!");
-      })
+        notification.fail('setup', 'Failed to setup wizard!');
+      });
   };
 
   const validate = () => {
@@ -82,7 +77,7 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
       checked = checked || (wizardState[name].checked as boolean);
     }
     if (!checked) {
-      alertMessage("Choose Token", "Please select pass tokens");
+      notification.error('Choose Token', 'Please select pass tokens');
       return false;
     }
 
@@ -90,7 +85,10 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
       const token = wizardState[name];
       if (token.checked) {
         if (token.tezos <= 0 || token.price <= 0) {
-          alertMessage("Choose Token", `Please input token price, ${name}`);
+          notification.error(
+            'Choose Token',
+            `Please input token price, ${name}`
+          );
           return false;
         }
       }
@@ -105,53 +103,53 @@ function ChoosePasses_(props: ChoosePassesProps, ref: HTMLElementRefOf<"div">) {
       {...props}
       dayPassCheckbox={{
         isChecked: dayPass.checked,
-        onChange: (e) => onTokenChecked("dayPass", e),
+        onChange: (e) => onTokenChecked('dayPass', e)
       }}
       dayPassTezos={{
         defaultValue: dayPass.tezos,
-        onChange: (e) => onTezosPriceChange("dayPass", e),
+        onChange: (e) => onTezosPriceChange('dayPass', e)
       }}
       dayPassPrice={{
         defaultValue: dayPass.price,
-        onChange: (e) => onTokenPriceChange("dayPass", e),
+        onChange: (e) => onTokenPriceChange('dayPass', e)
       }}
       weeklyPassCheckbox={{
         isChecked: weeklyPass.checked,
-        onChange: (e) => onTokenChecked("weeklyPass", e),
+        onChange: (e) => onTokenChecked('weeklyPass', e)
       }}
       weeklyPassTezos={{
         defaultValue: weeklyPass.tezos,
-        onChange: (e) => onTezosPriceChange("weeklyPass", e),
+        onChange: (e) => onTezosPriceChange('weeklyPass', e)
       }}
       weeklyPassPrice={{
         defaultValue: weeklyPass.price,
-        onChange: (e) => onTokenPriceChange("weeklyPass", e),
+        onChange: (e) => onTokenPriceChange('weeklyPass', e)
       }}
       yearlyPassCheckbox={{
         isChecked: yearlyPass.checked,
-        onChange: (e) => onTokenChecked("yearlyPass", e),
+        onChange: (e) => onTokenChecked('yearlyPass', e)
       }}
       yearlyPassTezos={{
         defaultValue: yearlyPass.tezos,
-        onChange: (e) => onTezosPriceChange("yearlyPass", e),
+        onChange: (e) => onTezosPriceChange('yearlyPass', e)
       }}
       yearlyPassPrice={{
         defaultValue: yearlyPass.price,
-        onChange: (e) => onTokenPriceChange("yearlyPass", e),
+        onChange: (e) => onTokenPriceChange('yearlyPass', e)
       }}
       specialPassCheckbox={{
         isChecked: specialPass.checked,
-        onChange: (e) => onTokenChecked("specialPass", e),
+        onChange: (e) => onTokenChecked('specialPass', e)
       }}
       specialPassTezos={{
         defaultValue: specialPass.tezos,
-        onChange: (e) => onTezosPriceChange("specialPass", e),
+        onChange: (e) => onTezosPriceChange('specialPass', e)
       }}
       specialPassPrice={{
         defaultValue: specialPass.price,
-        onChange: (e) => onTokenPriceChange("specialPass", e),
+        onChange: (e) => onTokenPriceChange('specialPass', e)
       }}
-      backButton={{ onClick: () => history.push("/setupStripe") }}
+      backButton={{ onClick: () => history.push('/setupStripe') }}
       nextButton={{ onClick: () => onNextButtonClicked() }}
     />
   );

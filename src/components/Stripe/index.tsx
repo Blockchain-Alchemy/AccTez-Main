@@ -1,7 +1,7 @@
-import React from "react";
-import "./styles.css";
-import CardForm from "./CardForm";
-import StripeWrapper from "./StripeWapper";
+import React from 'react';
+import './styles.css';
+import CardForm from './CardForm';
+import StripeWrapper from './StripeWapper';
 
 const StripePayment = () => {
   //const dispatch = useDispatch();

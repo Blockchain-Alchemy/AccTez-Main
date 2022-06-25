@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Loader } from "@mantine/core";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js/pure";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { Loader } from '@mantine/core';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js/pure';
+import { useSelector } from 'react-redux';
 
 interface StripeWrapperProps {
   children: any;
@@ -17,7 +17,7 @@ function StripeWrapper({ children }: StripeWrapperProps) {
       const res = await loadStripe(wizard.stripe.publicKey);
       setStripeObject(res);
     };
-    console.log('wizard', wizard)
+    console.log('wizard', wizard);
     if (wizard.stripe) {
       fetchStripeObject();
     }
@@ -28,7 +28,7 @@ function StripeWrapper({ children }: StripeWrapperProps) {
       <div className="center">
         <Loader variant="bars" />
       </div>
-    )
+    );
   }
 
   return <Elements stripe={stripeObject}>{children}</Elements>;

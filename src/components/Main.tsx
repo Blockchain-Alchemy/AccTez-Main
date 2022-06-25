@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import moment from "moment";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 import {
   PlasmicMain,
-  DefaultMainProps,
-} from "./plasmic/acc_tez_wizard/PlasmicMain";
-import { HTMLElementRefOf } from "@plasmicapp/react-web";
-import useWallet from "../hooks/useWallet";
-import * as http from "../service/http";
-import { addTokenToCheckoutAction, setTokenPriceListAction } from "../store/actions";
-import { alertMessage } from "./Notification";
+  DefaultMainProps
+} from './plasmic/acc_tez_wizard/PlasmicMain';
+import { HTMLElementRefOf } from '@plasmicapp/react-web';
+import useWallet from '../hooks/useWallet';
+import * as http from '../service/http';
+import {
+  addTokenToCheckoutAction,
+  setTokenPriceListAction
+} from '../store/actions';
+import * as notification from './Notification';
 
 export interface MainProps extends DefaultMainProps {}
 
-function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
+function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
   const history = useHistory();
   const dispatch = useDispatch();
   const { walletAddress, connectWallet } = useWallet();
@@ -23,7 +26,7 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
   useEffect(() => {
     http.getTokenPrices().then((res: any) => {
       const prices = res.data;
-      console.log("Token Prices", prices);
+      console.log('Token Prices', prices);
       dispatch(setTokenPriceListAction(prices));
     });
   }, [dispatch, walletAddress]);
@@ -32,23 +35,23 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
     if (walletAddress) {
       http.getWalletTokens(walletAddress).then((res: any) => {
         const tokens = res.data;
-        console.log("My Tokens", tokens);
+        console.log('My Tokens', tokens);
         tokens && setWalletTokens(tokens);
       });
     } else {
-      connectWallet()
+      connectWallet();
     }
   }, [walletAddress, connectWallet]);
 
   const buyToken = (tokenName: string) => {
     dispatch(addTokenToCheckoutAction(tokenName));
-    history.push("/checkout");
+    history.push('/checkout');
   };
 
   const navigateTokenCheckPage = (e: any, token: string) => {
     e.preventDefault();
     if (!walletAddress) {
-      alertMessage("Wallet", "Please connect your wallet");
+      notification.error('Wallet', 'Please connect your wallet');
       return;
     }
     history.push(token);
@@ -58,47 +61,47 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<"div">) {
     const token = walletTokens.find((i) => i.name === tokenName);
     if (token) {
       const expired = moment(token.expired);
-      return (moment().diff(expired) <= 0)
+      return moment().diff(expired) <= 0;
     }
     return false;
-  }
+  };
 
   return (
     <PlasmicMain
       root={{ ref }}
       {...props}
       ownedSpecialPass={{
-        isChecked: !!isOwnToken("specialPass"),
+        isChecked: !!isOwnToken('specialPass')
       }}
       ownedDayPass={{
-        isChecked: !!isOwnToken("dayPass"),
+        isChecked: !!isOwnToken('dayPass')
       }}
       ownedWeeklyPass={{
-        isChecked: !!isOwnToken("weeklyPass"),
+        isChecked: !!isOwnToken('weeklyPass')
       }}
       ownedYearlyPass={{
-        isChecked: !!isOwnToken("yearlyPass"),
+        isChecked: !!isOwnToken('yearlyPass')
       }}
       buySpecialPassButton={{
-        onClick: () => buyToken("specialPass"),
+        onClick: () => buyToken('specialPass')
       }}
       buyDayPassButton={{
-        onClick: () => buyToken("dayPass"),
+        onClick: () => buyToken('dayPass')
       }}
       buyWeeklyPassButton={{
-        onClick: () => buyToken("weeklyPass"),
+        onClick: () => buyToken('weeklyPass')
       }}
       buyYearlyPassButton={{
-        onClick: () => buyToken("yearlyPass"),
+        onClick: () => buyToken('yearlyPass')
       }}
       dayPassLink={{
-        onClick: (e) => navigateTokenCheckPage(e, "/dayPass"),
+        onClick: (e) => navigateTokenCheckPage(e, '/dayPass')
       }}
       weeklyPassLink={{
-        onClick: (e) => navigateTokenCheckPage(e, "/weeklyPass"),
+        onClick: (e) => navigateTokenCheckPage(e, '/weeklyPass')
       }}
       yearlyPassLink={{
-        onClick: (e) => navigateTokenCheckPage(e, "/yearlyPass"),
+        onClick: (e) => navigateTokenCheckPage(e, '/yearlyPass')
       }}
     />
   );
