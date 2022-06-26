@@ -14,7 +14,7 @@ import {
   setTokenPriceListAction,
   setWalletTokenListAction
 } from '../store/actions';
-import { saveAs } from 'file-saver';
+//import { saveAs } from 'file-saver';
 import Countdown from './Countdown';
 
 export interface MainProps extends DefaultMainProps {}
