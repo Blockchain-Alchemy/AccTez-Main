@@ -13,6 +13,8 @@ import {
   addTokenToCheckoutAction,
   setTokenPriceListAction
 } from '../store/actions';
+import { saveAs } from 'file-saver';
+
 //import * as notification from './Notification';
 
 export interface MainProps extends DefaultMainProps {}
@@ -64,6 +66,13 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
   const buyToken = (tokenName: string) => {
     dispatch(addTokenToCheckoutAction(tokenName));
     history.push('/checkout');
+  }; 
+
+  const saveFile = () => {
+    saveAs(
+      "/acctez.pkpass",
+      "acctez.pkpass"
+    );
   };
 
   return (
@@ -95,7 +104,8 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
         onClick: () => buyToken('yearlyPass')
       }}
       addTicketToAppleWallet={{
-        isDisabled: !hasToken
+        isDisabled: !hasToken,
+        onClick: () => saveFile()
       }}
       accessContentButton={{
         onClick: () => history.push('/access')
