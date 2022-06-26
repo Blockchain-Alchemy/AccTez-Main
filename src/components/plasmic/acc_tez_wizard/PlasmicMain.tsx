@@ -64,7 +64,6 @@ export type PlasmicMain__OverridesType = {
   buyDayPassButton?: p.Flex<typeof Button>;
   buyWeeklyPassButton?: p.Flex<typeof Button>;
   buyYearlyPassButton?: p.Flex<typeof Button>;
-  freeBox?: p.Flex<'div'>;
   ownedSpecialPass?: p.Flex<typeof Checkbox>;
   ownedDayPass?: p.Flex<typeof Checkbox>;
   ownedWeeklyPass?: p.Flex<typeof Checkbox>;
@@ -242,46 +241,63 @@ function PlasmicMain__RenderFunc(props: {
                 {'Your Status'}
               </div>
 
-              <div
-                data-plasmic-name={'freeBox'}
-                data-plasmic-override={overrides.freeBox}
-                className={classNames(projectcss.all, sty.freeBox)}
-              >
-                <Checkbox
-                  data-plasmic-name={'ownedSpecialPass'}
-                  data-plasmic-override={overrides.ownedSpecialPass}
-                  className={classNames('__wab_instance', sty.ownedSpecialPass)}
-                  isDisabled={true}
-                >
-                  {'You Own Special Event Pass'}
-                </Checkbox>
+              <div className={classNames(projectcss.all, sty.freeBox__eG4Yg)}>
+                <div className={classNames(projectcss.all, sty.freeBox__iu21K)}>
+                  <Checkbox
+                    data-plasmic-name={'ownedSpecialPass'}
+                    data-plasmic-override={overrides.ownedSpecialPass}
+                    className={classNames(
+                      '__wab_instance',
+                      sty.ownedSpecialPass
+                    )}
+                    isDisabled={true}
+                  >
+                    {'You Own Special Event Pass'}
+                  </Checkbox>
 
-                <Checkbox
-                  data-plasmic-name={'ownedDayPass'}
-                  data-plasmic-override={overrides.ownedDayPass}
-                  className={classNames('__wab_instance', sty.ownedDayPass)}
-                  isDisabled={true}
-                >
-                  {'You Own Day Pass'}
-                </Checkbox>
+                  <Checkbox
+                    data-plasmic-name={'ownedDayPass'}
+                    data-plasmic-override={overrides.ownedDayPass}
+                    className={classNames('__wab_instance', sty.ownedDayPass)}
+                    isDisabled={true}
+                  >
+                    {'You Own Day Pass'}
+                  </Checkbox>
 
-                <Checkbox
-                  data-plasmic-name={'ownedWeeklyPass'}
-                  data-plasmic-override={overrides.ownedWeeklyPass}
-                  className={classNames('__wab_instance', sty.ownedWeeklyPass)}
-                  isDisabled={true}
-                >
-                  {'You Own Weekly Pass'}
-                </Checkbox>
+                  <Checkbox
+                    data-plasmic-name={'ownedWeeklyPass'}
+                    data-plasmic-override={overrides.ownedWeeklyPass}
+                    className={classNames(
+                      '__wab_instance',
+                      sty.ownedWeeklyPass
+                    )}
+                    isDisabled={true}
+                  >
+                    {'You Own Weekly Pass'}
+                  </Checkbox>
 
-                <Checkbox
-                  data-plasmic-name={'ownedYearlyPass'}
-                  data-plasmic-override={overrides.ownedYearlyPass}
-                  className={classNames('__wab_instance', sty.ownedYearlyPass)}
-                  isDisabled={true}
+                  <Checkbox
+                    data-plasmic-name={'ownedYearlyPass'}
+                    data-plasmic-override={overrides.ownedYearlyPass}
+                    className={classNames(
+                      '__wab_instance',
+                      sty.ownedYearlyPass
+                    )}
+                    isDisabled={true}
+                  >
+                    {'You Own Yearly Pass'}
+                  </Checkbox>
+                </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bffjv
+                  )}
                 >
-                  {'You Own Yearly Pass'}
-                </Checkbox>
+                  {'Time Remaining\n10:13:31'}
+                </div>
               </div>
 
               <Button
@@ -327,7 +343,6 @@ const PlasmicDescendants = {
     'buyDayPassButton',
     'buyWeeklyPassButton',
     'buyYearlyPassButton',
-    'freeBox',
     'ownedSpecialPass',
     'ownedDayPass',
     'ownedWeeklyPass',
@@ -343,7 +358,6 @@ const PlasmicDescendants = {
     'buyDayPassButton',
     'buyWeeklyPassButton',
     'buyYearlyPassButton',
-    'freeBox',
     'ownedSpecialPass',
     'ownedDayPass',
     'ownedWeeklyPass',
@@ -355,13 +369,6 @@ const PlasmicDescendants = {
   buyDayPassButton: ['buyDayPassButton'],
   buyWeeklyPassButton: ['buyWeeklyPassButton'],
   buyYearlyPassButton: ['buyYearlyPassButton'],
-  freeBox: [
-    'freeBox',
-    'ownedSpecialPass',
-    'ownedDayPass',
-    'ownedWeeklyPass',
-    'ownedYearlyPass'
-  ],
   ownedSpecialPass: ['ownedSpecialPass'],
   ownedDayPass: ['ownedDayPass'],
   ownedWeeklyPass: ['ownedWeeklyPass'],
@@ -381,7 +388,6 @@ type NodeDefaultElementType = {
   buyDayPassButton: typeof Button;
   buyWeeklyPassButton: typeof Button;
   buyYearlyPassButton: typeof Button;
-  freeBox: 'div';
   ownedSpecialPass: typeof Checkbox;
   ownedDayPass: typeof Checkbox;
   ownedWeeklyPass: typeof Checkbox;
@@ -454,7 +460,6 @@ export const PlasmicMain = Object.assign(
     buyDayPassButton: makeNodeComponent('buyDayPassButton'),
     buyWeeklyPassButton: makeNodeComponent('buyWeeklyPassButton'),
     buyYearlyPassButton: makeNodeComponent('buyYearlyPassButton'),
-    freeBox: makeNodeComponent('freeBox'),
     ownedSpecialPass: makeNodeComponent('ownedSpecialPass'),
     ownedDayPass: makeNodeComponent('ownedDayPass'),
     ownedWeeklyPass: makeNodeComponent('ownedWeeklyPass'),
