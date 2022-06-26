@@ -12,6 +12,7 @@ import BuyAPass from "./components/BuyAPass";
 import Login from "./components/Login";
 import StripePayment from "./components/Stripe";
 import Access from "./components/Access";
+import Qr from "./components/Qr";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/access">
             <Access />
+          </Route>
+          <Route path="/qr">
+            <Qr />
           </Route>
           <Route path="/wizard" exact>
             <Home />

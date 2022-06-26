@@ -113,7 +113,8 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
       }}
       addTicketToAppleWallet={{
         isDisabled: !hasToken,
-        onClick: () => saveFile()
+        //onClick: () => saveFile()
+        onClick: () => history.push('/qr')
       }}
       accessContentButton={{
         onClick: () => history.push('/access')
