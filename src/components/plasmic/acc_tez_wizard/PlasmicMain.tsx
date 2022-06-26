@@ -51,9 +51,12 @@ export type PlasmicMain__VariantsArgs = {};
 type VariantPropType = keyof PlasmicMain__VariantsArgs;
 export const PlasmicMain__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicMain__ArgsType = {};
+export type PlasmicMain__ArgsType = {
+  timer?: React.ReactNode;
+};
+
 type ArgPropType = keyof PlasmicMain__ArgsType;
-export const PlasmicMain__ArgProps = new Array<ArgPropType>();
+export const PlasmicMain__ArgProps = new Array<ArgPropType>('timer');
 
 export type PlasmicMain__OverridesType = {
   root?: p.Flex<'div'>;
@@ -68,11 +71,13 @@ export type PlasmicMain__OverridesType = {
   ownedDayPass?: p.Flex<typeof Checkbox>;
   ownedWeeklyPass?: p.Flex<typeof Checkbox>;
   ownedYearlyPass?: p.Flex<typeof Checkbox>;
+  timer?: p.Flex<'div'>;
   accessContentButton?: p.Flex<typeof Button>;
   addTicketToAppleWallet?: p.Flex<typeof Button>;
 };
 
 export interface DefaultMainProps {
+  timer?: React.ReactNode;
   className?: string;
 }
 
@@ -290,13 +295,14 @@ function PlasmicMain__RenderFunc(props: {
                 </div>
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bffjv
-                  )}
+                  data-plasmic-name={'timer'}
+                  data-plasmic-override={overrides.timer}
+                  className={classNames(projectcss.all, sty.timer)}
                 >
-                  {'Time Remaining\n10:13:31'}
+                  {p.renderPlasmicSlot({
+                    defaultContents: null,
+                    value: args.timer
+                  })}
                 </div>
               </div>
 
@@ -347,6 +353,7 @@ const PlasmicDescendants = {
     'ownedDayPass',
     'ownedWeeklyPass',
     'ownedYearlyPass',
+    'timer',
     'accessContentButton',
     'addTicketToAppleWallet'
   ],
@@ -362,6 +369,7 @@ const PlasmicDescendants = {
     'ownedDayPass',
     'ownedWeeklyPass',
     'ownedYearlyPass',
+    'timer',
     'accessContentButton',
     'addTicketToAppleWallet'
   ],
@@ -373,6 +381,7 @@ const PlasmicDescendants = {
   ownedDayPass: ['ownedDayPass'],
   ownedWeeklyPass: ['ownedWeeklyPass'],
   ownedYearlyPass: ['ownedYearlyPass'],
+  timer: ['timer'],
   accessContentButton: ['accessContentButton'],
   addTicketToAppleWallet: ['addTicketToAppleWallet']
 } as const;
@@ -392,6 +401,7 @@ type NodeDefaultElementType = {
   ownedDayPass: typeof Checkbox;
   ownedWeeklyPass: typeof Checkbox;
   ownedYearlyPass: typeof Checkbox;
+  timer: 'div';
   accessContentButton: typeof Button;
   addTicketToAppleWallet: typeof Button;
 };
@@ -464,6 +474,7 @@ export const PlasmicMain = Object.assign(
     ownedDayPass: makeNodeComponent('ownedDayPass'),
     ownedWeeklyPass: makeNodeComponent('ownedWeeklyPass'),
     ownedYearlyPass: makeNodeComponent('ownedYearlyPass'),
+    timer: makeNodeComponent('timer'),
     accessContentButton: makeNodeComponent('accessContentButton'),
     addTicketToAppleWallet: makeNodeComponent('addTicketToAppleWallet'),
 

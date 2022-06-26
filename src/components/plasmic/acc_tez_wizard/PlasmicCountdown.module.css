@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  min-width: 0;
+  padding: 8px;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  text-align: center;
+  align-self: center;
+  font-size: 31px;
+  font-weight: 700;
+  min-width: 0;
+  display: block;
+}
+.remainTime {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.slotTargetChildren {
+  font-size: 31px;
+  font-weight: 700;
+  text-align: center;
+}

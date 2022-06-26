@@ -5,6 +5,7 @@ const initialState = {
   wizard: {},
   checkout: "",
   tokenPrices: [],
+  walletTokens: [],
 };
 
 function MainState(state = initialState, action: any) {
@@ -19,6 +20,12 @@ function MainState(state = initialState, action: any) {
       return {
         ...state,
         tokenPrices: action.payload
+      }
+
+    case Actions.SET_WALLET_TOKEN_LIST:
+      return {
+        ...state,
+        walletTokens: action.payload || []
       }
 
     case Actions.ADD_TOKEN_TO_CHECKOUT:

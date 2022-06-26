@@ -15,6 +15,7 @@ const Actions = {
   SET_WIZARD_SETTING: 'SET_WIZARD_SETTING',
   ADD_TOKEN_TO_CHECKOUT: 'ADD_TOKEN_TO_CHECKOUT',
   SET_TOKEN_PRICE_LIST: 'SET_TOKEN_PRICE_LIST',
+  SET_WALLET_TOKEN_LIST: 'SET_WALLET_TOKEN_LIST',
 }
 
 function setWalletAddressAction(value: string) {
@@ -97,6 +98,13 @@ function setTokenPriceListAction(prices: any[]) {
   }
 }
 
+function setWalletTokenListAction(tokens: any[]) {
+  return {
+    type: Actions.SET_WALLET_TOKEN_LIST,
+    payload: tokens,
+  }
+}
+
 export {
   Actions,
   setWalletAddressAction,
@@ -111,4 +119,5 @@ export {
   setWizardSettingAction,
   addTokenToCheckoutAction,
   setTokenPriceListAction,
+  setWalletTokenListAction,
 }

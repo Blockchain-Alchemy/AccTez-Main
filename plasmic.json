@@ -239,6 +239,32 @@
           "cssFilePath": "plasmic/acc_tez_wizard/PlasmicAccess.module.css",
           "scheme": "blackbox",
           "componentType": "page"
+        },
+        {
+          "id": "P38_qtF-It",
+          "name": "Qr",
+          "type": "managed",
+          "projectId": "68wGqrWvUbUk9uG76N3xHk",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicQr.tsx",
+          "importSpec": {
+            "modulePath": "Qr.tsx"
+          },
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicQr.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "m27RQcS0kv",
+          "name": "Countdown",
+          "type": "managed",
+          "projectId": "68wGqrWvUbUk9uG76N3xHk",
+          "renderModuleFilePath": "plasmic/acc_tez_wizard/PlasmicCountdown.tsx",
+          "importSpec": {
+            "modulePath": "Countdown.tsx"
+          },
+          "cssFilePath": "plasmic/acc_tez_wizard/PlasmicCountdown.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -303,6 +329,11 @@
           "id": "9WV2_XXCk",
           "name": "image 2",
           "filePath": "plasmic/acc_tez_wizard/images/image2.png"
+        },
+        {
+          "id": "SUnsZGGV0",
+          "name": "frame.png",
+          "filePath": "plasmic/acc_tez_wizard/images/framepng.png"
         }
       ],
       "indirect": false,

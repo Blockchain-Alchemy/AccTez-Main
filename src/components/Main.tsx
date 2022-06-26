@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import {
@@ -11,19 +11,20 @@ import useWallet from '../hooks/useWallet';
 import * as http from '../service/http';
 import {
   addTokenToCheckoutAction,
-  setTokenPriceListAction
+  setTokenPriceListAction,
+  setWalletTokenListAction
 } from '../store/actions';
 import { saveAs } from 'file-saver';
-
-//import * as notification from './Notification';
+import Countdown from './Countdown';
 
 export interface MainProps extends DefaultMainProps {}
 
 function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
   const history = useHistory();
   const dispatch = useDispatch();
+  const mainState = useSelector((state: any) => state.MainState);
+  const { walletTokens } = mainState;
   const { walletAddress, connectWallet } = useWallet();
-  const [walletTokens, setWalletTokens] = useState<any[]>([]);
 
   useEffect(() => {
     http.getTokenPrices().then((res: any) => {
@@ -38,21 +39,31 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
       http.getWalletTokens(walletAddress).then((res: any) => {
         const tokens = res.data;
         console.log('My Tokens', tokens);
-        tokens && setWalletTokens(tokens);
+        dispatch(setWalletTokenListAction(tokens));
       });
     } else {
       connectWallet();
     }
-  }, [walletAddress, connectWallet]);
+  }, [dispatch, walletAddress, connectWallet]);
 
-  const isOwnToken = useCallback((tokenName: string) => {
-    const token = walletTokens.find((i) => i.name === tokenName);
-    if (token) {
-      const expired = moment(token.expired);
-      return moment().diff(expired) <= 0;
-    }
-    return false;
-  }, [walletTokens]);
+  const findToken = React.useCallback(
+    (tokenName: string) => {
+      return walletTokens.find((i: any) => i.name === tokenName);
+    },
+    [walletTokens]
+  );
+
+  const isOwnToken = useCallback(
+    (tokenName: string) => {
+      const token = findToken(tokenName);
+      if (token) {
+        const expired = moment(token.expired);
+        return moment().diff(expired) <= 0;
+      }
+      return false;
+    },
+    [findToken]
+  );
 
   const hasToken = useMemo(() => {
     return (
@@ -66,13 +77,10 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
   const buyToken = (tokenName: string) => {
     dispatch(addTokenToCheckoutAction(tokenName));
     history.push('/checkout');
-  }; 
+  };
 
   const saveFile = () => {
-    saveAs(
-      "/acctez.pkpass",
-      "acctez.pkpass"
-    );
+    saveAs('/acctez.pkpass', 'acctez.pkpass');
   };
 
   return (
@@ -110,6 +118,7 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
       accessContentButton={{
         onClick: () => history.push('/access')
       }}
+      timer={hasToken && <Countdown />}
     />
   );
 }
