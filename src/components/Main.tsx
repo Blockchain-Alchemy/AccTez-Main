@@ -79,9 +79,9 @@ function Main_(props: MainProps, ref: HTMLElementRefOf<'div'>) {
     history.push('/checkout');
   };
 
-  const saveFile = () => {
+  /*const saveFile = () => {
     saveAs('/acctez.pkpass', 'acctez.pkpass');
-  };
+  };*/
 
   return (
     <PlasmicMain
