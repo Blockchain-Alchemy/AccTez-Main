@@ -1,7 +1,7 @@
 [
   {
-      "text": "Set up your wallet",
-      "hint": "You've created new branch fix-notifications from master",
+      "text": "Set up your Wallet",
+      "hint": "Input the address that receive proceeds from sales.",
       "event": {
           "type": "BLOCK_CREATE"
       },
@@ -11,7 +11,7 @@
   },
   {
       "text": "Set up your Stripe",
-      "hint": "You've pushed 23 commits to fix-notifications branch",
+      "hint": "Input Stripe Account Information.",
       "event": {
           "type": "BLOCK_CHANGE",
           "name": "NAME"
@@ -22,7 +22,7 @@
   },
   {
       "text": "Choose Passes",
-      "hint": "You've submitted a pull request in Fix incorrect notification message (#187)",
+      "hint": "Select the types of passes you would like to use.",
       "event": {
           "type": "BLOCK_CREATE"
       },
@@ -31,8 +31,8 @@
       } 
   },
   {
-      "text": "Originate Contract",
-      "hint": "Originate your own contract",
+      "text": "Complete Installation",
+      "hint": "The AccTez system will finish the setup process",
       "event": {
           "type": "BLOCK_CREATE"
       },
